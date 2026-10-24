@@ -9,14 +9,14 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 - Local git repo only (`main`), **no remote yet, nothing published**. Still needed from the teacher: an empty GitHub repo under
   `shuanmaker-web` (then `add_repo(..., access=push)`) and the real 核單 material.
 - The teacher will check the yellow-word glosses (the ones written by Claude) **after the first push** — keep them listed for review.
-- Name Book3; app icons = Vocaboo's (as requested). **Brand:** the Book3 logo (`icons/logo.png`: pink "Book" + lime "3" + stars,
+- Name Book3; app icons = Vocaboo's (as requested). **Brand:** the Book3 logo (`icons/logo.png`: lavender-pink "Book" + lime "3" + stars,
   transparent PNG) replaces every "Book3" text in the UI (home hero, settings footer, loading placeholder). Opening the app shows a
   **landing page with only the logo, which is a full-screen button** (tap anywhere → home; shown on every load, tabs hidden there).
-- **One fixed theme colour: the pink of "Book", `#F3CAF1`** (`PAGE_PINK` in `app.js` → CSS `--page`; also `theme-color` meta and
+- **One fixed theme colour: the lavender-pink of "Book", `#D0BCDA`** (`PAGE_PINK` in `app.js` → CSS `--page`; also `theme-color` meta and
   manifest). There is **no colour picker** any more (old saved `theme` values are ignored). Text on pink is dark ink (`--page-ink`
-  `#1a1a1a`), never white; pink is not used for text on light cards (low contrast).
-  Logo colours are deliberately desaturated (pink `#F3CAF1`, green `#DFFB8E`). The **bottom tab bar is the logo green**
-  (`--logo-green`, appended at the end of `style.css`). **App/desktop icons** (`icons/v2/*`) = the logo on `#FAF0F7`; if the logo changes,
+  `#1a1a1a`), never white; the theme colour is not used for text on light cards (low contrast).
+  Logo colours are deliberately desaturated (lavender-pink `#D0BCDA`, green `#DFFB8E`). The **bottom tab bar stays black; its icons, labels and the active-tab bubble are the logo green**
+  (`--logo-green`, appended at the end of `style.css`). **App/desktop icons** (`icons/v2/*`) = the logo on `#F6F1F8`; if the logo changes,
   regenerate them and bump `?v=` in `index.html` + `manifest.webmanifest`.
 
 ## NEVER push before the teacher says CONFIRM ⚠️
