@@ -20,7 +20,7 @@ The Day of the Dead is thought to have [1] centuries ago with the Aztecs. Nowada
 
 Instead of fearing these spirits, Mexicans [3] their arrival and prepare for it by [4] necessary items in local markets in advance. These include marigolds, candles, decorated sugar skulls [5] the names of departed family members, and "bread of the dead." Families also tidy and [6] the graves and cemeteries where their family members are [7] to welcome the souls home.
 1 | invented | inspired | originated | imagined | C | originate:起源;發源
-2 | honored | ignored | blamed | punished | A | honor:紀念;向……致敬
+2 | honored | ignored | blamed | punished | A | honor:紀念;向…致敬
 3 | avoid | anticipate | resist | escape | B | 期盼
 4 | preferring | performing | purchasing | preserving | C | purchase:購買
 5 | borrowing | bearing | breaking | burying | B | bear:具有;帶有(某個名稱)
@@ -81,8 +81,8 @@ Maple leaves in autumn set the [5] on fire with orange and red colors. Then, whe
 [1] its natural splendor, Kyoto has so much more to feast one's eyes on. Having previously been the capital of Japan for over a thousand years, the city [2] a large number of historic shrines and temples. No visit to Kyoto would be complete without seeing one of the most photographed [3]: the Kinkaku-ji, or the Golden Pavilion Temple in English.
 
 With giant, leafy maple trees leading up to its main entrance, what comes into view is this [4] three-story pavilion. Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its [5] roof. The reflection of the pavilion on the glassy surface of the pond is a [6] sight. Visitors can take a leisurely walk through the surrounding gardens and enjoy many [7] views of this beautiful structure.
-1 | Apart from | According to | Because of | In case of | A | 除了……之外
-2 | boasts | bonds | boils | boosts | A | boast:以……為傲;擁有
+1 | Apart from | According to | Because of | In case of | A | 除了…之外
+2 | boasts | bonds | boils | boosts | A | boast:以…為傲;擁有
 3 | lanterns | landlords | landmarks | landings | C | landmark:地標
 4 | minimum | miserable | moderate | magnificent | D | 壯麗的;雄偉的
 5 | shivering | shimmering | shrinking | shouting | B | 閃閃發光的
@@ -127,7 +127,7 @@ Nuñez, an [1] mountaineer, was climbing up one of Ecuador's highest mountains w
 3 | tuning | tumbling | tutoring | trembling | B | tumble:滾落;翻滾
 4 | Brewed | Brushed | Bribed | Bruised | D | 瘀傷的;碰傷的
 5 | dazed | dozed | dared | dashed | A | 暈眩的
-6 | cut down on | cut out for | cut off from | cut in on | C | 與……隔絕;阻斷
+6 | cut down on | cut out for | cut off from | cut in on | C | 與…隔絕;阻斷
 @end
 @passage The Country of the Blind (2)
 [1] his injuries, Nuñez [2] to his feet and set off to explore. As he made his way through the [3] land, he [4] an unusual village.
@@ -170,7 +170,7 @@ To him, vision was as real as the air he breathed. Although he tried to explain 
 Nuñez felt [1] at the villagers' lack of awe for his [2] gift of sight. It wasn't until he first [3] Yacob's daughter, Medina-saroté, that he began to feel better.
 
 No one else [4] Medina's beauty, as she had well-defined [5] that lacked the smoothness the villagers valued. [6], her weak voice was neither powerful nor [7] enough to meet their standards. Nuñez alone [8] her beauty, and he soon fell in love with her.
-1 | fascinated | frightened | flattered | frustrated | D | frustrated at:對……感到沮喪
+1 | fascinated | frightened | flattered | frustrated | D | frustrated at:對…感到沮喪
 2 | pregnant | precise | precious | prominent | C | 珍貴的
 3 | laid down | laid off | laid eyes on | laid claim to | C | lay eyes on:看見;注意到
 4 | admitted | admired | advised | adopted | B | admire:欣賞;讚賞
@@ -185,12 +185,12 @@ Yet, as their relationship [1], their desire to marry faced [2] opposition from 
 She [6] Nuñez to remove the peculiar orbs on either side of his nose. That way, he could stop [7] and truly become one of them. [8] Nuñez's great sacrifice, she agreed to marry him.
 1 | blasted | blinked | blossomed | blamed | C | blossom (v.):(感情)深入發展;開花
 2 | fair | fancy | fine | fierce | D | 強烈的;兇猛的
-3 | reviewed | voted | visited | viewed | D | view:把……視為
+3 | reviewed | voted | visited | viewed | D | view:把…視為
 4 | division | decision | delusion | delivery | C | 幻覺;錯覺
 5 | Worst of all | Best of all | Above all | First of all | A | 最糟的是
 6 | perceived | persuaded | perfected | persisted | B | persuade:說服
 7 | dragging | daydreaming | dreading | drowning | B | daydream:做白日夢
-8 | In terms of | In favor of | In return for | In charge of | C | 作為……的回報
+8 | In terms of | In favor of | In return for | In charge of | C | 作為…的回報
 @end
 @passage The Country of the Blind (7)
 Nuñez was [1] with a dilemma: he had to choose either to lose his eyes or to end their relationship. Eventually, he agreed to give up his eyes for Medina's [2]. [3], it wasn't until the day of his surgery that he realized he was making a huge mistake. That morning, he once again [4] the splendor of the [5].
@@ -203,17 +203,17 @@ Nuñez was [1] with a dilemma: he had to choose either to lose his eyes or to en
 5 | sundown | sunrise | sunburn | sunset | B | 日出
 6 | Gazing | Gasping | Grabbing | Gambling | A | gaze:凝視;注視
 7 | enforcing | ensuring | envying | envisioning | D | envision:想像;嚮往
-8 | Driven | Dealt | Drained | Drowned | A | driven by:受……驅使
+8 | Driven | Dealt | Drained | Drowned | A | driven by:受…驅使
 9 | flooded | fled | fell | fed | B | flee:逃離;逃跑
 @end
 S | The skier slid down the snowy ______ and stopped at the bottom. | shape | scope | slope | stroke | C | 斜坡;坡地
 S | She made a great ______ by giving up her career to take care of her sick mother. | sentence | sacrifice | surface | sample | B | 犧牲
 S | The mayor's plan met with fierce ______ from the residents. | opposition | organization | operation | opportunity | A | 反對;反抗
 S | We should ______ the stain from the carpet before the guests arrive. | remind | reserve | rescue | remove | D | 移除;除去
-S | Jim felt ______ at his poor test result and threw his book on the floor. | flattered | fascinated | frustrated | frightened | C | frustrated at:對……感到沮喪
-S | The more you practice, ______ you will become. | the better | the best | better | most good | A | The more…, the + 比較級:愈……就愈……
+S | Jim felt ______ at his poor test result and threw his book on the floor. | flattered | fascinated | frustrated | frightened | C | frustrated at:對…感到沮喪
+S | The more you practice, ______ you will become. | the better | the best | better | most good | A | The more…, the + 比較級:愈…就愈…
 S | The plants died because of a ______ of water. | luck | lap | lock | lack | D | 缺乏
-S | He gave me a gift ______ my help. | in charge of | in return for | in favor of | in spite of | B | 作為(對……的)回報、交換
+S | He gave me a gift ______ my help. | in charge of | in return for | in favor of | in spite of | B | 作為(對…的)回報、交換
 @unit 6.5
 @passage The Mystery of the Disappearing Bees (1)
 It all started in the US in 2006. [1], entire bee colonies simply went missing and were nowhere to be found. Beekeepers found their hollow [2] empty of worker bees.
@@ -252,13 +252,13 @@ As they fly around, they carry the fine powder from flower to flower, helping pl
 [9] that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and [10] that feed farm animals. Without them, in other words, we'd find it very difficult to produce enough food for everyone in the long run.
 1 | fate | fame | fare | fault | A | 命運
 2 | essence | essentially | essentials | essential | D | 非常重要的;必要的
-3 | sticks around | sticks up | sticks to | sticks out | C | stick to:黏在……上;附著於
+3 | sticks around | sticks up | sticks to | sticks out | C | stick to:黏在…上;附著於
 4 | rebuild | reproduce | replace | reduce | B | 繁殖
 5 | rely in | rely for | rely on | rely at | C | 依賴;依靠
 6 | assistance | resistance | assistant | assist | A | 幫助;協助
 7 | feel for | feast on | fall for | fight for | B | 享用;盡情吃
 8 | no more | not longer | no later | no longer | D | 不再
-9 | At the top of | On behalf of | In front of | On top of | D | 除……之外
+9 | At the top of | On behalf of | In front of | On top of | D | 除…之外
 10 | crops | cops | crows | crumbs | A | crop:作物;莊稼
 @end
 @passage The Mystery of the Disappearing Bees (4)
@@ -280,7 +280,7 @@ S | The company was fined for ______ the river with chemicals. | pollinating | p
 S | Many animals are losing their natural ______ because of deforestation. | habits | habitats | hobbies | handles | B | habitat:棲息地
 S | As the drought continued, thousands of cattle ______ to death. | starved | stared | startled | started | A | starve:挨餓;餓死
 S | Plants and animals ______ on each other to survive. | rebel | reply | rely | reflect | C | rely on:依賴
-S | ______ his salary, he receives a bonus every year. | On behalf of | In front of | On account of | On top of | D | 除……之外
+S | ______ his salary, he receives a bonus every year. | On behalf of | In front of | On account of | On top of | D | 除…之外
 S | Recent studies ______ that exercise improves memory. | indicate | indicating | indicator | indicates | A | 指出;顯示
 @bank 核單
 @unit 17
@@ -358,7 +358,7 @@ S | All passengers must be ______ the ship by ten o’clock. | indoors | halfway
 S | The young ______ trains every morning before school. | bush | ladder | athlete | jazz | C | 那位年輕的運動員每天早上上學前都會訓練。(athlete:運動員)
 S | She tied a red ______ in her hair. | ribbon | jeep | dose | ladder | A | 她在頭髮上綁了一條紅色緞帶。(ribbon:彩帶,緞帶)
 S | I can’t untie this ______; it is too tight. | jazz | knot | ladder | dose | B | 我解不開這個結,它綁得太緊了。(knot:繩結)
-S | He ______ his violin carefully before the show. | tuned | folded | sealed | knitted | A | 表演前他仔細地為小提琴調音。(tune:為……調音)
+S | He ______ his violin carefully before the show. | tuned | folded | sealed | knitted | A | 表演前他仔細地為小提琴調音。(tune:為…調音)
 S | The light in this room is too ______ to read by. | thankful | regretful | dim | stiff | C | 這個房間的光線太暗,沒辦法看書。(dim:微暗的)
 S | The royal couple rode through the city in a horse-drawn ______. | ribbon | motel | jeep | carriage | D | 那對王室夫婦乘坐馬車穿過整座城市。(carriage:馬車)
 S | We are ______ to our neighbors for their kind help. | stubborn | thankful | moist | regretful | B | 我們很感謝鄰居親切的幫忙。(thankful:感謝的,感激的)

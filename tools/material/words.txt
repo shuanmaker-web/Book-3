@@ -14,7 +14,7 @@
 joyous | adj. | 令人愉快的 | On this joyous occasion, family members gather for a reunion in honor of those who have moved on to the afterlife.
 deceased | adj. | 已故的 | Have you ever thought about what it would be like to have a deceased loved one return and accompany you to a holiday celebration?
 accompany | v. | 陪伴 | Have you ever thought about what it would be like to have a deceased loved one return and accompany you to a holiday celebration?
-scare someone to death | phr. | 把某人嚇得要命 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow. | | id:b1-scare-you-to-death
+scare sb. to death | phr. | 把某人嚇得要命 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow. | | id:b1-scare-you-to-death
 make one's hair stand on end | phr. | 使人毛骨悚然 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow. | | id:b1-make-your-hair-stand-on-end
 essential | adj. | 本質的;基本的 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
 concept | n. | 概念 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
@@ -33,8 +33,8 @@ originate | v. | 起源;發源 | The Day of the Dead is thought to have originat
 century | n. | 世紀 | The Day of the Dead is thought to have originated centuries ago with the Aztecs.
 Aztec | n. | 阿茲提克人 | The Day of the Dead is thought to have originated centuries ago with the Aztecs.
 passionate | adj. | 熱情的;熱烈的 | Nowadays, it is celebrated passionately throughout Mexico on November 1 and 2.
-throughout | prep. | 遍及;在……期間 | Nowadays, it is celebrated passionately throughout Mexico on November 1 and 2.
-honor | v. | 紀念;向……致敬 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
+throughout | prep. | 遍及;在…期間 | Nowadays, it is celebrated passionately throughout Mexico on November 1 and 2.
+honor | v. | 紀念;向…致敬 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
 departed | adj. | 已逝的;已離世的 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
 main | adj. | 主要的 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
 focus | n. | 焦點;重點 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
@@ -102,7 +102,7 @@ die out | phr. | 逐漸消失 | Hopefully, this tradition will never die out, si
 accept | v. | 接受 | Hopefully, this tradition will never die out, since it helps people accept a fact of life that awaits us all.
 await | v. | 等待 | Hopefully, this tradition will never die out, since it helps people accept a fact of life that awaits us all.
 escape | v. | 避免;逃脫 | If we cannot escape death, why not celebrate it?
-instead of | phr. | 沒有……;反而……;而不是 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+instead of | phr. | 沒有…;反而…;而不是 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
 @unit 5
 Kyoto | n. | 京都 | Kyoto, like a beauty in a bright and colorful kimono, delights tourists throughout the year.
 beauty | n. | 美女;美麗 | Kyoto, like a beauty in a bright and colorful kimono, delights tourists throughout the year.
@@ -118,16 +118,16 @@ sunshine | n. | 陽光 | In summer, green leaves can be heard rustling in the wi
 maple | n. | 楓樹 | Maple leaves in autumn set the landscape on fire with orange and red colors.
 autumn | n. | 秋天 | Maple leaves in autumn set the landscape on fire with orange and red colors.
 landscape | n. | 景色;風景 | Maple leaves in autumn set the landscape on fire with orange and red colors.
-turn into | phr. | (把……)變為…… | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
+turn into | phr. | (把…)變為… | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
 magic | adj. | 有魔力的;神奇的 | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
 silver | adj. | 銀色的 | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
 kingdom | n. | 王國;國度 | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
-apart from | phr. | 除了……之外 | Apart from its natural splendor, Kyoto has so much more to feast one's eyes on.
+apart from | phr. | 除了…之外 | Apart from its natural splendor, Kyoto has so much more to feast one's eyes on.
 splendor | n. | 壯麗;雄偉 | Apart from its natural splendor, Kyoto has so much more to feast one's eyes on.
 feast one's eyes on | phr. | 使人目不暇給;盡情欣賞 | Apart from its natural splendor, Kyoto has so much more to feast one's eyes on.
 previously | adv. | 先前地 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
 capital | n. | 首都 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
-boast | v. | 以……為傲;擁有 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
+boast | v. | 以…為傲;擁有 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
 historic | adj. | 歷史悠久的;歷史上著名的 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
 shrine | n. | 神社 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
 temple | n. | 寺廟 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
@@ -145,7 +145,7 @@ pavilion | n. | 樓閣;亭閣 | With giant, leafy maple trees leading up to its 
 rise up | phr. | 升起;聳立 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
 crystal-clear | adj. | 清澈的 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
 pond | n. | 池塘 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
-crown | v. | 頂上有……;位於……頂端 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
+crown | v. | 頂上有…;位於…頂端 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
 bronze | adj. | 古銅色的 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
 phoenix | n. | 鳳凰 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
 shimmering | adj. | 閃閃發光的 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
@@ -211,7 +211,7 @@ tumble | v. | 滾落;翻滾 | He slid down a snowy slope and fell over a cliff e
 distance | n. | 距離 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
 bruised | adj. | 瘀傷的;碰傷的 | Bruised and dazed, he found himself in a place cut off from the world.
 dazed | adj. | 暈眩的 | Bruised and dazed, he found himself in a place cut off from the world.
-cut off from | phr. | 與……隔絕;阻斷 | Bruised and dazed, he found himself in a place cut off from the world.
+cut off from | phr. | 與…隔絕;阻斷 | Bruised and dazed, he found himself in a place cut off from the world.
 blind | adj. | 盲的;失明的 | It didn't take long for Nuñez to realize that every villager was blind.
 injury | n. | 傷;傷害 | Despite his injuries, Nuñez struggled to his feet and set off to explore.
 struggle | v. | 掙扎;奮力 | Despite his injuries, Nuñez struggled to his feet and set off to explore.
@@ -223,7 +223,7 @@ unusual | adj. | 不尋常的;罕見的 | As he made his way through the unfamil
 village | n. | 村莊 | As he made his way through the unfamiliar land, he came upon an unusual village.
 unevenly | adv. | 不均勻地;不規則地 | The houses were unevenly painted, and all the roads leading to the houses had low walls alongside them.
 lead to | phr. | 通往;通向 | The houses were unevenly painted, and all the roads leading to the houses had low walls alongside them.
-alongside | prep. | 在……旁邊 | The houses were unevenly painted, and all the roads leading to the houses had low walls alongside them.
+alongside | prep. | 在…旁邊 | The houses were unevenly painted, and all the roads leading to the houses had low walls alongside them.
 realize | v. | 察覺;意識到 | It didn't take long for Nuñez to realize that every villager was blind.
 villager | n. | 村民 | It didn't take long for Nuñez to realize that every villager was blind.
 sightless | adj. | 看不見的;眼盲的 | Feeling superior to these sightless people, he thought to himself, "In the country of the blind, the one-eyed man is king."
@@ -239,7 +239,7 @@ effective | adj. | 有效的 | They also employed effective techniques for growi
 technique | n. | 技術;技巧 | They also employed effective techniques for growing crops and caring for animals.
 crop | n. | 作物;莊稼 | They also employed effective techniques for growing crops and caring for animals.
 care for | phr. | 照顧;照料 | They also employed effective techniques for growing crops and caring for animals.
-lined with | phr. | 沿……排列;圍著…… | The paths, lined with low walls, had been specially built to help them navigate safely.
+lined with | phr. | 沿…排列;圍著… | The paths, lined with low walls, had been specially built to help them navigate safely.
 path | n. | 小路;小徑 | The paths, lined with low walls, had been specially built to help them navigate safely.
 navigate | v. | 行走、確認方向;航行 | The paths, lined with low walls, had been specially built to help them navigate safely.
 respected | adj. | 受人尊敬的 | Among the villagers, a respected elder named Yacob put the outsider to work and began teaching him their ways.
@@ -253,7 +253,7 @@ sight | n. | 視覺;視力 | Gradually, Nuñez adapted to their way of life, but
 vision | n. | 視覺;視力 | To him, vision was as real as the air he breathed.
 twinkling | adj. | 閃耀的;閃爍的 | The more he spoke of high mountains and twinkling stars, the more the villagers pitied him.
 pity | v. | 憐憫;同情 | The more he spoke of high mountains and twinkling stars, the more the villagers pitied him.
-frustrated at | phr. | 對……感到沮喪 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
+frustrated at | phr. | 對…感到沮喪 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
 lack | n. | 缺乏 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
 awe | n. | 敬畏 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
 precious | adj. | 珍貴的 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
@@ -272,7 +272,7 @@ blossom | v. | (感情)深入發展;開花 | Yet, as their relationship blossome
 desire | n. | 渴望;慾望 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
 fierce | adj. | 強烈的;兇猛的 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
 opposition | n. | 反對;反抗 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
-view | v. | 把……視為 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
+view | v. | 把…視為 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
 delusion | n. | 幻覺;錯覺 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
 cure | v. | 治療;治癒 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
 worst of all | phr. | 最糟的是 | Worst of all, even Medina herself agreed with them.
@@ -283,7 +283,7 @@ peculiar | adj. | 奇怪的;不尋常的 | She persuaded Nuñez to remove the pe
 remove | v. | 移除;除去 | She persuaded Nuñez to remove the peculiar orbs on either side of his nose.
 daydream | v. | 做白日夢 | That way, he could stop daydreaming and truly become one of them.
 truly | adv. | 真正地 | That way, he could stop daydreaming and truly become one of them.
-in return for | phr. | 作為(對……的)回報、交換 | In return for Nuñez's great sacrifice, she agreed to marry him.
+in return for | phr. | 作為(對…的)回報、交換 | In return for Nuñez's great sacrifice, she agreed to marry him.
 sacrifice | n. | 犧牲 | In return for Nuñez's great sacrifice, she agreed to marry him.
 confront | v. | 面臨;面對 | Nuñez was confronted with a dilemma: he had to choose either to lose his eyes or to end their relationship.
 dilemma | n. | 進退兩難的困境 | Nuñez was confronted with a dilemma: he had to choose either to lose his eyes or to end their relationship.
@@ -297,7 +297,7 @@ gaze | v. | 凝視;注視 | Gazing at the beautiful surrounding landscape and en
 landscape | n. | 風景;景觀 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
 envision | v. | 想像;嚮往 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
 escape | v. | 逃跑;逃脫 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
-driven by | phr. | 受……驅使 | Driven by the desire to save his sight, he fled the country of the blind.
+driven by | phr. | 受…驅使 | Driven by the desire to save his sight, he fled the country of the blind.
 save | v. | 拯救;保住 | Driven by the desire to save his sight, he fled the country of the blind.
 flee | v. | 逃離;逃跑 | Driven by the desire to save his sight, he fled the country of the blind.
 @unit 6.5 Review 2
@@ -310,14 +310,14 @@ nowhere to be found | phr. | 到處都找不到 | Overnight, entire bee colonies
 beekeeper | n. | 養蜂人 | Beekeepers found their hollow hives empty of worker bees.
 hollow | adj. | 中空的 | Beekeepers found their hollow hives empty of worker bees.
 hive | n. | 蜂窩;蜂巢 | Beekeepers found their hollow hives empty of worker bees.
-empty | adj. | 空的;沒有……的 | Beekeepers found their hollow hives empty of worker bees.
+empty | adj. | 空的;沒有…的 | Beekeepers found their hollow hives empty of worker bees.
 worker bee | n. | 工蜂 | Beekeepers found their hollow hives empty of worker bees.
 evidence | n. | 證據 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
 lie | v. | 躺;平放 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
 predator | n. | 掠食者;捕食者 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
 theft | n. | 偷竊 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
 slaughter | n. | 屠殺 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
-leave behind | phr. | 丟下……;拋下 | The worker bees had simply disappeared, leaving their queens behind.
+leave behind | phr. | 丟下…;拋下 | The worker bees had simply disappeared, leaving their queens behind.
 unfortunate | adj. | 不幸的;遺憾的 | It is unfortunate that this wasn't just some miserable nightmare.
 miserable | adj. | 悲慘的;痛苦的 | It is unfortunate that this wasn't just some miserable nightmare.
 nightmare | n. | 惡夢 | It is unfortunate that this wasn't just some miserable nightmare.
@@ -361,7 +361,7 @@ insect | n. | 昆蟲 | In fact, we would face a fate far worse than we can imagi
 actually | adv. | 實際上;事實上 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
 essential | adj. | 非常重要的;必要的 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
 supply | n. | 供應量 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
-stick to | phr. | 黏在……上;附著於 | When bees collect nectar from different blossoms, pollen sticks to their bodies.
+stick to | phr. | 黏在…上;附著於 | When bees collect nectar from different blossoms, pollen sticks to their bodies.
 powder | n. | 粉末 | As they fly around, they carry the fine powder from flower to flower, helping plants reproduce.
 reproduce | v. | 繁殖 | As they fly around, they carry the fine powder from flower to flower, helping plants reproduce.
 rely on | phr. | 依賴;依靠 | As much as one third of all the food we eat is believed to rely on pollination by bees.
@@ -374,7 +374,7 @@ no longer | phr. | 不再 | We would no longer see things such as apples, kiwis,
 kiwi | n. | 奇異果 | We would no longer see things such as apples, kiwis, cabbage, broccoli, or pumpkin on our tables.
 cabbage | n. | 甘藍菜;高麗菜 | We would no longer see things such as apples, kiwis, cabbage, broccoli, or pumpkin on our tables.
 broccoli | n. | 花椰菜 | We would no longer see things such as apples, kiwis, cabbage, broccoli, or pumpkin on our tables.
-on top of | phr. | 除……之外 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
+on top of | phr. | 除…之外 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
 dairy | n. | 乳製品 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
 pollinate | v. | 授粉 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
 crop | n. | 作物;穀物 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
@@ -414,7 +414,7 @@ emperor | n. | 皇帝 | The emperor lived in a palace surrounded by high walls. 
 feather | n. | 羽毛 | A white feather floated down from the tree. | 一根白色羽毛從樹上飄落下來。
 fur | n. | （動物的）皮毛 | The cat’s soft fur feels wonderful. | 那隻貓柔軟的毛摸起來好舒服。
 wrap | vt. / n. | 包裝,包 & 覆蓋物（不可數）;披肩 | Please wrap the gift in blue paper. | 請用藍色紙把禮物包起來。
-dose | n. / vt. | 藥劑 & （按劑量）給……服藥 | The doctor told him to take one dose of medicine every eight hours. | 醫生叫他每八小時服用一劑藥。
+dose | n. / vt. | 藥劑 & （按劑量）給…服藥 | The doctor told him to take one dose of medicine every eight hours. | 醫生叫他每八小時服用一劑藥。
 drown | vt. / vi. | 使淹沒;淹沒 & 淹死 | The boy nearly drowned when he fell into the pool. | 那個男孩掉進游泳池時差點淹死。
 bunch | n. | 一束;一群（人） | He bought a bunch of grapes at the market. | 他在市場買了一串葡萄。
 bundle | n. / vt. | 捆,束 & 捆 | She tied the old letters in a bundle. | 她把舊信件綑成一捆。
@@ -430,7 +430,7 @@ recorder | n. | 錄音機,記錄器 | I used a voice recorder to save the teache
 afterward/afterwards | adv. | 之後 | We had lunch first and went shopping afterward. | 我們先吃午餐,之後去購物。
 ladder | n. | 梯子 | He climbed the ladder to fix the roof. | 他爬上梯子去修屋頂。
 skip | vt. / n. | 省略 & 跳;省略 | Don’t skip breakfast; it is good for you. | 不要不吃早餐,那對你有好處。
-plug | n. / vt. | 插頭 & 將……插入（插頭） | Pull out the plug before you clean the machine. | 清理機器之前先把插頭拔掉。
+plug | n. / vt. | 插頭 & 將…插入（插頭） | Pull out the plug before you clean the machine. | 清理機器之前先把插頭拔掉。
 earplug | n. | 耳塞 | I wear earplugs when the street outside is noisy. | 外面街上很吵的時候,我會戴耳塞。
 humor | n. / vt. | 幽默;心情,情緒 & 遷就,寵愛（= spoil） | My uncle has a great sense of humor. | 我叔叔很有幽默感。
 humorous | a. | 幽默的,風趣的 | The speech was humorous and full of jokes. | 那場演講很風趣,充滿笑話。
@@ -441,7 +441,7 @@ misery | n. | 悲慘,窮困 | The war brought misery to millions of people. | �
 fold | vt. / n. | 折疊 & 摺線 | Fold the paper in half. | 把紙對摺。
 punch | n. / vt. | 用拳重擊 | He punched the bag as hard as he could. | 他使盡全力用拳頭猛擊沙袋。
 label | n. / vt. | 標籤 & 貼標籤;歸類 | Read the label on the bottle before you take the pills. | 服藥前請先閱讀瓶子上的標籤。
-tag | n. / vt. | 標籤 & 給……加上標籤 | The price tag is still on your new jacket. | 你的新外套上還掛著價格標籤。
+tag | n. / vt. | 標籤 & 給…加上標籤 | The price tag is still on your new jacket. | 你的新外套上還掛著價格標籤。
 regret | vt. / n. | 後悔;遺憾,抱歉 & 遺憾;惋惜 | I regret not studying harder last year. | 我後悔去年沒有更用功讀書。
 regretful | a. | 後悔的（修飾人） | She looked regretful after breaking her promise. | 她違背承諾後看起來很後悔。
 regrettable | a. | 令人遺憾的（修飾事物） | It is regrettable that the concert was canceled. | 演唱會被取消真令人遺憾。
@@ -460,7 +460,7 @@ oak | n. | 橡木 | My grandfather’s desk is made of solid oak. | 我爺爺的
 pine | n. / vi. | 松樹 & 憔悴 | Pine trees stay green all through the winter. | 松樹整個冬天都保持翠綠。
 jail | n. / vt. | 監獄 & 使入獄 | The thief was put in jail for two years. | 那名小偷被關進監獄兩年。
 criminal | n. / a. | 罪犯 & 犯法的;刑法方面的 | The police are looking for the criminal who broke into the shop. | 警方正在追捕闖入那家商店的罪犯。
-flavor | n. / vt. | 口味 & 給……調味 | Which ice cream flavor do you like best? | 你最喜歡哪一種冰淇淋口味?
+flavor | n. / vt. | 口味 & 給…調味 | Which ice cream flavor do you like best? | 你最喜歡哪一種冰淇淋口味?
 transport | vt. / n. | 運送,運輸 & 運輸（名詞重音在前） | Trucks transport fresh vegetables to the city every morning. | 卡車每天早上把新鮮蔬菜運送到城裡。
 hourly | a. / adv. | 每小時的 & 每小時地 | The train runs on an hourly schedule. | 這班火車每小時一班。
 weekly | a. / adv. / n. | 每週的 & 每週地 & 週刊（報） | I write a weekly report for my boss. | 我每週替老闆寫一份週報。
@@ -475,8 +475,8 @@ robbery | n. | 搶劫,搶案 | The man was arrested for armed robbery. | 那名�
 aboard | prep. / adv. | 在（車、船或飛機）上 | All passengers must be aboard the ship by ten o’clock. | 所有乘客必須在十點前登船。
 athlete | n. | 運動員 | The young athlete trains every morning before school. | 那位年輕的運動員每天早上上學前都會訓練。
 ribbon | n. | 彩帶,緞帶 | She tied a red ribbon in her hair. | 她在頭髮上綁了一條紅色緞帶。
-knot | n. / vt. | 繩結 & 把……打結 | I can’t untie this knot; it is too tight. | 我解不開這個結,它綁得太緊了。
-tune | n. / vt. / vi. | 曲調,旋律 & 為……調音 & 轉到……的頻道 | He tuned his violin carefully before the show. | 表演前他仔細地為小提琴調音。
+knot | n. / vt. | 繩結 & 把…打結 | I can’t untie this knot; it is too tight. | 我解不開這個結,它綁得太緊了。
+tune | n. / vt. / vi. | 曲調,旋律 & 為…調音 & 轉到…的頻道 | He tuned his violin carefully before the show. | 表演前他仔細地為小提琴調音。
 dim | a. / vt. / vi. | 微暗的 & （使）變暗 | The light in this room is too dim to read by. | 這個房間的光線太暗,沒辦法看書。
 carriage | n. | 馬車 | The royal couple rode through the city in a horse-drawn carriage. | 那對王室夫婦乘坐馬車穿過整座城市。
 thankful | a. | 感謝的,感激的 | We are thankful to our neighbors for their kind help. | 我們很感謝鄰居親切的幫忙。
