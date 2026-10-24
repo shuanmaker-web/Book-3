@@ -414,7 +414,7 @@ S | The farmer was struck by ______ but fortunately he survived. | jazz | lightn
 S | Dad ______ the ball to my sister, and she swung the bat. | pitched | knitted | folded | sealed | A | 爸爸把球投給我妹妹,她揮動球棒。(pitch:投(球))
 @unit 20
 S | Most cheeses in that store are ______ from France. | folded | punched | knitted | imported | D | 那家店的大部分起司都是從法國進口的。(import:進口)
-S | Oil is the major ______ to Saudi Arabia. | pottery | tribe | export | heap | C | 石油是輸往沙烏地阿拉伯的主要出口品。(export:輸出品)
+S | Oil is the major ______ of Saudi Arabia. | pottery | tribe | export | heap | C | 石油是沙烏地阿拉伯的主要出口品。(export:輸出品)
 S | Playing chess is a ______ activity that requires a lot of mental effort. | criminal | moist | thankful | leisure | D | 下棋是一種需要耗費大量腦力的休閒活動。(leisure:閒暇,空閒時間)
 S | I went to see a dentist for my sore ______. | kidneys | stomachs | lungs | gums | D | 我因為牙齦疼痛去看牙醫。(gum:牙齦)
 S | Lisa was wide ______ the whole night. | awake | aboard | thankful | stiff | A | 麗莎整晚都清醒著。(awake:清醒的)

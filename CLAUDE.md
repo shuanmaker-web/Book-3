@@ -89,6 +89,6 @@ Progress (FSRS cards, answers, backups) lives in each student's own phone Indexe
   Units are `@unit 17 Unit 17` … (display "Unit 17", tag "U17"). pos and 中文 are copied as printed (several pos / senses joined with `&`);
   the PDFs have no example translations → `exzh` (例句中文) was written by Claude: teacher to review after the first push. `afterward(s)` / `saving(s)` are stored as `afterward/afterwards`,
   `saving/savings` (spelling accepts either). Unit 19's unnumbered `collar` (right after `sleeve` in the PDF) is included.
-- `leisure` 中文 corrected to 「閒暇,空閒時間」 (PDF printed 空間時間; teacher approved). Source quirks kept as-is: the `export` example says 「Oil is the major export to Saudi Arabia」 (direction looks odd; translated literally as 輸往沙烏地阿拉伯的主要出口品); the headers say
+- `leisure` 中文 corrected to 「閒暇,空閒時間」 (PDF printed 空間時間; teacher approved). Source quirks kept as-is: the `export` example was changed (teacher's OK) from 「…export to Saudi Arabia」 to 「Oil is the major export of Saudi Arabia.」 because the original direction made no sense; the headers say
   1701–1733 / 1801–1826 / 1901–1935 / 2001–2035 but the lists have 45 / 43 / 38+1 / 33 entries.
 - New 核單 units go **after** Unit 20 in `words.txt` (sorted by unit number on build). Existing ids stay stable.

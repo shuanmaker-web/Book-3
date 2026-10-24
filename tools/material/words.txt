@@ -533,7 +533,7 @@ lightning | n. | 閃電 | The farmer was struck by lightning but fortunately he 
 pitch | vt. / n. | 投（球）;紮（營）;瀝青;音調 | Dad pitched the ball to my sister, and she swung the bat. | 爸爸把球投給我妹妹,她揮動球棒。
 @unit 20 Unit 20
 import | vt. / n. | 進口;進口品 | Most cheeses in that store are imported from France. | 那家店的大部分起司都是從法國進口的。
-export | vt. / n. | 出口;輸出品 | Oil is the major export to Saudi Arabia. | 石油是輸往沙烏地阿拉伯的主要出口品。
+export | vt. / n. | 出口;輸出品 | Oil is the major export of Saudi Arabia. | 石油是沙烏地阿拉伯的主要出口品。
 tribe | n. | 部落 | Each of the tribes has its distinctive tribal traditions. | 每個部落都有自己獨特的部落傳統。
 leisure | n. | 閒暇,空閒時間 | Playing chess is a leisure activity that requires a lot of mental effort. | 下棋是一種需要耗費大量腦力的休閒活動。
 gum | n. | 牙齦;口香糖 | I went to see a dentist for my sore gums. | 我因為牙齦疼痛去看牙醫。
