@@ -363,6 +363,10 @@ function applyTheme() {
   const c = S.landing ? PAGE_PINK : bankColor(); // landing page is always the lavender (also for a 核單 student), so it matches the loading screen
   document.documentElement.style.setProperty('--page', c);
   document.documentElement.style.setProperty('--page-ink', '#1a1a1a');
+  // progress-bar fills: the lavender bank gets a deeper purple pair so the bars stand out on the beige track; other banks keep the theme-colour fill
+  const root = document.documentElement.style;
+  if (c.toLowerCase() === PAGE_PINK.toLowerCase()) { root.setProperty('--bar-strong', '#5B2A9C'); root.setProperty('--bar-light', '#A478D8'); }
+  else { root.removeProperty('--bar-strong'); root.removeProperty('--bar-light'); }
   const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = c;
 }
 const heroLogo = () => `<div class="hero"><div class="brand-h">${logoImg()}</div></div>`; // same spot as the home page header

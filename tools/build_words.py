@@ -18,7 +18,9 @@ words.txt format
   @unit 3                             (all following words belong to unit 3; unit numbers restart in each bank)
   @unit 6.5 Review 2                  (optional display name after the number, for units that are not "Lesson N". The number only
                                        sets the order, so a decimal slots a unit between two lessons: 6.5 = after Lesson 6, before 7)
-  word | pos | 中文意思 | example sentence (optional) | 例句中文 (optional)
+  word | pos | 中文意思 | example sentence (optional) | 例句中文 (optional) | id:<fixed id> (optional)
+                                      (6th column: keeps an existing id when the spelling of a word is changed later, so students'
+                                       saved progress stays attached. Leave the 5th column empty if there is no 例句中文:  ... | ex | | id:b1-xxx)
 
 Word ids are made from the bank number + the word itself (so reordering the file never mixes up students' progress; the same
 word may appear in two banks). A word that shows up again in a later unit of the same bank is collected again, as its own entry
@@ -77,12 +79,13 @@ def main():
         w, pos, zh = f[0], f[1], f[2]
         ex = f[3] if len(f) > 3 else ''
         exzh = f[4] if len(f) > 4 else ''
+        fixed = f[5][3:].strip() if len(f) > 5 and f[5].startswith('id:') else ''
         if not banks: banks.append({'id': 'b1', 'name': meta.get('title', '單字')})
         bid = banks[-1]['id']
-        wid = f'{bid}-{slug(w) or "w" + str(n)}'
-        if wid in seen:
+        wid = fixed or f'{bid}-{slug(w) or "w" + str(n)}'
+        if wid in seen and not fixed:
             wid = f'{wid}-{slug(pos)}'
-        if wid in seen:
+        if wid in seen and not fixed:
             wid = f'{wid}-u{unit:g}'.replace('.', '_')
         if wid in seen:
             errors.append(f'{n}: 單字重複 "{w}" (第 {seen[wid]} 行)'); continue
