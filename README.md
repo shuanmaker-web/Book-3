@@ -7,7 +7,11 @@ IndexedDB(`book3-v1`)與 Service Worker 快取(`book3-*`),不會動到 Vocaboo /
 - **Logo**:`icons/logo.png`(粉紅 "Book" + 萊姆綠 "3" + 星星,透明背景)。App 內所有「Book3」字樣都用這張圖取代
   (首頁標題、設定頁底部、載入畫面)。
 - **開啟畫面(landing page)**:每次開啟 App 先看到只有 logo 的畫面,logo 是一個蓋滿整個畫面的按鈕,點一下就進入首頁。
-- **主色固定為 "Book" 的粉紅 `#F4B8F1`**(`app.js` 的 `PAGE_PINK`),設定頁沒有顏色選項。粉紅底上的文字一律用深色。
+- **主色固定為 "Book" 的粉紅 `#F3CAF1`**(`app.js` 的 `PAGE_PINK`),設定頁沒有顏色選項。粉紅底上的文字一律用深色。
+  Logo 的顏色已調低飽和度(粉紅 `#F3CAF1`、綠 `#DFFB8E`);**下方分頁列用 logo 的綠色**。
+- **桌面圖示**(`icons/v2/`:icon-192/512、maskable-512、apple-touch-icon、favicon-64)都是這個 logo,放在淺粉底 `#FAF0F7` 上;
+  maskable 版縮小留安全邊界。更換 logo 後要重做這 5 張,並把 `index.html` / `manifest.webmanifest` 裡的 `?v=` 加一,
+  手機才會更新圖示(已加到桌面的圖示 Android 通常要移除後重新加入才會換)。
 
 ## 學習形式
 - **單字學習**:只有 **選擇題** 與 **拼字**(FSRS 排程,各自一套卡片)。新字依教材順序出現,兩種模式同一批字、同一順序;

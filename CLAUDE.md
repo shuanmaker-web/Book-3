@@ -12,9 +12,12 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 - Name Book3; app icons = Vocaboo's (as requested). **Brand:** the Book3 logo (`icons/logo.png`: pink "Book" + lime "3" + stars,
   transparent PNG) replaces every "Book3" text in the UI (home hero, settings footer, loading placeholder). Opening the app shows a
   **landing page with only the logo, which is a full-screen button** (tap anywhere → home; shown on every load, tabs hidden there).
-- **One fixed theme colour: the pink of "Book", `#F4B8F1`** (`PAGE_PINK` in `app.js` → CSS `--page`; also `theme-color` meta and
+- **One fixed theme colour: the pink of "Book", `#F3CAF1`** (`PAGE_PINK` in `app.js` → CSS `--page`; also `theme-color` meta and
   manifest). There is **no colour picker** any more (old saved `theme` values are ignored). Text on pink is dark ink (`--page-ink`
   `#1a1a1a`), never white; pink is not used for text on light cards (low contrast).
+  Logo colours are deliberately desaturated (pink `#F3CAF1`, green `#DFFB8E`). The **bottom tab bar is the logo green**
+  (`--logo-green`, appended at the end of `style.css`). **App/desktop icons** (`icons/v2/*`) = the logo on `#FAF0F7`; if the logo changes,
+  regenerate them and bump `?v=` in `index.html` + `manifest.webmanifest`.
 
 ## NEVER push before the teacher says CONFIRM ⚠️
 "remember don't push before i CONFIRM." Make the change → verify it locally → show the result → **wait for an explicit OK** →

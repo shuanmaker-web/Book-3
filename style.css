@@ -234,7 +234,7 @@ body[data-bank="main"],button.card.bank.ac-gsat{--accent:var(--y);--accent-soft:
 
 /* ===== v5: blob faces, individual tab icons, consistent thick outlines ===== */
 :root{
-  --page:#F4B8F1;--bg:#f5ead6;--surface:#fffcf5;--ink:#1a1a1a;--muted:#6b5e50;--line:#d9c9a8;
+  --page:#F3CAF1;--bg:#f5ead6;--surface:#fffcf5;--ink:#1a1a1a;--muted:#6b5e50;--line:#d9c9a8;
   --blue:#2347f0;--yellow:#ffd200;--red:#ff3b1d;--green:#00b856;--pink:#ff6b9d;--orange:#ff8c1a;
   --accent:#2347f0;--accent-soft:#dde4ff;--accent-ink:#1a1a1a;
   --good:#00a34a;--good-soft:#d8f5e3;--bad:#e5270e;--bad-soft:#ffe0da;--warn:#d98e00;
@@ -405,11 +405,11 @@ body[data-bank] .mode:disabled{opacity:.55}
 body[data-bank] .chip.on{background:var(--yellow);color:#1a1a1a;border-color:#1a1a1a}
 
 /* ===== one orange everywhere (same as the home page) ===== */
-:root{--red:#F4B8F1;--orange:#F4B8F1;--accent:#F4B8F1;--accent-soft:#FCE6FB}
-body[data-bank]{--accent:#F4B8F1;--accent-soft:#FCE6FB;--accent-ink:#1a1a1a}
+:root{--red:#F3CAF1;--orange:#F3CAF1;--accent:#F3CAF1;--accent-soft:#F9EBF8}
+body[data-bank]{--accent:#F3CAF1;--accent-soft:#F9EBF8;--accent-ink:#1a1a1a}
 
 /* error / warning colors use the same orange; text inputs match the other fields */
-:root,body[data-bank]{--bad:#F4B8F1;--bad-soft:#FCE6FB;--warn:#F4B8F1}
+:root,body[data-bank]{--bad:#F3CAF1;--bad-soft:#F9EBF8;--warn:#F3CAF1}
 input[type=text],input[type=search]{max-width:150px;min-width:0;border:2.5px solid #1a1a1a;border-radius:14px;background:var(--surface);font:inherit;padding:8px 10px;color:var(--ink)}
 
 /* ===== compact multiple-choice question so the answer card fits on screen ===== */
@@ -441,7 +441,7 @@ body #tabs button.on .ti{background:#1a1a1a}
 
 /* ===== progress calendar: circles ===== */
 :is(.heat,.star-legend) i circle.c{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:2.4 2.2}
-:is(.heat,.star-legend) i[data-l="1"] circle.c{fill:#FCE6FB;stroke:var(--page);stroke-width:1.8;stroke-dasharray:none}
+:is(.heat,.star-legend) i[data-l="1"] circle.c{fill:#F9EBF8;stroke:var(--page);stroke-width:1.8;stroke-dasharray:none}
 :is(.heat,.star-legend) i[data-l="2"] circle.c{fill:var(--page);stroke:#1a1a1a;stroke-width:1.8;stroke-dasharray:none}
 :is(.heat,.star-legend) i.f circle.c{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:2.4 2.2}
 :is(.heat,.star-legend) i circle.dot{fill:var(--page);stroke:#1a1a1a;stroke-width:1.4}
@@ -470,7 +470,7 @@ body[data-bank] .btn.ghost.danger-btn,.btn.ghost.danger-btn{background:#1a1a1a;c
 
 /* marked days are stars; unmarked days stay dotted circles */
 :is(.heat,.star-legend) i polygon.st{stroke-linejoin:round}
-:is(.heat,.star-legend) i[data-l="1"] polygon.st{fill:#FCE6FB;stroke:var(--page);stroke-width:1.6}
+:is(.heat,.star-legend) i[data-l="1"] polygon.st{fill:#F9EBF8;stroke:var(--page);stroke-width:1.6}
 :is(.heat,.star-legend) i[data-l="2"] polygon.st{fill:var(--page);stroke:#1a1a1a;stroke-width:1.6}
 
 /* ===== theme color: everything follows --page (set from settings) ===== */
@@ -513,8 +513,8 @@ mark.ans.miss{background:var(--bad-soft);color:var(--bad)}
 .brand-foot{text-align:center;line-height:1.2}
 .brand-foot .brand.sm{width:96px;margin:0 auto 4px}
 body.landing #tabs{display:none}
-body.landing{padding-bottom:0;background:#FDECF5}
-html:has(body.landing),html:has(body.landing) body{background:#FDECF5!important}
+body.landing{padding-bottom:0;background:#FAF0F7}
+html:has(body.landing),html:has(body.landing) body{background:#FAF0F7!important}
 .landing-btn{display:flex;align-items:center;justify-content:center;position:fixed;inset:0;width:100%;height:100%;margin:0;padding:24px;border:0;border-radius:0;
   background:transparent;box-shadow:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .landing-logo{width:min(78vw,420px);height:auto;transition:transform .15s}
@@ -522,3 +522,12 @@ html:has(body.landing),html:has(body.landing) body{background:#FDECF5!important}
 .landing-btn:focus-visible{outline:3px solid #1a1a1a;outline-offset:-10px}
 @media (prefers-reduced-motion:no-preference){.landing-logo{animation:landing-bob 2.8s ease-in-out infinite}}
 @keyframes landing-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* ===== bottom tab bar = the green of the logo ===== */
+:root{--logo-green:#DFFB8E}
+body #tabs{background:var(--logo-green)}
+body #tabs button .ti{background:#1a1a1a}
+body #tabs button.on .ti{background:#1a1a1a}
+body #tabs button span,body #tabs button.on span{color:#1a1a1a!important}
+/* pale pink outlines are hard to see on light cards → dark outline for "in progress" markers */
+.dot.y,.tile.part{border-color:#1a1a1a}

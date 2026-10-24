@@ -351,7 +351,7 @@ function renderProgress() {
   app.innerHTML = html;
 }
 
-const PAGE_PINK = '#F4B8F1'; // the pink of "Book" in the logo — the one and only theme colour
+const PAGE_PINK = '#F3CAF1'; // the pink of "Book" in the logo — the one and only theme colour
 function applyTheme() {
   document.documentElement.style.setProperty('--page', PAGE_PINK);
   document.documentElement.style.setProperty('--page-ink', '#1a1a1a');
