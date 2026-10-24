@@ -1,6 +1,8 @@
-# 示範資料 — 等拿到教材照片後,整份換成真正的題目
-@sample 這是示範用的題目,請換成教材的正式內容
-@source 示範
+# 克漏字題庫(每個單字庫各自一份,用 @bank 分開)。
+# 龍騰:目前還沒有題目(課本照片 Lesson 4–5 只有課文與單字,沒有克漏字題)。
+# 核單:示範題目,等拿到正式教材後換掉。
+@bank 核單
+@sample 這些克漏字是示範題目,請換成教材的正式內容
 @unit 1
 @passage The Lost Wallet
 Mia found a wallet on the street [1] school. Inside, there was some money and an ID card.

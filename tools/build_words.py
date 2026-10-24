@@ -8,7 +8,8 @@ words.txt format
   @title 書名或 App 標題             (optional)
   @source 教材名稱                    (optional, shown in 設定 > 關於)
   @unitword Unit                      (optional: what a unit is called — Unit / Lesson / 第幾課 …)
-  @sample 說明文字                    (optional: marks the file as demo data; a banner is shown in the app)
+  @sample 說明文字                    (optional: marks demo data and shows a banner in the app. Right after a @bank line it
+                                       applies to that bank only; before any @bank it applies to everything)
   @bank 名稱                          (optional: start a new word bank, e.g. a second textbook. The app then shows a switch
                                        on the home page; progress, unit range and new-word order are kept per bank.
                                        Words before the first @bank — or a file with no @bank — form one bank.)
@@ -49,7 +50,8 @@ def main():
             elif key in ('title', 'source', 'unitword', 'note'):
                 meta['unitWord' if key == 'unitword' else key] = val
             elif key == 'sample':
-                meta['sample'] = True; meta['note'] = val
+                if banks: banks[-1]['sample'] = True; banks[-1]['note'] = val  # right after a @bank line: that bank is demo data
+                else: meta['sample'] = True; meta['note'] = val
             else:
                 errors.append(f'{n}: 不認得的指令 @{key}')
             continue

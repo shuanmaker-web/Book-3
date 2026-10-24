@@ -350,7 +350,7 @@ html[data-view="main"]{--bd:var(--yellow);--bdn:#1a1a1a;--bdl:#1a1a1a}
 
 /* ---- monster-puff tab bar ---- */
 body{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
-body[data-bank="main"]{--mon:#2a5bea}
+body[data-bank="main"]{--mon:var(--page)}
 body #tabs{position:fixed;left:0;right:0;bottom:0;margin:0 auto;max-width:640px;width:auto;height:calc(104px + env(safe-area-inset-bottom));
   padding:14px 14px env(safe-area-inset-bottom);box-sizing:border-box;display:flex;justify-content:center;align-items:center;gap:2px;
   background:none;border:0;box-shadow:none;border-radius:0;overflow:visible;z-index:5}

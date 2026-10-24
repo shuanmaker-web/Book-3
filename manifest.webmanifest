@@ -1,12 +1,12 @@
 {
- "name": "單字特訓",
- "short_name": "單字特訓",
+ "name": "Book3",
+ "short_name": "Book3",
  "lang": "zh-Hant",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",
- "background_color": "#2A5BEA",
- "theme_color": "#2A5BEA",
+ "background_color": "#9381E0",
+ "theme_color": "#9381E0",
  "icons": [
   {
    "src": "icons/v2/icon-192.png?v=2",
@@ -27,5 +27,5 @@
    "purpose": "maskable"
   }
  ],
- "id": "vocab-student"
+ "id": "book3"
 }

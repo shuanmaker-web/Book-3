@@ -1,14 +1,15 @@
-# 單字特訓(working title)
+# Book3
 
 給單一學生使用的英文單字 PWA(手機優先)。由 Vocaboo 分支出來,但**完全獨立**:自己的 repo、自己的網址、自己的
-IndexedDB(`vocab-student-v1`)與 Service Worker 快取(`vstu-*`),不會動到 Vocaboo / Vocabee 的資料。
+IndexedDB(`book3-v1`)與 Service Worker 快取(`book3-*`),不會動到 Vocaboo / Vocabee 的資料。
 
 ## 學習形式
 - **單字學習**:只有 **選擇題** 與 **拼字**(FSRS 排程,各自一套卡片)。新字依教材順序出現,兩種模式同一批字、同一順序;
   只做過其中一種的字,另一種會先重做那一批。「已學」= 選擇題與拼字都答過。
 - **兩個單字庫**:首頁最上面有切換分頁(教材有兩個來源時使用)。每個單字庫各自有:新字順序、單元範圍、每天新字上限、
   已學/精熟統計(進度頁分開列出)。只有一個單字庫時,切換分頁自動隱藏。
-- **克漏字**(分頁):
+- **選擇題的錯誤選項**會避開中文意思相近的字(例如「令人愉快的」不會和「愉快的」同時出現),以免一題有兩個正確答案。
+- **克漏字**(分頁,也依單字庫切換,每個單字庫有自己的題目):
   - **短文克漏字**:整篇短文,每個空格一題(4 選 1);目前的空格會標示,已作答的空格自動填入答案。
   - **單句克漏字**:一句一個空格(4 選 1)。
   - 依單元分組、可只重測錯題、可「繼續作答」,進度自動保存;分頁上方可切換 全部 / 短文 / 單句。
@@ -19,15 +20,15 @@ IndexedDB(`vocab-student-v1`)與 Service Worker 快取(`vstu-*`),不會動到 Vo
 | 檔案 | 產生 | 指令 |
 |---|---|---|
 | `tools/material/words.txt`(用 `@bank 名稱` 分單字庫) | `data/words.json` | `python3 tools/build_words.py` |
-| `tools/material/cloze.txt` | `data/cloze.json` | `python3 tools/build_cloze.py` |
+| `tools/material/cloze.txt`(用 `@bank 名稱` 對應單字庫) | `data/cloze.json` | `python3 tools/build_cloze.py`(要先跑 build_words) |
 
 兩個 script 的檔頭都有格式說明;建置時會檢查格式(欄位數、選項重複、答案字母、空格編號對不對…),有錯就停止並指出行號。
 
 - 單字 id 由「第幾個單字庫 + 單字本身」產生,所以調整順序不會弄亂學生進度;**新的單字庫請加在檔案最後面**。
 - 克漏字 id 由「單元 + 出現順序」產生(`p3-1` = Unit 3 第 1 篇短文、`s3-2` = Unit 3 第 2 個單句):
   **想保留學生的作答紀錄,新題目請一律加在該單元的最後面**。
-- 目前 `data/` 與 `tools/material/` 內是**示範資料**(App 內會顯示「示範資料」橫幅);換成正式內容後橫幅自動消失
-  (刪掉檔頭的 `@sample` 那行)。
+- 「龍騰」單字庫已是真實內容(Lesson 4–5:課文中的粗體字 + 黃色螢光筆標記的字);「核單」與其克漏字目前是**示範資料**,
+  App 內會顯示「示範資料」橫幅,換成正式內容後刪掉該 `@bank` 底下的 `@sample` 那行橫幅就會消失。
 
 ## 發佈流程(與 Vocaboo 相同)
 1. 改檔 → 2. 學生會載入的檔案有變動就把 `sw.js` 的 `VERSION` 加一(`v1` → `v2` …),學生才會拿到新版 →
@@ -36,7 +37,7 @@ IndexedDB(`vocab-student-v1`)與 Service Worker 快取(`vstu-*`),不會動到 Vo
 所有資源路徑一律用相對路徑(網站放在 `/<repo>/` 子路徑下)。
 
 ## 備份
-設定頁可匯出/匯入進度(檔案標記 `vocab-student`,與 Vocaboo 的備份檔互不相容,不會誤匯入)。
+設定頁可匯出/匯入進度(檔案標記 `book3`,與 Vocaboo 的備份檔互不相容,不會誤匯入)。
 
 ## 致謝
 複習排程:[ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs)(MIT)。單字與題目內容整理自教材,僅供個人學習使用。

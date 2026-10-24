@@ -19,11 +19,11 @@ const EXAM_PRESETS = [
   { name: '學測', date: '2027-01-22' },
   { name: '國中會考', date: '' },
 ];
-const DEFAULTS = { newPerDay: 20, sessionSize: 20, retention: 0.9, examName: '段考', examDate: '', progressDays: 0, bank: null, ranges: {}, lastBackupAt: 0, theme: 'blue' };
+const DEFAULTS = { newPerDay: 20, sessionSize: 20, retention: 0.9, examName: '段考', examDate: '', progressDays: 0, bank: null, ranges: {}, lastBackupAt: 0, theme: 'lavender' };
 
 /* ---------- storage (IndexedDB, with in-memory fallback) ----------
    NOTE: every GitHub Pages site of the same account shares one browser origin, so the database name must be unique to this app. */
-const DB_NAME = 'vocab-student-v1', BACKUP_TAG = 'vocab-student';
+const DB_NAME = 'book3-v1', BACKUP_TAG = 'book3';
 const store = (() => {
   let db = null; const mem = { cards: new Map(), logs: [], kv: new Map(), q: new Map() }; let volatile = false;
   const req = r => new Promise((res, rej) => { r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
@@ -111,8 +111,8 @@ async function loadCloze() {
   S.questions = [];
   try {
     const j = await fetchJSON(FILES.cloze); S.cmeta = j.meta || {};
-    for (const p of j.passages || []) for (const b of p.blanks) S.questions.push({ id: `${p.id}#${b.no}`, type: 'passage', unit: p.unit, pid: p.id, pno: p.no, ptitle: p.title || '', ptext: p.text, no: b.no, opts: b.opts, ans: b.ans, exp: b.exp || '', src: p.src || '' });
-    for (const s of j.sentences || []) S.questions.push({ id: s.id, type: 'sentence', unit: s.unit, no: s.no, q: s.q, full: s.full, opts: s.opts, ans: s.ans, exp: s.exp || '', src: s.src || '' });
+    for (const p of j.passages || []) for (const b of p.blanks) S.questions.push({ id: `${p.id}#${b.no}`, type: 'passage', bank: p.bank, unit: p.unit, pid: p.id, pno: p.no, ptitle: p.title || '', ptext: p.text, no: b.no, opts: b.opts, ans: b.ans, exp: b.exp || '', src: p.src || '' });
+    for (const s of j.sentences || []) S.questions.push({ id: s.id, type: 'sentence', bank: s.bank, unit: s.unit, no: s.no, q: s.q, full: s.full, opts: s.opts, ans: s.ans, exp: s.exp || '', src: s.src || '' });
   } catch (e) { S.cmeta = { error: true }; }
   const kindOrd = q => (q.type === 'passage' ? 0 : 1);
   S.questions.sort((a, b) => a.unit - b.unit || kindOrd(a) - kindOrd(b) || (a.pno || 0) - (b.pno || 0) || a.no - b.no);
@@ -182,8 +182,16 @@ async function grade(wid, mode, rating, extra = {}) {
 
 /* ---------- distractors ---------- */
 function suffix(w) { return w.slice(-3); }
+/* Two Chinese glosses "overlap" when they share a 2-character chunk (e.g. 令人愉快的 / 愉快的 / 快樂的;愉快的), so a near-synonym is never offered
+   as a wrong option — otherwise the question would have two right answers. */
+const senses = zh => String(zh || '').replace(/[()()……]/g, '').split(/[;;,、]/).map(x => x.trim().replace(/[的地]$/, '')).filter(Boolean);
+function zhOverlap(a, b) {
+  const A = senses(a), B = senses(b);
+  return A.some(x => B.some(y => x === y || (x.length > 1 && y.length > 1 && [...x].some((_, i) => i < x.length - 1 && y.includes(x.slice(i, i + 2))))));
+}
 function distractors(target, field) {
-  const pool = bankWords(target.bank).filter(w => w.id !== target.id && w[field] && w[field] !== target[field]);
+  let pool = bankWords(target.bank).filter(w => w.id !== target.id && w[field] && w[field] !== target[field]);
+  const clear = pool.filter(w => !zhOverlap(w.zh, target.zh)); if (clear.length >= 3) pool = clear; // fall back only if the bank is tiny
   const score = w => (w.pos && w.pos === target.pos ? 2 : 0) + (w.unit != null && w.unit === target.unit ? 1 : 0) + (field === 'w' && suffix(w.w) === suffix(target.w) ? 1 : 0) + Math.random() * 1.5;
   const seen = new Set([target[field]]), out = [];
   for (const w of pool.sort((a, b) => score(b) - score(a))) { if (!seen.has(w[field])) { seen.add(w[field]); out.push(w); } if (out.length === 3) break; }
@@ -267,7 +275,7 @@ function bankSwitch() {
   return `<div class="bank-tabs" role="tablist" aria-label="單字庫">${bs.map(b => `<button role="tab" class="${b.id === curBank() ? 'on' : ''}" aria-selected="${b.id === curBank()}" data-bank="${esc(b.id)}">${esc(b.name)}</button>`).join('')}</div>`;
 }
 function wordCard() {
-  const ws = bankWords(), bname = banks().find(b => b.id === curBank()).name, sample = S.meta.sample ? `<div class="sample-banner">目前是<b>示範資料</b>(${esc(S.meta.note || '請以正式單字庫取代')})</div>` : '';
+  const ws = bankWords(), cb = banks().find(b => b.id === curBank()), bname = cb.name, sm = cb.sample ? cb : S.meta.sample ? S.meta : null, sample = sm ? `<div class="sample-banner">目前是<b>示範資料</b>(${esc(sm.note || '請以正式單字庫取代')})</div>` : '';
   if (!ws.length) return `<section class="card"><h2>單字</h2><p class="muted">尚未匯入單字庫(<code>${FILES.words}</code>)。</p></section>`;
   let range = '';
   const u = unitNums();
@@ -311,9 +319,10 @@ function renderProgress() {
     if (units.length > 1) html += '<div style="margin-top:12px">' + units.map(u => { const v = byUnit[u]; const seg = c => c > 0 ? Math.max(4, c / v.n * 100) : 0; return `<div class="lvl"><span>${u || '—'}</span><div class="track"><i class="m" style="width:${seg(v.m)}%"></i><i class="l" style="width:${seg(v.l - v.m)}%"></i></div><span class="muted small">${v.l}/${v.n}</span></div>`; }).join('') + '</div>';
     html += `<p class="small muted">已學 = 選擇題與拼字都答過;精熟 = 已學 且 拼字答對過 且 記憶穩定度 ≥ 21 天。${units.length > 1 ? `深色＝精熟,淺色＝已學未精熟;左側是${esc(UNIT_WORD())},右側為已學／該單元總數` : ''}</p></section>`;
   }
-  if (S.questions.length) {
-    const t = qTotals(() => true, 'all'), pct = t.ok / t.total * 100;
-    html += `<section class="card"><h2>克漏字</h2><div class="pbar" style="margin-top:8px"><i class="g" style="width:${pct}%"></i><i class="r" style="width:${t.wrong / t.total * 100}%"></i><em>${pct < 10 ? pct.toFixed(1) : Math.round(pct)}%</em></div>
+  for (const bk of banks()) { // 克漏字 progress, one card per bank that has questions
+    if (!clozeQs('all', bk.id).length) continue;
+    const t = qTotals(() => true, 'all', bk.id), pct = t.ok / t.total * 100;
+    html += `<section class="card"><h2>克漏字${banks().length > 1 ? ' · ' + esc(bk.name) : ''}</h2><div class="pbar" style="margin-top:8px"><i class="g" style="width:${pct}%"></i><i class="r" style="width:${t.wrong / t.total * 100}%"></i><em>${pct < 10 ? pct.toFixed(1) : Math.round(pct)}%</em></div>
       <div class="stat-grid" style="margin-top:12px"><div class="stat pstat"><b>${t.tried}</b><span>已作答</span></div><div class="stat pstat"><b>${t.wrong}</b><span>錯題</span></div><div class="stat pstat"><b>${t.ok}</b><span>答對 / ${t.total}</span></div></div></section>`;
   }
   const lvl = n => n === 0 ? 0 : n <= 20 ? 1 : 2;
@@ -338,9 +347,9 @@ function renderProgress() {
   app.innerHTML = html;
 }
 
-const THEMES = { blue: ['藍', '#2A5BEA'], orange: ['橘', '#FF5700'], purple: ['紫', '#9B6BFF'], pink: ['粉', '#FF4F9A'], teal: ['青', '#12B8CC'] };
+const THEMES = { lavender: ['薰衣草', '#9381E0'], blue: ['藍', '#2A5BEA'], orange: ['橘', '#FF5700'], purple: ['紫', '#9B6BFF'], pink: ['粉', '#FF4F9A'], teal: ['青', '#12B8CC'] };
 function applyTheme() {
-  const c = (THEMES[S.settings.theme] || THEMES.blue)[1];
+  const c = (THEMES[S.settings.theme] || THEMES.lavender)[1];
   document.documentElement.style.setProperty('--page', c);
   const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = c;
 }
@@ -349,7 +358,7 @@ function renderSettings() {
   const s = S.settings;
   const days = s.lastBackupAt ? Math.floor((Date.now() - s.lastBackupAt) / DAY) : null;
   app.innerHTML = `<h1>設定</h1><div class="stack" style="margin-top:12px">
-  <section class="card"><h2>主題色</h2><div class="swatches">${Object.entries(THEMES).map(([k, [n, c]]) => `<button class="sw ${(s.theme || 'blue') === k ? 'on' : ''}" data-theme="${k}" style="--c:${c}" aria-label="${n}" aria-pressed="${(s.theme || 'blue') === k}"><i></i><span>${n}</span></button>`).join('')}</div></section>
+  <section class="card"><h2>主題色</h2><div class="swatches">${Object.entries(THEMES).map(([k, [n, c]]) => `<button class="sw ${(s.theme || 'lavender') === k ? 'on' : ''}" data-theme="${k}" style="--c:${c}" aria-label="${n}" aria-pressed="${(s.theme || 'lavender') === k}"><i></i><span>${n}</span></button>`).join('')}</div></section>
   <section class="card">
     <label class="set"><span>每天新字上限</span><input type="number" id="s-new" min="0" max="200" value="${s.newPerDay}"></label>
     <label class="set"><span>每回題數</span><input type="number" id="s-size" min="5" max="100" value="${s.sessionSize}"></label>
@@ -503,14 +512,14 @@ const qHtml = q => (q.type === 'passage' ? passageSnippet(q) : sentenceHtml(q, t
 const qLabel = q => q.type === 'passage' ? `短文 ${q.pno} · 第 ${q.no} 格` : `單句 第 ${q.no} 題`;
 const srcNote = q => q.src ? `<div class="small muted src-note">${esc(q.src)}</div>` : '';
 const qSt = id => S.qstats.get(id);
-const clozeQs = (kind = S.pkind) => S.questions.filter(q => kind === 'all' || q.type === kind);
-function qTotals(filter = () => true, kind = S.pkind) {
+const clozeQs = (kind = S.pkind, bank = curBank()) => S.questions.filter(q => q.bank === bank && (kind === 'all' || q.type === kind));
+function qTotals(filter = () => true, kind = S.pkind, bank = curBank()) {
   let total = 0, tried = 0, ok = 0, wrong = 0, first = 0;
-  for (const q of clozeQs(kind)) { if (!filter(q)) continue; total++; const st = qSt(q.id); if (!st) continue; tried++; if (st.last) ok++; else wrong++; if (st.firstOk) first++; }
+  for (const q of clozeQs(kind, bank)) { if (!filter(q)) continue; total++; const st = qSt(q.id); if (!st) continue; tried++; if (st.last) ok++; else wrong++; if (st.firstOk) first++; }
   return { total, tried, ok, wrong, first };
 }
-const wrongIds = (filter = () => true, kind = S.pkind) => clozeQs(kind).filter(q => filter(q) && qSt(q.id) && !qSt(q.id).last).map(q => q.id);
-const unitList = (kind = S.pkind) => [...new Set(clozeQs(kind).map(q => q.unit))].sort((a, b) => a - b);
+const wrongIds = (filter = () => true, kind = S.pkind, bank = curBank()) => clozeQs(kind, bank).filter(q => filter(q) && qSt(q.id) && !qSt(q.id).last).map(q => q.id);
+const unitList = (kind = S.pkind, bank = curBank()) => [...new Set(clozeQs(kind, bank).map(q => q.unit))].sort((a, b) => a - b);
 // passages keep their order (context matters); a list of only single sentences is shuffled
 const ordered = ids => ids.every(id => qById[id].type === 'sentence') ? shuffle(ids) : ids.slice().sort((a, b) => qById[a].idx - qById[b].idx);
 
@@ -530,14 +539,14 @@ function unitTile(u) {
   return `<button class="tile ${cls}" data-xunit="${u}"><b>${u}</b><span>${t.ok}/${t.total}</span></button>`;
 }
 function renderPractice() {
-  if (!S.questions.length) { app.innerHTML = `<h1>克漏字</h1><p class="muted" style="margin-top:12px">尚未匯入題庫(<code>${FILES.cloze}</code>)。</p>`; return; }
+  if (!clozeQs('all').length) { app.innerHTML = `<h1>克漏字</h1><div class="stack" style="margin-top:12px">${bankSwitch()}<section class="card"><p class="muted">這個單字庫(${esc(banks().find(b => b.id === curBank()).name)})目前還沒有克漏字題目。</p></section></div>`; return; }
   if (S.pview === 'unit') return renderUnit();
-  const kinds = ['passage', 'sentence'].filter(k => S.questions.some(q => q.type === k));
+  const kinds = ['passage', 'sentence'].filter(k => clozeQs('all').some(q => q.type === k));
   if (!kinds.includes(S.pkind) && S.pkind !== 'all') S.pkind = 'all';
   const t = qTotals(), w = t.wrong, units = unitList();
   const chips = kinds.length > 1 ? `<div class="chips" style="margin:10px 0 0">${['all', ...kinds].map(k => `<button class="chip ${S.pkind === k ? 'on' : ''}" data-pkind="${k}">${KINDS[k]}</button>`).join('')}</div>` : '';
-  const sample = S.cmeta.sample ? `<div class="sample-banner" style="margin-top:12px">目前是<b>示範題目</b>(${esc(S.cmeta.note || '請以正式題目取代')})</div>` : '';
-  app.innerHTML = `<h1>克漏字</h1>${chips}<div class="stack" style="margin-top:12px">
+  const cs = S.cmeta.banks?.[curBank()], sample = cs?.sample ? `<div class="sample-banner" style="margin-top:12px">目前是<b>示範題目</b>(${esc(cs.note || '請以正式題目取代')})</div>` : '';
+  app.innerHTML = `<h1>克漏字</h1><div style="margin-top:12px">${bankSwitch()}</div>${chips}<div class="stack" style="margin-top:12px">
   <section class="card"><div class="row between"><h2>總進度</h2><span class="muted small">共 ${t.total} 題 · ${units.length} 個單元</span></div>
     <div class="bigscore"><b>${t.ok}</b><span>/ ${t.total} 題目前答對</span></div>
     <div class="seg"><i class="g" style="width:${t.ok / t.total * 100}%"></i><i class="r" style="width:${t.wrong / t.total * 100}%"></i></div>
@@ -683,5 +692,5 @@ async function boot(reload = false) {
 boot().catch(e => {
   console.error(e);
   app.innerHTML = `<div class="card" style="margin-top:30px"><h2>載入失敗</h2><p class="small muted">${esc(String(e && e.message || e))}</p><button class="btn block" id="reload-fix">清除快取並重新載入</button></div>`;
-  $('#reload-fix').onclick = async () => { try { for (const k of await caches.keys()) if (k.startsWith('vstu-')) await caches.delete(k); const rs = await navigator.serviceWorker.getRegistrations(); for (const r of rs) await r.unregister(); } catch { } location.reload(); };
+  $('#reload-fix').onclick = async () => { try { for (const k of await caches.keys()) if (k.startsWith('book3-')) await caches.delete(k); const rs = await navigator.serviceWorker.getRegistrations(); for (const r of rs) await r.unregister(); } catch { } location.reload(); };
 }).then(() => { if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => { }); });

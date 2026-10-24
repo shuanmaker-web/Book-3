@@ -1,36 +1,200 @@
-# 示範資料 — 等拿到教材照片後,整份換成真正的單字
-@title 單字特訓
-@unitword Unit
-@sample 這是示範用的單字,請換成教材的正式內容
+# Book3 單字表 — 資料來源:教材照片(單字庫「龍騰」Lesson 4–5)。
+# 規則:每課「藍色虛線框內課文」中 粗體字 + 黃色螢光筆標記的字 都是該課單字。
+# 粗體字的中文釋義抄自課本頁面;只有黃色螢光筆、課本沒印釋義的字,詞性與中文由 Claude 補寫,請老師審閱。
+# 例句 = 該單字出現在課文裡的那一句。
+@title Book3
+@source 龍騰
+@unitword Lesson
 @bank 龍騰
-@unit 1
-abandon | v. | 放棄;遺棄 | He abandoned the plan. | 他放棄了那個計畫。
-ability | n. | 能力 | She has the ability to learn fast. | 她有很快學會的能力。
-accept | v. | 接受 | Please accept my gift. | 請收下我的禮物。
-achieve | v. | 達成;完成 | You can achieve your goal. | 你能達成你的目標。
-active | adj. | 活躍的;積極的 | He is an active member of the club. | 他是社團的活躍成員。
-adopt | v. | 領養;採用 | They adopted a puppy. | 他們領養了一隻小狗。
-advice | n. | 建議 | Take my advice. | 聽我的建議。
-afford | v. | 負擔得起 | I can't afford a new phone. | 我買不起新手機。
-@unit 2
-agree | v. | 同意 | I agree with you. | 我同意你。
-allow | v. | 允許 | Smoking is not allowed here. | 這裡不准吸菸。
-amazing | adj. | 令人驚奇的 | The view is amazing. | 風景令人驚嘆。
-ancient | adj. | 古代的 | They visited an ancient temple. | 他們參觀了一座古老的廟。
-announce | v. | 宣布 | The school announced the news. | 學校宣布了這個消息。
-anxious | adj. | 焦慮的;渴望的 | She felt anxious before the test. | 考試前她感到焦慮。
-appear | v. | 出現;似乎 | A rainbow appeared in the sky. | 天空出現了一道彩虹。
-approve | v. | 贊成;批准 | The teacher approved our idea. | 老師認可了我們的點子。
-@unit 3
-arrange | v. | 安排;整理 | I'll arrange a meeting. | 我會安排一場會議。
-attend | v. | 出席;參加 | He attended the class. | 他去上課了。
-avoid | v. | 避免 | Try to avoid junk food. | 盡量避免吃垃圾食物。
-balance | n. | 平衡 | Keep your balance on the bike. | 騎車時要保持平衡。
-borrow | v. | 借入 | Can I borrow your pen? | 我可以跟你借筆嗎?
-brave | adj. | 勇敢的 | The firefighter was brave. | 那位消防員很勇敢。
-calm | adj. | 冷靜的 | Stay calm and listen. | 保持冷靜並仔細聽。
-cancel | v. | 取消 | The game was canceled. | 比賽被取消了。
+@unit 4
+joyous | adj. | 令人愉快的 | On this joyous occasion, family members gather for a reunion in honor of those who have moved on to the afterlife.
+deceased | adj. | 已故的 | Have you ever thought about what it would be like to have a deceased loved one return and accompany you to a holiday celebration?
+accompany | v. | 陪伴 | Have you ever thought about what it would be like to have a deceased loved one return and accompany you to a holiday celebration?
+scare you to death | phr. | 把……嚇得要命 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+make your hair stand on end | phr. | 使人毛骨悚然 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+essential | adj. | 本質的;基本的 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+concept | n. | 概念 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+Mexican | adj. | 墨西哥的 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+festival | n. | 節日;慶典 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+joy | n. | 喜悅;快樂 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+humor | n. | 幽默 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+mourn | v. | 哀悼 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+sorrow | n. | 悲傷 | The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.
+occasion | n. | 場合 | On this joyous occasion, family members gather for a reunion in honor of those who have moved on to the afterlife.
+gather | v. | 聚集 | On this joyous occasion, family members gather for a reunion in honor of those who have moved on to the afterlife.
+reunion | n. | 重逢;團聚 | On this joyous occasion, family members gather for a reunion in honor of those who have moved on to the afterlife.
+in honor of | phr. | 紀念 | On this joyous occasion, family members gather for a reunion in honor of those who have moved on to the afterlife.
+afterlife | n. | 死後的世界;死後(靈魂的)生活 | On this joyous occasion, family members gather for a reunion in honor of those who have moved on to the afterlife.
+originate | v. | 起源;發源 | The Day of the Dead is thought to have originated centuries ago with the Aztecs.
+century | n. | 世紀 | The Day of the Dead is thought to have originated centuries ago with the Aztecs.
+Aztec | n. | 阿茲提克人 | The Day of the Dead is thought to have originated centuries ago with the Aztecs.
+passionate | adj. | 熱情的;熱烈的 | Nowadays, it is celebrated passionately throughout Mexico on November 1 and 2.
+throughout | prep. | 遍及;在……期間 | Nowadays, it is celebrated passionately throughout Mexico on November 1 and 2.
+honor | v. | 紀念;向……致敬 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
+departed | adj. | 已逝的;已離世的 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
+main | adj. | 主要的 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
+focus | n. | 焦點;重點 | Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.
+soul | n. | 靈魂 | During these two days, the souls of the dead are believed to return to earth to visit the living members of their family.
+fear | v. | 害怕 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+spirit | n. | 靈魂;幽靈 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+anticipate | v. | 期盼 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+arrival | n. | 到達;到來 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+purchase | v. | 購買 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+necessary | adj. | 必要的 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+item | n. | 物品;項目 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+in advance | phr. | 事先 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+marigold | n. | 萬壽菊;金盞花 | These include marigolds, candles, decorated sugar skulls bearing the names of departed family members, and "bread of the dead."
+decorate | v. | 裝飾 | These include marigolds, candles, decorated sugar skulls bearing the names of departed family members, and "bread of the dead."
+skull | n. | 頭骨;顱骨 | These include marigolds, candles, decorated sugar skulls bearing the names of departed family members, and "bread of the dead."
+bear | v. | 具有;帶有(某個名稱) | These include marigolds, candles, decorated sugar skulls bearing the names of departed family members, and "bread of the dead."
+restore | v. | 修復;恢復 | Families also tidy and restore the graves and cemeteries where their family members are buried to welcome the souls home.
+grave | n. | 墳墓;墓穴 | Families also tidy and restore the graves and cemeteries where their family members are buried to welcome the souls home.
+cemetery | n. | 墓地;公墓 | Families also tidy and restore the graves and cemeteries where their family members are buried to welcome the souls home.
+bury | v. | 埋葬 | Families also tidy and restore the graves and cemeteries where their family members are buried to welcome the souls home.
+assemble | v. | 裝設;組裝;聚集 | On the Day of the Dead, families assemble colorful altars in their homes to welcome returning spirits.
+altar | n. | 祭壇;聖壇 | On the Day of the Dead, families assemble colorful altars in their homes to welcome returning spirits.
+place | v. | 放置 | On the altars, they place photographs of their deceased loved ones as well as beverages and dishes that those family members had a preference for while alive.
+photograph | n. | 照片 | On the altars, they place photographs of their deceased loved ones as well as beverages and dishes that those family members had a preference for while alive.
+beverage | n. | 飲料 | On the altars, they place photographs of their deceased loved ones as well as beverages and dishes that those family members had a preference for while alive.
+preference | n. | 偏愛 | On the altars, they place photographs of their deceased loved ones as well as beverages and dishes that those family members had a preference for while alive.
+alive | adj. | 活著的 | On the altars, they place photographs of their deceased loved ones as well as beverages and dishes that those family members had a preference for while alive.
+reception | n. | 歡迎;接待 | After this warm reception for the souls at home, it is usually late in the evening, and families head to the cemetery, where they decorate the graves of their loved ones and light one candle for each dead person.
+light | v. | 點燃 | After this warm reception for the souls at home, it is usually late in the evening, and families head to the cemetery, where they decorate the graves of their loved ones and light one candle for each dead person.
+cheerful | adj. | 愉快的 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+merry | adj. | 快樂的;愉快的 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+feast | v. | 盡情享用 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+pray | v. | 祈禱 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+dawn | n. | 黎明;破曉 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+transform | v. | 使改變形態 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+horrifying | adj. | 令人恐懼的 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+graveyard | n. | 墓地;墓場 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+venue | n. | 舉行地點;活動場地 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+entire | adj. | 整個的 | Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.
+representation | n. | 象徵;表現 | Throughout the festival, colorful, cartoon-like representations of the dead can be seen everywhere.
+include | v. | 包括 | These include skeleton and skull cookies, candies, flags, and toys.
+skeleton | n. | 骨骼;骨架 | These include skeleton and skull cookies, candies, flags, and toys.
+flag | n. | 旗幟 | These include skeleton and skull cookies, candies, flags, and toys.
+dress up | phr. | 盛裝打扮 | Many people also dress up in skeleton costumes, paint their faces to resemble skulls, and participate in performances and street parades.
+costume | n. | 服裝;戲服 | Many people also dress up in skeleton costumes, paint their faces to resemble skulls, and participate in performances and street parades.
+resemble | v. | 看起來像;像 | Many people also dress up in skeleton costumes, paint their faces to resemble skulls, and participate in performances and street parades.
+participate | v. | 參加 | Many people also dress up in skeleton costumes, paint their faces to resemble skulls, and participate in performances and street parades.
+performance | n. | 表演 | Many people also dress up in skeleton costumes, paint their faces to resemble skulls, and participate in performances and street parades.
+parade | n. | 遊行 | Many people also dress up in skeleton costumes, paint their faces to resemble skulls, and participate in performances and street parades.
+mock | v. | 嘲弄;不尊重 | While doing so, Mexicans aren't mocking death.
+instead | adv. | 反而;作為替代 | Instead, they are recognizing it as an inevitable part of the natural cycle and would rather embrace it than ignore it.
+recognize | v. | 承認;意識到;體認到 | Instead, they are recognizing it as an inevitable part of the natural cycle and would rather embrace it than ignore it.
+inevitable | adj. | 不可避免的 | Instead, they are recognizing it as an inevitable part of the natural cycle and would rather embrace it than ignore it.
+natural | adj. | 自然的 | Instead, they are recognizing it as an inevitable part of the natural cycle and would rather embrace it than ignore it.
+cycle | n. | 循環 | Instead, they are recognizing it as an inevitable part of the natural cycle and would rather embrace it than ignore it.
+pleasure | n. | 樂趣;愉快 | By inviting the dead to return and sharing the pleasures of life with them, Mexicans are celebrating the cycle of life itself.
+annual | adj. | 每年的 | The Mexican Day of the Dead is an annual national event that brings together living hosts and non-living guests of honor.
+national | adj. | 全國性的;國家的 | The Mexican Day of the Dead is an annual national event that brings together living hosts and non-living guests of honor.
+bring together | phr. | 使聚在一起 | The Mexican Day of the Dead is an annual national event that brings together living hosts and non-living guests of honor.
+living | adj. | 活著的 | The Mexican Day of the Dead is an annual national event that brings together living hosts and non-living guests of honor.
+host | n. | 主人 | The Mexican Day of the Dead is an annual national event that brings together living hosts and non-living guests of honor.
+non-living | adj. | 非活著的 | The Mexican Day of the Dead is an annual national event that brings together living hosts and non-living guests of honor.
+hopefully | adv. | 但願;真心希望 | Hopefully, this tradition will never die out, since it helps people accept a fact of life that awaits us all.
+die out | phr. | 逐漸消失 | Hopefully, this tradition will never die out, since it helps people accept a fact of life that awaits us all.
+accept | v. | 接受 | Hopefully, this tradition will never die out, since it helps people accept a fact of life that awaits us all.
+await | v. | 等待 | Hopefully, this tradition will never die out, since it helps people accept a fact of life that awaits us all.
+escape | v. | 避免;逃脫 | If we cannot escape death, why not celebrate it?
+instead of | phr. | 沒有……;反而……;而不是 | Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.
+@unit 5
+Kyoto | n. | 京都 | Kyoto, like a beauty in a bright and colorful kimono, delights tourists throughout the year.
+beauty | n. | 美女;美麗 | Kyoto, like a beauty in a bright and colorful kimono, delights tourists throughout the year.
+kimono | n. | 和服 | Kyoto, like a beauty in a bright and colorful kimono, delights tourists throughout the year.
+delight | v. | 使高興;使賞心悅目 | Kyoto, like a beauty in a bright and colorful kimono, delights tourists throughout the year.
+tourist | n. | 觀光客;遊客 | Kyoto, like a beauty in a bright and colorful kimono, delights tourists throughout the year.
+romance | n. | 浪漫 | In spring, romance is in the air as the city is filled with a sea of pink cherry blossoms.
+cherry | n. | 櫻桃;櫻桃樹 | In spring, romance is in the air as the city is filled with a sea of pink cherry blossoms.
+blossom | n. | 花朵;開花 | In spring, romance is in the air as the city is filled with a sea of pink cherry blossoms.
+rustle | v. | 沙沙作響 | In summer, green leaves can be heard rustling in the wind and seen sparkling in the sunshine.
+sparkle | v. | 閃閃發光 | In summer, green leaves can be heard rustling in the wind and seen sparkling in the sunshine.
+sunshine | n. | 陽光 | In summer, green leaves can be heard rustling in the wind and seen sparkling in the sunshine.
+maple | n. | 楓樹 | Maple leaves in autumn set the landscape on fire with orange and red colors.
+autumn | n. | 秋天 | Maple leaves in autumn set the landscape on fire with orange and red colors.
+landscape | n. | 景色;風景 | Maple leaves in autumn set the landscape on fire with orange and red colors.
+turn into | phr. | (把……)變為…… | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
+magic | adj. | 有魔力的;神奇的 | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
+silver | adj. | 銀色的 | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
+kingdom | n. | 王國;國度 | Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.
+apart from | phr. | 除了……之外 | Apart from its natural splendor, Kyoto has so much more to feast one's eyes on.
+splendor | n. | 壯麗;雄偉 | Apart from its natural splendor, Kyoto has so much more to feast one's eyes on.
+feast one's eyes on | phr. | 使人目不暇給;盡情欣賞 | Apart from its natural splendor, Kyoto has so much more to feast one's eyes on.
+previously | adv. | 先前地 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
+capital | n. | 首都 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
+boast | v. | 以……為傲;擁有 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
+historic | adj. | 歷史悠久的;歷史上著名的 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
+shrine | n. | 神社 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
+temple | n. | 寺廟 | Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.
+complete | adj. | 完整的 | No visit to Kyoto would be complete without seeing one of the most photographed landmarks: the Kinkaku-ji, or the Golden Pavilion Temple in English.
+landmark | n. | 地標 | No visit to Kyoto would be complete without seeing one of the most photographed landmarks: the Kinkaku-ji, or the Golden Pavilion Temple in English.
+Kinkaku-ji | n. | 金閣寺 | No visit to Kyoto would be complete without seeing one of the most photographed landmarks: the Kinkaku-ji, or the Golden Pavilion Temple in English.
+Golden Pavilion Temple | n. | 金閣寺(英文名稱) | No visit to Kyoto would be complete without seeing one of the most photographed landmarks: the Kinkaku-ji, or the Golden Pavilion Temple in English.
+giant | adj. | 巨大的 | With giant, leafy maple trees leading up to its main entrance, what comes into view is this magnificent three-story pavilion.
+leafy | adj. | 枝葉茂盛的 | With giant, leafy maple trees leading up to its main entrance, what comes into view is this magnificent three-story pavilion.
+lead up to | phr. | 通往 | With giant, leafy maple trees leading up to its main entrance, what comes into view is this magnificent three-story pavilion.
+magnificent | adj. | 壯麗的;雄偉的 | With giant, leafy maple trees leading up to its main entrance, what comes into view is this magnificent three-story pavilion.
+entrance | n. | 大門;入口 | With giant, leafy maple trees leading up to its main entrance, what comes into view is this magnificent three-story pavilion.
+story | n. | 樓層 | With giant, leafy maple trees leading up to its main entrance, what comes into view is this magnificent three-story pavilion.
+pavilion | n. | 樓閣;亭閣 | With giant, leafy maple trees leading up to its main entrance, what comes into view is this magnificent three-story pavilion.
+rise up | phr. | 升起;聳立 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
+crystal-clear | adj. | 清澈的 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
+pond | n. | 池塘 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
+crown | v. | 頂上有……;位於……頂端 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
+bronze | adj. | 古銅色的 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
+phoenix | n. | 鳳凰 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
+shimmering | adj. | 閃閃發光的 | Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.
+reflection | n. | 倒影;反射 | The reflection of the pavilion on the glassy surface of the pond is a breathtaking sight.
+glassy | adj. | 如鏡的;平滑的 | The reflection of the pavilion on the glassy surface of the pond is a breathtaking sight.
+surface | n. | 表面 | The reflection of the pavilion on the glassy surface of the pond is a breathtaking sight.
+breathtaking | adj. | 驚人的;極為美麗的 | The reflection of the pavilion on the glassy surface of the pond is a breathtaking sight.
+leisurely | adj. | 悠閒的 | Visitors can take a leisurely walk through the surrounding gardens and enjoy many stunning views of this beautiful structure.
+surrounding | adj. | 周圍的 | Visitors can take a leisurely walk through the surrounding gardens and enjoy many stunning views of this beautiful structure.
+stunning | adj. | 撼動人心的;令人驚訝的 | Visitors can take a leisurely walk through the surrounding gardens and enjoy many stunning views of this beautiful structure.
+structure | n. | 建築物;結構 | Visitors can take a leisurely walk through the surrounding gardens and enjoy many stunning views of this beautiful structure.
+unforgettable | adj. | 難忘的 | Another unforgettable Kyoto sight involves coming face to face with one of the old capital's very special "persons of art," or geishas.
+sight | n. | 景象;景色 | Another unforgettable Kyoto sight involves coming face to face with one of the old capital's very special "persons of art," or geishas.
+involve | v. | 牽涉;包含 | Another unforgettable Kyoto sight involves coming face to face with one of the old capital's very special "persons of art," or geishas.
+face to face | phr. | 面對面 | Another unforgettable Kyoto sight involves coming face to face with one of the old capital's very special "persons of art," or geishas.
+person of art | n. | 藝人 | Another unforgettable Kyoto sight involves coming face to face with one of the old capital's very special "persons of art," or geishas.
+geisha | n. | 藝妓 | Another unforgettable Kyoto sight involves coming face to face with one of the old capital's very special "persons of art," or geishas.
+delicate | adj. | 精美的 | These are women dressed in delicate kimonos with silk sleeves.
+sleeve | n. | 袖子 | These are women dressed in delicate kimonos with silk sleeves.
+distinctive | adj. | 獨特的 | Their distinctive white makeup, bright red lipstick, and elegant hairpins also make them easy to recognize.
+makeup | n. | 化妝;妝 | Their distinctive white makeup, bright red lipstick, and elegant hairpins also make them easy to recognize.
+lipstick | n. | 口紅 | Their distinctive white makeup, bright red lipstick, and elegant hairpins also make them easy to recognize.
+elegant | adj. | 雅致的 | Their distinctive white makeup, bright red lipstick, and elegant hairpins also make them easy to recognize.
+hairpin | n. | 髮簪;髮夾 | Their distinctive white makeup, bright red lipstick, and elegant hairpins also make them easy to recognize.
+recognize | v. | 辨識;認出 | Their distinctive white makeup, bright red lipstick, and elegant hairpins also make them easy to recognize.
+unique | adj. | 獨一無二的;獨特的 | And it's not just their unique appearance that makes geishas stand out from the crowd.
+appearance | n. | 外表 | And it's not just their unique appearance that makes geishas stand out from the crowd.
+stand out | phr. | 顯眼 | And it's not just their unique appearance that makes geishas stand out from the crowd.
+skilled | adj. | 熟練的;有技巧的 | These highly skilled entertainers spend years mastering different musical instruments, songs, and literature.
+entertainer | n. | 藝人;表演者 | These highly skilled entertainers spend years mastering different musical instruments, songs, and literature.
+master | v. | 精通 | These highly skilled entertainers spend years mastering different musical instruments, songs, and literature.
+instrument | n. | 樂器 | These highly skilled entertainers spend years mastering different musical instruments, songs, and literature.
+literature | n. | 文學;文學作品 | These highly skilled entertainers spend years mastering different musical instruments, songs, and literature.
+kyomai | n. | 京舞 | Of course, no "person of art" could be a true geisha without being able to perform the traditional kyomai dance.
+ancient | adj. | 古老的 | This ancient art combines slow music with very deliberate movements and often expresses very deep emotion.
+combine | v. | 結合 | This ancient art combines slow music with very deliberate movements and often expresses very deep emotion.
+deliberate | adj. | (動作等)小心翼翼的 | This ancient art combines slow music with very deliberate movements and often expresses very deep emotion.
+movement | n. | 動作 | This ancient art combines slow music with very deliberate movements and often expresses very deep emotion.
+express | v. | 表達 | This ancient art combines slow music with very deliberate movements and often expresses very deep emotion.
+emotion | n. | 情緒;情感 | This ancient art combines slow music with very deliberate movements and often expresses very deep emotion.
+culture | n. | 文化 | In Kyoto, culture and natural beauty flow together like the graceful motions of kyomai.
+flow | v. | 流動;匯流 | In Kyoto, culture and natural beauty flow together like the graceful motions of kyomai.
+graceful | adj. | 優雅的 | In Kyoto, culture and natural beauty flow together like the graceful motions of kyomai.
+motion | n. | 動作 | In Kyoto, culture and natural beauty flow together like the graceful motions of kyomai.
+regardless of | phr. | 不論 | Regardless of the season, the city is a must-see destination for tourists seeking an authentic local experience.
+must-see | adj. | 必須參觀的 | Regardless of the season, the city is a must-see destination for tourists seeking an authentic local experience.
+destination | n. | 目的地 | Regardless of the season, the city is a must-see destination for tourists seeking an authentic local experience.
+seek | v. | 尋找;尋求 | Regardless of the season, the city is a must-see destination for tourists seeking an authentic local experience.
+authentic | adj. | 道地的;真正的 | Regardless of the season, the city is a must-see destination for tourists seeking an authentic local experience.
+fall in love with | phr. | 愛上 | Those who visit are likely to end up falling in love with the heart of Japan.
+
 @bank 核單
+@sample 這個單字庫目前是示範資料,請換成教材的正式內容
 @unit 1
 curious | adj. | 好奇的 | Children are curious about everything. | 孩子們對一切都好奇。
 decide | v. | 決定 | I decided to stay home. | 我決定待在家。

@@ -5,9 +5,10 @@
 
 cloze.txt format
   # comment lines and blank lines outside a passage are ignored
-  @sample 說明文字                 (optional: marks the file as demo data)
-  @source 教材名稱                  (optional)
-  @unit 3                          (following items belong to unit 3)
+  @bank 龍騰                       (which word bank these questions belong to — the name must match one in words.txt;
+                                    run build_words.py first. Each bank has its own cloze questions and its own switch.)
+  @sample 說明文字                 (optional, right after @bank: marks that bank's cloze questions as demo data)
+  @unit 3                          (following items belong to unit 3 of that bank)
 
   單句 (one line):  S | sentence with ______ | A選項 | B選項 | C選項 | D選項 | 答案字母 | 解析(可省略)
 
@@ -21,14 +22,15 @@ cloze.txt format
 
 Checks (any failure aborts the build): exactly one ______ per sentence; 4 distinct options; answer letter is A–D;
 every [n] in a passage appears once and has an option line, and every option line has a matching [n].
-Item ids come from unit + order of appearance (p3-1 = unit 3's 1st passage, s3-2 = unit 3's 2nd sentence):
-to keep students' progress, only ever ADD new items at the END of a unit.
+Item ids come from bank + unit + order of appearance (b1-p3-1 = bank 1, unit 3, 1st passage; b1-s3-2 = its 2nd sentence):
+to keep students' progress, only ever ADD new items at the END of a unit (and new banks at the end of the file).
 """
 import json, re, sys, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / 'tools' / 'material' / 'cloze.txt'
 OUT = ROOT / 'data' / 'cloze.json'
+WORDS = ROOT / 'data' / 'words.json'
 BLANK = '______'
 
 
@@ -44,8 +46,9 @@ def parse_opts(f, n, tag, errors):
 
 def main():
     lines = SRC.read_text(encoding='utf-8').splitlines()
-    meta, passages, sentences, errors = {}, [], [], []
-    unit, pcount, scount, i = None, {}, {}, 0
+    meta, passages, sentences, errors = {'banks': {}}, [], [], []
+    unit, pcount, scount, i, bank = None, {}, {}, 0, None
+    names = {b['name']: b['id'] for b in json.loads(WORDS.read_text(encoding='utf-8'))['meta'].get('banks', [])} if WORDS.exists() else {}
     while i < len(lines):
         n, line = i + 1, lines[i].strip(); i += 1
         if not line or line.startswith('#'): continue
@@ -53,12 +56,18 @@ def main():
             v = line[5:].strip()
             if v.isdigit(): unit = int(v)
             else: errors.append(f'{n}: @unit 後面要接數字')
+        elif line.startswith('@bank'):
+            nm = line[5:].strip()
+            if nm not in names: errors.append(f'{n}: 找不到單字庫「{nm}」(words.txt 裡要有同名的 @bank)'); bank = None
+            else: bank = names[nm]; meta['banks'].setdefault(bank, {}); unit = None
         elif line.startswith('@sample'):
-            meta['sample'] = True; meta['note'] = line[7:].strip()
+            if bank: meta['banks'][bank]['sample'] = True; meta['banks'][bank]['note'] = line[7:].strip()
+            else: errors.append(f'{n}: @sample 要寫在 @bank 之後')
         elif line.startswith('@source'):
             meta['source'] = line[7:].strip()
         elif line.startswith('@passage'):
             title = line[8:].strip()
+            if bank is None: errors.append(f'{n}: 短文之前要先寫 @bank 名稱')
             if unit is None: errors.append(f'{n}: 短文之前要先寫 @unit N')
             text, blanks, start = [], {}, n
             while i < len(lines) and lines[i].strip() != '@end':
@@ -79,20 +88,21 @@ def main():
             marks = [int(x) for x in re.findall(r'\[(\d+)\]', body)]
             if len(set(marks)) != len(marks): errors.append(f'{start}: 短文裡有重複的空格編號')
             if sorted(set(marks)) != sorted(blanks): errors.append(f'{start}: 短文空格 {sorted(set(marks))} 與選項行 {sorted(blanks)} 不一致')
-            if unit is None: continue
-            pcount[unit] = pcount.get(unit, 0) + 1
-            passages.append({'id': f'p{unit}-{pcount[unit]}', 'unit': unit, 'no': pcount[unit], 'title': title, 'text': body,
+            if unit is None or bank is None: continue
+            pk = (bank, unit); pcount[pk] = pcount.get(pk, 0) + 1
+            passages.append({'id': f'{bank}-p{unit}-{pcount[pk]}', 'bank': bank, 'unit': unit, 'no': pcount[pk], 'title': title, 'text': body,
                              'blanks': [{'no': k, 'opts': blanks[k][0], 'ans': blanks[k][1], **({'exp': blanks[k][2]} if blanks[k][2] else {})} for k in sorted(blanks)]})
         elif line.startswith('S') and line[1:].lstrip().startswith('|'):
             f = [x.strip() for x in line.split('|')][1:]
+            if bank is None: errors.append(f'{n}: 單句之前要先寫 @bank 名稱'); continue
             if unit is None: errors.append(f'{n}: 單句之前要先寫 @unit N'); continue
             if not f: errors.append(f'{n}: 單句是空的'); continue
             sent = f[0]
             if sent.count(BLANK) != 1: errors.append(f'{n}: 單句要剛好一個 {BLANK}: {sent[:40]}')
             r = parse_opts(f[1:], n, '單句', errors)
             if not r or sent.count(BLANK) != 1: continue
-            scount[unit] = scount.get(unit, 0) + 1
-            s = {'id': f's{unit}-{scount[unit]}', 'unit': unit, 'no': scount[unit], 'q': sent, 'full': sent.replace(BLANK, r[1], 1), 'opts': r[0], 'ans': r[1]}
+            sk = (bank, unit); scount[sk] = scount.get(sk, 0) + 1
+            s = {'id': f'{bank}-s{unit}-{scount[sk]}', 'bank': bank, 'unit': unit, 'no': scount[sk], 'q': sent, 'full': sent.replace(BLANK, r[1], 1), 'opts': r[0], 'ans': r[1]}
             if r[2]: s['exp'] = r[2]
             sentences.append(s)
         else:
