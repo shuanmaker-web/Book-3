@@ -31,7 +31,7 @@ p{margin:.3em 0}
 #tabs button{
   flex:1;border:0;background:none;padding:14px 0;font:inherit;font-weight:600;color:var(--muted);cursor:pointer
 }
-#tabs button.on{color:var(--accent);box-shadow:inset 0 3px 0 var(--accent)}
+#tabs button.on{color:var(--ink);box-shadow:inset 0 3px 0 var(--accent)}
 body.in-session #tabs{display:none}
 
 .card{
@@ -40,7 +40,7 @@ body.in-session #tabs{display:none}
 }
 .hero{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
 .pill{
-  display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent);
+  display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--ink);
   border-radius:999px;padding:4px 12px;font-weight:700;font-size:.9rem
 }
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
@@ -62,9 +62,9 @@ body.in-session #tabs{display:none}
   border:0;background:var(--accent);color:var(--accent-ink);border-radius:12px;padding:13px 18px;
   font:inherit;font-weight:700;cursor:pointer;min-height:48px
 }
-.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .btn.block{width:100%}
-.btn.danger{background:var(--bad);color:#fff}
+.btn.danger{background:var(--bad);color:var(--page-ink,#fff)}
 .btn:disabled{opacity:.5}
 .icon-btn{
   border:1px solid var(--line);background:var(--surface);border-radius:999px;width:44px;height:44px;
@@ -135,7 +135,7 @@ input[type=number],input[type=date],select{
 }
 .missed li{margin:2px 0}
 .credits{font-size:.82rem;color:var(--muted)}
-.credits a{color:var(--accent)}
+.credits a{color:var(--ink)}
 
 /* exercises */
 .qtext{font-size:1.15rem;line-height:1.7;margin:8px 0 4px}
@@ -160,7 +160,7 @@ mark.ans{background:var(--good-soft);color:var(--good);font-weight:800;border-ra
 .urow{display:grid;grid-template-columns:62px 1fr 56px;gap:8px;align-items:center;margin:5px 0;font-size:.88rem}
 details>summary{cursor:pointer;font-weight:600;margin-top:10px}
 #tabs button{font-size:.95rem}
-.wgroup{border-top:1px solid var(--line,#2a3330);margin-top:10px}.wgroup>.row b{color:var(--accent)}
+.wgroup{border-top:1px solid var(--line,#2a3330);margin-top:10px}.wgroup>.row b{color:var(--ink)}
 
 .sheet-bg{position:fixed;inset:0;background:#0007;display:flex;align-items:flex-end;justify-content:center;z-index:50}.sheet{width:100%;max-width:520px;border-radius:18px 18px 0 0;display:flex;flex-direction:column;gap:10px;padding:18px 16px 24px}
 
@@ -171,23 +171,23 @@ details>summary{cursor:pointer;font-weight:600;margin-top:10px}
 .ut{position:relative;aspect-ratio:1;border:0;border-radius:50%;padding:0;cursor:pointer;color:var(--ink);font:inherit;font-size:.62rem;font-weight:700;display:grid;place-items:center;background:conic-gradient(var(--good) 0 var(--g),var(--bad) var(--g) var(--w),var(--line) var(--w) 360deg)}
 .ut::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--surface)}
 .ut span{position:relative;z-index:1}
-.ut.done{background:var(--warn)}.ut.done::after{background:var(--warn)}.ut.done span{color:#fff;font-size:.8rem}
+.ut.done{background:var(--warn)}.ut.done::after{background:var(--warn)}.ut.done span{color:var(--page-ink,#fff);font-size:.8rem}
 
 /* home bank blocks: outlined card with solid offset shadow */
 .card.bank{border:1.5px solid var(--ink);box-shadow:4px 4px 0 var(--accent)}
 .card.bank h2{margin:0}
-.bank-stat{display:flex;align-items:baseline;gap:4px;color:var(--accent);font-size:.95rem}
+.bank-stat{display:flex;align-items:baseline;gap:4px;color:var(--ink);font-size:.95rem}
 .bank-stat b{font-size:1.35rem}
 .bank-stat small{color:var(--muted);margin-left:4px}
 
 .pill{white-space:nowrap}
 
-.exam-badge{display:inline-flex;color:var(--accent);line-height:0}
+.exam-badge{display:inline-flex;color:var(--ink);line-height:0}
 .hero{align-items:center}
 .lrow{display:grid;grid-template-columns:6.6em 1fr auto;align-items:center;gap:10px;font-size:.88rem;color:var(--muted)}
 .lrow .bar{height:12px}
 .lrow .pn{min-width:4.6em;text-align:right;white-space:nowrap}
-.lrow .pn b{color:var(--accent);font-size:1rem}
+.lrow .pn b{color:var(--ink);font-size:1rem}
 
 /* calendar days are stars */
 .heat{grid-template-columns:repeat(15,minmax(0,1fr));gap:2px}
@@ -202,7 +202,7 @@ details>summary{cursor:pointer;font-weight:600;margin-top:10px}
 :is(.heat,.star-legend) i.today polygon{stroke:var(--ink);stroke-width:2}
 :is(.heat,.star-legend) i.exday polygon{fill:var(--accent);stroke:var(--ink);stroke-width:1.3}
 .exam-badge{align-items:center;gap:6px}
-.exam-badge .dl{font-size:11px;font-weight:800;line-height:1.15;color:var(--accent);letter-spacing:.02em;text-align:left}
+.exam-badge .dl{font-size:11px;font-weight:800;line-height:1.15;color:var(--ink);letter-spacing:.02em;text-align:left}
 .hero{flex-wrap:wrap;gap:8px}
 
 .stat.pstat{background:var(--surface);border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--accent);padding:12px 6px}
@@ -234,9 +234,9 @@ body[data-bank="main"],button.card.bank.ac-gsat{--accent:var(--y);--accent-soft:
 
 /* ===== v5: blob faces, individual tab icons, consistent thick outlines ===== */
 :root{
-  --page:#FF5700;--bg:#f5ead6;--surface:#fffcf5;--ink:#1a1a1a;--muted:#6b5e50;--line:#d9c9a8;
+  --page:#F4B8F1;--bg:#f5ead6;--surface:#fffcf5;--ink:#1a1a1a;--muted:#6b5e50;--line:#d9c9a8;
   --blue:#2347f0;--yellow:#ffd200;--red:#ff3b1d;--green:#00b856;--pink:#ff6b9d;--orange:#ff8c1a;
-  --accent:#2347f0;--accent-soft:#dde4ff;--accent-ink:#fff;
+  --accent:#2347f0;--accent-soft:#dde4ff;--accent-ink:#1a1a1a;
   --good:#00a34a;--good-soft:#d8f5e3;--bad:#e5270e;--bad-soft:#ffe0da;--warn:#d98e00;
   --y:#2347f0;--bk:3px solid #1a1a1a;--radius:20px;
   --shadow:4px 4px 0 #1a1a1a;
@@ -306,11 +306,11 @@ body{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
   #tabs button.on span{font-size:.8rem}
 }
 .c-gsat{background:var(--red)}
-.c-gsat{color:#fff}
-.c-gsat .cn,.c-gsat .cb{color:#fff}
+.c-gsat{color:var(--page-ink,#fff)}
+.c-gsat .cn,.c-gsat .cb{color:var(--page-ink,#fff)}
 .cn{display:block;font-size:1rem;line-height:1.1;text-align:center;font-weight:800}
 .cn .nw{white-space:nowrap}
-.c-gsat{color:#fff}
+.c-gsat{color:var(--page-ink,#fff)}
 
 /* ---- round calendar badge ---- */
 .exam-badge{background:none;padding:0;border-radius:0;gap:8px;color:inherit;display:inline-flex;align-items:center;line-height:0}
@@ -322,7 +322,7 @@ html[data-view="main"]{--bd:var(--yellow);--bdn:#1a1a1a;--bdl:#1a1a1a}
 .card .exam-badge .dl{color:#1a1a1a}
 
 /* streak pill */
-.streak-pill{border:2.5px solid #1a1a1a;background:var(--orange);color:#fff;box-shadow:2px 2px 0 #1a1a1a;font-size:.88rem;border-radius:999px}
+.streak-pill{border:2.5px solid #1a1a1a;background:var(--orange);color:var(--page-ink,#fff);box-shadow:2px 2px 0 #1a1a1a;font-size:.88rem;border-radius:999px}
 
 /* ---- progress bars: thick outlines ---- */
 .pbar{border:2.5px solid #1a1a1a;border-radius:99px}
@@ -356,7 +356,7 @@ body #tabs{position:fixed;left:0;right:0;bottom:0;margin:0 auto;max-width:640px;
   background:none;border:0;box-shadow:none;border-radius:0;overflow:visible;z-index:5}
 body #tabs::before{content:"";position:absolute;left:-2%;right:-2%;bottom:-24px;top:0;background:var(--mon,#2a5bea);border:4.5px solid #1a1a1a;
   border-radius:50% 50% 0 0 / 64px 64px 0 0;z-index:-1}
-body #tabs button{position:relative;background:none!important;border:0!important;box-shadow:none!important;padding:4px 8px;min-width:50px;min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:14px;color:#fff;transition:transform .15s}
+body #tabs button{position:relative;background:none!important;border:0!important;box-shadow:none!important;padding:4px 8px;min-width:50px;min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:14px;color:var(--page-ink,#fff);transition:transform .15s}
 body #tabs button span{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);margin-bottom:1px;display:block!important;visibility:hidden;font-size:.7rem;font-weight:800;color:#fff;white-space:nowrap;text-shadow:1.5px 1.5px 0 #1a1a1a}
 body #tabs button.on span{visibility:visible}
 body #tabs button .ti{display:block;width:46px;height:46px;flex:0 0 auto;background:#fff;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat;filter:drop-shadow(2px 2px 0 #1a1a1a)}
@@ -382,7 +382,7 @@ body #tabs button span{bottom:calc(100% + 6px);color:#1a1a1a;text-shadow:none}
 body #tabs{height:68px}
 body #tabs button{flex-direction:column;gap:1px}
 body #tabs button .ti{width:30px;height:30px}
-body #tabs button span{position:static;transform:none;margin:0;bottom:auto;display:block!important;visibility:hidden;font-size:.62rem;line-height:1;color:#fff;height:.62rem}
+body #tabs button span{position:static;transform:none;margin:0;bottom:auto;display:block!important;visibility:hidden;font-size:.62rem;line-height:1;color:var(--page-ink,#fff);height:.62rem}
 body #tabs button.on span{visibility:visible;color:#ffd200}
 
 /* ===== unity pass ===== */
@@ -399,17 +399,17 @@ body #tabs{border:3px solid #1a1a1a;box-shadow:3px 3px 0 #1a1a1a;box-sizing:bord
 /* ===== calendar: same yellow in both sections; sub-buttons orange ===== */
 body[data-bank] .chip:not(.on),
 body[data-bank] .mode,
-body[data-bank] .btn.ghost{background:var(--page);color:#fff}
-body[data-bank] .mode b,body[data-bank] .mode span{color:#fff}
+body[data-bank] .btn.ghost{background:var(--page);color:var(--page-ink,#fff)}
+body[data-bank] .mode b,body[data-bank] .mode span{color:var(--page-ink,#fff)}
 body[data-bank] .mode:disabled{opacity:.55}
 body[data-bank] .chip.on{background:var(--yellow);color:#1a1a1a;border-color:#1a1a1a}
 
 /* ===== one orange everywhere (same as the home page) ===== */
-:root{--red:#FF5700;--orange:#FF5700;--accent:#FF5700;--accent-soft:#FFE3D3}
-body[data-bank]{--accent:#FF5700;--accent-soft:#FFE3D3;--accent-ink:#fff}
+:root{--red:#F4B8F1;--orange:#F4B8F1;--accent:#F4B8F1;--accent-soft:#FCE6FB}
+body[data-bank]{--accent:#F4B8F1;--accent-soft:#FCE6FB;--accent-ink:#1a1a1a}
 
 /* error / warning colors use the same orange; text inputs match the other fields */
-:root,body[data-bank]{--bad:#FF5700;--bad-soft:#FFE3D3;--warn:#FF5700}
+:root,body[data-bank]{--bad:#F4B8F1;--bad-soft:#FCE6FB;--warn:#F4B8F1}
 input[type=text],input[type=search]{max-width:150px;min-width:0;border:2.5px solid #1a1a1a;border-radius:14px;background:var(--surface);font:inherit;padding:8px 10px;color:var(--ink)}
 
 /* ===== compact multiple-choice question so the answer card fits on screen ===== */
@@ -441,7 +441,7 @@ body #tabs button.on .ti{background:#1a1a1a}
 
 /* ===== progress calendar: circles ===== */
 :is(.heat,.star-legend) i circle.c{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:2.4 2.2}
-:is(.heat,.star-legend) i[data-l="1"] circle.c{fill:#FFE3D3;stroke:var(--page);stroke-width:1.8;stroke-dasharray:none}
+:is(.heat,.star-legend) i[data-l="1"] circle.c{fill:#FCE6FB;stroke:var(--page);stroke-width:1.8;stroke-dasharray:none}
 :is(.heat,.star-legend) i[data-l="2"] circle.c{fill:var(--page);stroke:#1a1a1a;stroke-width:1.8;stroke-dasharray:none}
 :is(.heat,.star-legend) i.f circle.c{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:2.4 2.2}
 :is(.heat,.star-legend) i circle.dot{fill:var(--page);stroke:#1a1a1a;stroke-width:1.4}
@@ -470,7 +470,7 @@ body[data-bank] .btn.ghost.danger-btn,.btn.ghost.danger-btn{background:#1a1a1a;c
 
 /* marked days are stars; unmarked days stay dotted circles */
 :is(.heat,.star-legend) i polygon.st{stroke-linejoin:round}
-:is(.heat,.star-legend) i[data-l="1"] polygon.st{fill:#FFE3D3;stroke:var(--page);stroke-width:1.6}
+:is(.heat,.star-legend) i[data-l="1"] polygon.st{fill:#FCE6FB;stroke:var(--page);stroke-width:1.6}
 :is(.heat,.star-legend) i[data-l="2"] polygon.st{fill:var(--page);stroke:#1a1a1a;stroke-width:1.6}
 
 /* ===== theme color: everything follows --page (set from settings) ===== */
@@ -487,11 +487,6 @@ body[data-bank] .stat,body[data-bank] .mode b{color:inherit}
 :is(.heat,.star-legend) i.exday .trophy path.hd{fill:none}
 :is(.heat,.star-legend) i.exday .trophy path.sh{fill:none;stroke:#fff;stroke-width:1.2;stroke-linecap:round}
 
-/* theme swatches */
-.swatches{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:10px}
-.sw{display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:none;font:inherit;font-size:.8rem;font-weight:700;color:var(--ink);cursor:pointer;padding:0}
-.sw i{display:block;width:44px;height:44px;border-radius:50%;background:var(--c);border:3px solid #1a1a1a;box-shadow:2px 2px 0 #1a1a1a}
-.sw.on i{box-shadow:0 0 0 3px var(--surface),0 0 0 6px #1a1a1a}
 
 /* wrong-answer color stays red regardless of theme */
 :root,body[data-bank],body[data-bank="main"]{--bad:#E5270E;--bad-soft:#FFE0DA}
@@ -509,4 +504,21 @@ mark.ans.miss{background:var(--bad-soft);color:var(--bad)}
 /* word-bank switch on the home page */
 .bank-tabs{display:flex;gap:4px;padding:5px;background:var(--surface);border:2.5px solid #1a1a1a;border-radius:999px;box-shadow:3px 3px 0 #1a1a1a}
 .bank-tabs button{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-weight:700;font-size:.95rem;padding:10px 8px;border-radius:999px;color:#1a1a1a;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bank-tabs button.on{background:var(--page);color:#fff}
+.bank-tabs button.on{background:var(--page);color:var(--page-ink,#fff)}
+
+/* ===== Book3 logo: brand image, landing page ===== */
+.brand{display:block;height:auto;max-width:100%}
+.hero h1.brand-h{margin:0;line-height:0;min-width:0;flex:0 1 auto}
+.hero .brand{width:min(170px,44vw)}
+.brand-foot{text-align:center;line-height:1.2}
+.brand-foot .brand.sm{width:96px;margin:0 auto 4px}
+body.landing #tabs{display:none}
+body.landing{padding-bottom:0;background:#FDECF5}
+html:has(body.landing),html:has(body.landing) body{background:#FDECF5!important}
+.landing-btn{display:flex;align-items:center;justify-content:center;position:fixed;inset:0;width:100%;height:100%;margin:0;padding:24px;border:0;border-radius:0;
+  background:transparent;box-shadow:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.landing-logo{width:min(78vw,420px);height:auto;transition:transform .15s}
+.landing-btn:active .landing-logo{transform:scale(.96)}
+.landing-btn:focus-visible{outline:3px solid #1a1a1a;outline-offset:-10px}
+@media (prefers-reduced-motion:no-preference){.landing-logo{animation:landing-bob 2.8s ease-in-out infinite}}
+@keyframes landing-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}

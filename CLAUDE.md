@@ -7,9 +7,14 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 
 ## Status
 - Local git repo only (`main`), **no remote yet, nothing published**. Still needed from the teacher: an empty GitHub repo under
-  `shuanmaker-web` (then `add_repo(..., access=push)`), the landing-page logo/illustration, and the real 核單 material.
+  `shuanmaker-web` (then `add_repo(..., access=push)`) and the real 核單 material.
 - The teacher will check the yellow-word glosses (the ones written by Claude) **after the first push** — keep them listed for review.
-- Name Book3, default theme lavender (`#9381E0`), icons = Vocaboo's (as requested).
+- Name Book3; app icons = Vocaboo's (as requested). **Brand:** the Book3 logo (`icons/logo.png`: pink "Book" + lime "3" + stars,
+  transparent PNG) replaces every "Book3" text in the UI (home hero, settings footer, loading placeholder). Opening the app shows a
+  **landing page with only the logo, which is a full-screen button** (tap anywhere → home; shown on every load, tabs hidden there).
+- **One fixed theme colour: the pink of "Book", `#F4B8F1`** (`PAGE_PINK` in `app.js` → CSS `--page`; also `theme-color` meta and
+  manifest). There is **no colour picker** any more (old saved `theme` values are ignored). Text on pink is dark ink (`--page-ink`
+  `#1a1a1a`), never white; pink is not used for text on light cards (low contrast).
 
 ## NEVER push before the teacher says CONFIRM ⚠️
 "remember don't push before i CONFIRM." Make the change → verify it locally → show the result → **wait for an explicit OK** →

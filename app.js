@@ -19,7 +19,7 @@ const EXAM_PRESETS = [
   { name: '學測', date: '2027-01-22' },
   { name: '國中會考', date: '' },
 ];
-const DEFAULTS = { newPerDay: 20, sessionSize: 20, retention: 0.9, examName: '段考', examDate: '', progressDays: 0, bank: null, ranges: {}, lastBackupAt: 0, theme: 'lavender' };
+const DEFAULTS = { newPerDay: 20, sessionSize: 20, retention: 0.9, examName: '段考', examDate: '', progressDays: 0, bank: null, ranges: {}, lastBackupAt: 0 };
 
 /* ---------- storage (IndexedDB, with in-memory fallback) ----------
    NOTE: every GitHub Pages site of the same account shares one browser origin, so the database name must be unique to this app. */
@@ -77,7 +77,7 @@ const store = (() => {
 /* ---------- state ---------- */
 const S = {
   settings: { ...DEFAULTS }, daily: {}, cards: new Map(), words: [], meta: {}, cmeta: {},
-  tab: 'home', session: null, fsrs: null, questions: [], qstats: new Map(), pview: 'main', punit: null, pkind: 'all',
+  tab: 'home', landing: true, session: null, fsrs: null, questions: [], qstats: new Map(), pview: 'main', punit: null, pkind: 'all',
 };
 const wordById = {}, qById = {};
 const cardId = (wid, type) => `${type}:${wid}`; // type = 'mcq' | 'spell' (each mode has its own FSRS card per word)
@@ -239,6 +239,8 @@ const app = $('#app');
 function setTab(t) { S.tab = t; S.pview = 'main'; document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t)); render(); }
 function render() {
   applyTheme();
+  if (S.landing) return renderLanding();
+  document.body.classList.remove('landing');
   document.body.classList.toggle('in-session', !!S.session);
   document.body.dataset.bank = 'main'; // styling hook (single word list)
   document.documentElement.dataset.view = 'main';
@@ -296,7 +298,7 @@ function wordCard() {
 function renderHome() {
   const today = S.daily[dayKey()]?.correct || 0;
   app.innerHTML = `${iosHint()}
-    <div class="hero"><h1>${esc(appTitle())}</h1>${examCal()}</div>
+    <div class="hero"><h1 class="brand-h">${logoImg()}</h1>${examCal()}</div>
     <div class="stack">${bankSwitch()}${wordCard()}
     <p class="today-n">今天答對 ${today} 題${store.volatile ? '<br><b style="color:var(--bad)">⚠ 此瀏覽器無法儲存資料,關閉後進度會消失</b>' : ''}</p></div>`;
   const uf = $('#u-from'), ut = $('#u-to');
@@ -349,18 +351,23 @@ function renderProgress() {
   app.innerHTML = html;
 }
 
-const THEMES = { lavender: ['薰衣草', '#9381E0'], blue: ['藍', '#2A5BEA'], orange: ['橘', '#FF5700'], purple: ['紫', '#9B6BFF'], pink: ['粉', '#FF4F9A'], teal: ['青', '#12B8CC'] };
+const PAGE_PINK = '#F4B8F1'; // the pink of "Book" in the logo — the one and only theme colour
 function applyTheme() {
-  const c = (THEMES[S.settings.theme] || THEMES.lavender)[1];
-  document.documentElement.style.setProperty('--page', c);
-  const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = c;
+  document.documentElement.style.setProperty('--page', PAGE_PINK);
+  document.documentElement.style.setProperty('--page-ink', '#1a1a1a');
+  const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = PAGE_PINK;
+}
+const logoImg = (cls = 'brand') => `<img class="${cls}" src="icons/logo.png" alt="Book3" width="800" height="340" decoding="async">`;
+function renderLanding() {
+  document.body.classList.add('landing');
+  app.innerHTML = `<button class="landing-btn" id="go" aria-label="Book3 — 點一下開始使用">${logoImg('landing-logo')}</button>`;
+  $('#go').addEventListener('click', () => { S.landing = false; render(); });
 }
 const APP_VERSION = 'v1';
 function renderSettings() {
   const s = S.settings;
   const days = s.lastBackupAt ? Math.floor((Date.now() - s.lastBackupAt) / DAY) : null;
   app.innerHTML = `<h1>設定</h1><div class="stack" style="margin-top:12px">
-  <section class="card"><h2>主題色</h2><div class="swatches">${Object.entries(THEMES).map(([k, [n, c]]) => `<button class="sw ${(s.theme || 'lavender') === k ? 'on' : ''}" data-theme="${k}" style="--c:${c}" aria-label="${n}" aria-pressed="${(s.theme || 'lavender') === k}"><i></i><span>${n}</span></button>`).join('')}</div></section>
   <section class="card">
     <label class="set"><span>每天新字上限</span><input type="number" id="s-new" min="0" max="200" value="${s.newPerDay}"></label>
     <label class="set"><span>每回題數</span><input type="number" id="s-size" min="5" max="100" value="${s.sessionSize}"></label>
@@ -380,9 +387,8 @@ function renderSettings() {
   <section class="card credits"><h2>關於與致謝</h2>
     ${S.meta.source ? `<p>單字與題目內容整理自教材:${esc(S.meta.source)}。僅供個人學習使用。</p>` : ''}
     <p>複習排程:<a href="https://github.com/open-spaced-repetition/ts-fsrs" target="_blank" rel="noopener">ts-fsrs</a>(MIT)。</p>
-  </section><p class="small muted" style="text-align:center">${esc(appTitle())} ${APP_VERSION}</p></div>`;
+  </section><p class="small muted brand-foot">${logoImg('brand sm')}<br>${APP_VERSION}</p></div>`;
   const num = (id, key) => $(id).addEventListener('change', async e => { s[key] = Math.max(0, +e.target.value || 0); await saveSettings(); });
-  document.querySelectorAll('[data-theme]').forEach(b => b.onclick = async () => { s.theme = b.dataset.theme; await saveSettings(); applyTheme(); renderSettings(); });
   num('#s-new', 'newPerDay'); num('#s-size', 'sessionSize');
   $('#s-preset').addEventListener('change', async e => { const x = EXAM_PRESETS[+e.target.value]; if (!x) return $('#s-ename').focus(); s.examName = x.name; s.examDate = x.date; await saveSettings(); renderSettings(); if (!x.date) $('#s-exam').focus(); });
   $('#s-ename').addEventListener('change', async e => { s.examName = e.target.value.trim(); await saveSettings(); });
