@@ -19,7 +19,11 @@ words.txt format
   word | pos | 中文意思 | example sentence (optional) | 例句中文 (optional)
 
 Word ids are made from the bank number + the word itself (so reordering the file never mixes up students' progress; the same
-word may appear in two banks). Two entries with the same spelling in ONE bank must differ in pos, otherwise the build stops.
+word may appear in two banks). A word that shows up again in a later unit of the same bank is collected again, as its own entry
+with its own example sentence: the 2nd entry's id gets the pos, the next one the unit (b1-escape, b1-escape-v, b1-escape-v-u6).
+The same word + pos twice in the SAME unit stops the build. The first entry in file order keeps the plain id, so when lessons are
+added later put them AFTER the existing ones in the file (words are sorted by unit number when built, so order in the file
+only matters between entries of the same unit).
 To keep progress, never reorder or delete @bank blocks — add new banks at the END of the file.
 Checks: every line has word/pos/中文; no duplicated id; unit declared before the first word.
 """
@@ -74,6 +78,8 @@ def main():
         if wid in seen:
             wid = f'{wid}-{slug(pos)}'
         if wid in seen:
+            wid = f'{wid}-u{unit:g}'.replace('.', '_')
+        if wid in seen:
             errors.append(f'{n}: 單字重複 "{w}" (第 {seen[wid]} 行)'); continue
         seen[wid] = n
         item = {'id': wid, 'bank': bid, 'w': w, 'pos': pos, 'zh': zh, 'unit': unit}
@@ -82,6 +88,7 @@ def main():
         words.append(item)
     if errors:
         print('\n'.join(errors)); sys.exit(1)
+    words.sort(key=lambda w: (w['bank'], w['unit']))  # stable: unit order = textbook order, file order inside a unit
     units = sorted({w['unit'] for w in words})
     meta['words'] = len(words); meta['units'] = units; meta['banks'] = banks
     if labels: meta['unitLabels'] = labels

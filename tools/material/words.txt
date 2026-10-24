@@ -1,7 +1,7 @@
 # Book3 單字表 — 資料來源:教材照片(單字庫「龍騰」Lesson 4–6、Review 2)。
 # 教材順序:Lesson 1、2、3、Review 1、Lesson 4、5、6、Review 2 …。單元數字只決定排序:Lesson N 用 N,Review 用小數卡在兩課之間
 #   (Review 1 = @unit 3.5 Review 1、Review 2 = @unit 6.5 Review 2),App 上顯示 Review 1 / Review 2。
-# 已在前面課文出現過的字(同詞性)不重複收:Lesson 6 略過 recognize/splendor/landscape/escape,Review 2 略過 essential/delicate/inevitable/crop。
+# 同一個字在不同課重複出現時,每一課都各收一筆(各有自己的例句與進度卡;id 會加 -uN)。
 # 規則:每課「藍色虛線框內課文」中 粗體字 + 黃色螢光筆標記的字 都是該課單字。
 # 粗體字的中文釋義抄自課本頁面;只有黃色螢光筆、課本沒印釋義的字,詞性與中文由 Claude 補寫,請老師審閱。
 # 例句 = 該單字出現在課文裡的那一句。
@@ -266,6 +266,7 @@ furthermore | adv. | 此外;再者 | Furthermore, her weak voice was neither pow
 pleasing | adj. | 悅耳的;令人愉悅的 | Furthermore, her weak voice was neither powerful nor pleasing enough to meet their standards.
 meet | v. | 達到;符合 | Furthermore, her weak voice was neither powerful nor pleasing enough to meet their standards.
 standard | n. | 標準 | Furthermore, her weak voice was neither powerful nor pleasing enough to meet their standards.
+recognize | v. | 認可;認出 | Nuñez alone recognized her beauty, and he soon fell in love with her.
 blossom | v. | (感情)深入發展;開花 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
 desire | n. | 渴望;慾望 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
 fierce | adj. | 強烈的;兇猛的 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
@@ -289,9 +290,12 @@ eventually | adv. | 最後;終於 | Eventually, he agreed to give up his eyes fo
 for one's sake | phr. | 為了某人;看在某人份上 | Eventually, he agreed to give up his eyes for Medina's sake.
 nevertheless | adv. | 儘管如此;然而 | Nevertheless, it wasn't until the day of his surgery that he realized he was making a huge mistake.
 behold | v. | 注視;看著 | That morning, he once again beheld the splendor of the sunrise.
+splendor | n. | 壯麗;雄偉 | That morning, he once again beheld the splendor of the sunrise.
 sunrise | n. | 日出 | That morning, he once again beheld the splendor of the sunrise.
 gaze | v. | 凝視;注視 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
+landscape | n. | 風景;景觀 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
 envision | v. | 想像;嚮往 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
+escape | v. | 逃跑;逃脫 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
 driven by | phr. | 受……驅使 | Driven by the desire to save his sight, he fled the country of the blind.
 save | v. | 拯救;保住 | Driven by the desire to save his sight, he fled the country of the blind.
 flee | v. | 逃離;逃跑 | Driven by the desire to save his sight, he fled the country of the blind.
@@ -354,6 +358,7 @@ fate | n. | 命運 | In fact, we would face a fate far worse than we can imagine
 imagine | v. | 想像 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
 insect | n. | 昆蟲 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
 actually | adv. | 實際上;事實上 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
+essential | adj. | 非常重要的;必要的 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
 supply | n. | 供應量 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
 stick to | phr. | 黏在……上;附著於 | When bees collect nectar from different blossoms, pollen sticks to their bodies.
 powder | n. | 粉末 | As they fly around, they carry the fine powder from flower to flower, helping plants reproduce.
@@ -371,17 +376,20 @@ broccoli | n. | 花椰菜 | We would no longer see things such as apples, kiwis,
 on top of | phr. | 除……之外 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
 dairy | n. | 乳製品 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
 pollinate | v. | 授粉 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
+crop | n. | 作物;穀物 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
 produce | v. | 生產;製造 | Without them, in other words, we'd find it very difficult to produce enough food for everyone in the long run.
 in the long run | phr. | 從長遠來看 | Without them, in other words, we'd find it very difficult to produce enough food for everyone in the long run.
 maintain | v. | 維持;保持 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
 stability | n. | 穩定 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
 balance | n. | 平衡 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
+delicate | adj. | 精密的;脆弱的 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
 web | n. | 網;網絡 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
 disappearance | n. | 消失 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
 buzzing | adj. | 嗡嗡叫的 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
 creature | n. | 生物 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
 impact | n. | 影響;衝擊 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
 chain | n. | 鏈;連鎖 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
+inevitable | adj. | 無法避免的 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
 deserve | v. | 應得 | Tiny but important, these insects deserve credit for allowing life to thrive on this planet.
 credit | n. | 讚揚;功勞 | Tiny but important, these insects deserve credit for allowing life to thrive on this planet.
 thrive | v. | 蓬勃發展 | Tiny but important, these insects deserve credit for allowing life to thrive on this planet.

@@ -8,6 +8,7 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 ## Status
 - Local git repo only (`main`), **no remote yet, nothing published**. Still needed from the teacher: an empty GitHub repo under
   `shuanmaker-web` (then `add_repo(..., access=push)`), the landing-page logo/illustration, and the real 核單 material.
+- The teacher will check the yellow-word glosses (the ones written by Claude) **after the first push** — keep them listed for review.
 - Name Book3, default theme lavender (`#9381E0`), icons = Vocaboo's (as requested).
 
 ## NEVER push before the teacher says CONFIRM ⚠️
@@ -30,8 +31,11 @@ The textbook (龍騰) goes: **Lesson 1, 2, 3, Review 1, Lesson 4, 5, 6, Review 2
   (Title highlights are not inside the passages — only included when they clearly are vocabulary; tell the teacher.)
 - Chinese for bold words is copied from the page; yellow-only words have no printed gloss → pos/中文 written by Claude and must be
   flagged for the teacher's review. Example sentence = the passage sentence the word appears in.
-- A word already collected from an earlier unit (same spelling and part of speech) is **not** collected again; different senses may
-  get their own entry (the builder separates same spelling by pos). List skipped words in the report to the teacher.
+- A word that repeats in a later lesson is **collected again in each lesson** (teacher's decision): its own entry, its own example
+  sentence from that lesson and its own sense/中文. Each entry is a separate card; the builder gives later ones ids with `-pos` / `-uN`
+  and the MCQ distractor filter never offers the same spelling as a wrong option. Put newly added lessons AFTER the existing ones in
+  `words.txt` (the build sorts by unit number) so existing ids stay stable.
+- Title highlights (yellow words in a lesson title, e.g. blind / mystery / disappear) are **kept** as vocabulary (teacher's decision).
 - Photos are the only source; transcribe from the page, never from memory. Phrases and proper nouns are included when bold/yellow.
 
 ## Cloze rule
