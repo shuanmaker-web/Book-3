@@ -9,7 +9,7 @@ cloze.txt format
                                     run build_words.py first. Each bank has its own cloze questions and its own switch.)
   @sample 說明文字                 (optional, right after @bank: marks that bank's cloze questions as demo data)
   @unit 3                          (following items belong to unit 3 of that bank; a display name may follow the number,
-                                    e.g. @unit 9 Review 2 — it is defined in words.txt, here the number is what counts)
+                                    e.g. @unit 6.5 Review 2 — it is defined in words.txt, here the number is what counts)
 
   單句 (one line):  S | sentence with ______ | A選項 | B選項 | C選項 | D選項 | 答案字母 | 解析(可省略)
 
@@ -35,6 +35,10 @@ WORDS = ROOT / 'data' / 'words.json'
 BLANK = '______'
 
 
+def ukey(u):  # unit number as used inside ids: 6.5 -> 6_5
+    return f'{u:g}'.replace('.', '_')
+
+
 def parse_opts(f, n, tag, errors):
     """f = [A, B, C, D, letter, (exp)] → (opts, ans, exp) or None"""
     if len(f) < 5: errors.append(f'{n}: {tag} 欄位不足 (需要 4 個選項 + 答案字母)'); return None
@@ -55,7 +59,7 @@ def main():
         if not line or line.startswith('#'): continue
         if line.startswith('@unit'):
             v = line[5:].strip().split(None, 1)[0] if line[5:].strip() else ''  # an optional display name after the number is read by build_words.py
-            if v.isdigit(): unit = int(v)
+            if re.fullmatch(r'\d+(?:\.\d+)?', v): unit = float(v) if '.' in v else int(v)
             else: errors.append(f'{n}: @unit 後面要接數字')
         elif line.startswith('@bank'):
             nm = line[5:].strip()
@@ -91,7 +95,7 @@ def main():
             if sorted(set(marks)) != sorted(blanks): errors.append(f'{start}: 短文空格 {sorted(set(marks))} 與選項行 {sorted(blanks)} 不一致')
             if unit is None or bank is None: continue
             pk = (bank, unit); pcount[pk] = pcount.get(pk, 0) + 1
-            passages.append({'id': f'{bank}-p{unit}-{pcount[pk]}', 'bank': bank, 'unit': unit, 'no': pcount[pk], 'title': title, 'text': body,
+            passages.append({'id': f'{bank}-p{ukey(unit)}-{pcount[pk]}', 'bank': bank, 'unit': unit, 'no': pcount[pk], 'title': title, 'text': body,
                              'blanks': [{'no': k, 'opts': blanks[k][0], 'ans': blanks[k][1], **({'exp': blanks[k][2]} if blanks[k][2] else {})} for k in sorted(blanks)]})
         elif line.startswith('S') and line[1:].lstrip().startswith('|'):
             f = [x.strip() for x in line.split('|')][1:]
@@ -103,7 +107,7 @@ def main():
             r = parse_opts(f[1:], n, '單句', errors)
             if not r or sent.count(BLANK) != 1: continue
             sk = (bank, unit); scount[sk] = scount.get(sk, 0) + 1
-            s = {'id': f'{bank}-s{unit}-{scount[sk]}', 'bank': bank, 'unit': unit, 'no': scount[sk], 'q': sent, 'full': sent.replace(BLANK, r[1], 1), 'opts': r[0], 'ans': r[1]}
+            s = {'id': f'{bank}-s{ukey(unit)}-{scount[sk]}', 'bank': bank, 'unit': unit, 'no': scount[sk], 'q': sent, 'full': sent.replace(BLANK, r[1], 1), 'opts': r[0], 'ans': r[1]}
             if r[2]: s['exp'] = r[2]
             sentences.append(s)
         else:

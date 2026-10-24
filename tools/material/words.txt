@@ -1,5 +1,6 @@
-# Book3 單字表 — 資料來源:教材照片(單字庫「龍騰」Lesson 4–5)。
-# 單元:Lesson 4–6 為數字課次;Review 2 寫成 @unit 9 Review 2(9 只決定排序:排在 Lesson 8 之後,App 上顯示 Review 2)。
+# Book3 單字表 — 資料來源:教材照片(單字庫「龍騰」Lesson 4–6、Review 2)。
+# 教材順序:Lesson 1、2、3、Review 1、Lesson 4、5、6、Review 2 …。單元數字只決定排序:Lesson N 用 N,Review 用小數卡在兩課之間
+#   (Review 1 = @unit 3.5 Review 1、Review 2 = @unit 6.5 Review 2),App 上顯示 Review 1 / Review 2。
 # 已在前面課文出現過的字(同詞性)不重複收:Lesson 6 略過 recognize/splendor/landscape/escape,Review 2 略過 essential/delicate/inevitable/crop。
 # 規則:每課「藍色虛線框內課文」中 粗體字 + 黃色螢光筆標記的字 都是該課單字。
 # 粗體字的中文釋義抄自課本頁面;只有黃色螢光筆、課本沒印釋義的字,詞性與中文由 Claude 補寫,請老師審閱。
@@ -294,7 +295,7 @@ envision | v. | 想像;嚮往 | Gazing at the beautiful surrounding landscape an
 driven by | phr. | 受……驅使 | Driven by the desire to save his sight, he fled the country of the blind.
 save | v. | 拯救;保住 | Driven by the desire to save his sight, he fled the country of the blind.
 flee | v. | 逃離;逃跑 | Driven by the desire to save his sight, he fled the country of the blind.
-@unit 9 Review 2
+@unit 6.5 Review 2
 mystery | n. | 謎團 | The Mystery of the Disappearing Bees
 disappear | v. | 消失 | The worker bees had simply disappeared, leaving their queens behind.
 overnight | adv. | 一夜之間;突然 | Overnight, entire bee colonies simply went missing and were nowhere to be found.

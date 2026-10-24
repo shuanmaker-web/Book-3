@@ -538,7 +538,7 @@ function startCloze(ids, opts = {}) {
 }
 function unitTile(u) {
   const t = qTotals(q => q.unit === u), cls = t.tried === 0 ? '' : t.wrong ? 'bad' : t.ok === t.total ? 'good' : 'part';
-  return `<button class="tile ${cls}" data-xunit="${u}"><b>${u}</b><span>${t.ok}/${t.total}</span></button>`;
+  return `<button class="tile ${cls}" data-xunit="${u}"><b>${esc(unitTag(u))}</b><span>${t.ok}/${t.total}</span></button>`;
 }
 function renderPractice() {
   if (!clozeQs('all').length) { app.innerHTML = `<h1>克漏字</h1><div class="stack" style="margin-top:12px">${bankSwitch()}<section class="card"><p class="muted">這個單字庫(${esc(banks().find(b => b.id === curBank()).name)})目前還沒有克漏字題目。</p></section></div>`; return; }

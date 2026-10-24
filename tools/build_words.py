@@ -14,8 +14,8 @@ words.txt format
                                        on the home page; progress, unit range and new-word order are kept per bank.
                                        Words before the first @bank — or a file with no @bank — form one bank.)
   @unit 3                             (all following words belong to unit 3; unit numbers restart in each bank)
-  @unit 9 Review 2                    (optional display name after the number, for units that are not "Lesson N". The number still
-                                       sets the order, so 9 puts it after Lesson 8)
+  @unit 6.5 Review 2                  (optional display name after the number, for units that are not "Lesson N". The number only
+                                       sets the order, so a decimal slots a unit between two lessons: 6.5 = after Lesson 6, before 7)
   word | pos | 中文意思 | example sentence (optional) | 例句中文 (optional)
 
 Word ids are made from the bank number + the word itself (so reordering the file never mixes up students' progress; the same
@@ -47,12 +47,12 @@ def main():
                 if not val: errors.append(f'{n}: @bank 後面要接名稱'); continue
                 banks.append({'id': f'b{len(banks) + 1}', 'name': val}); unit = None
             elif key == 'unit':
-                m = re.fullmatch(r'(\d+)(?:\s+(.+))?', val)
-                if not m: errors.append(f'{n}: @unit 後面要接數字(可再加顯示名稱,例如 @unit 9 Review 2)'); continue
-                unit = int(m.group(1))
+                m = re.fullmatch(r'(\d+(?:\.\d+)?)(?:\s+(.+))?', val)
+                if not m: errors.append(f'{n}: @unit 後面要接數字(可再加顯示名稱,例如 @unit 6.5 Review 2)'); continue
+                unit = float(m.group(1)) if '.' in m.group(1) else int(m.group(1))
                 if m.group(2):
                     if not banks: banks.append({'id': 'b1', 'name': meta.get('title', '單字')})
-                    labels.setdefault(banks[-1]['id'], {})[str(unit)] = m.group(2).strip()
+                    labels.setdefault(banks[-1]['id'], {})[f'{unit:g}'] = m.group(2).strip()
             elif key in ('title', 'source', 'unitword', 'note'):
                 meta['unitWord' if key == 'unitword' else key] = val
             elif key == 'sample':
