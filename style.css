@@ -64,7 +64,7 @@ body.in-session #tabs{display:none}
 }
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .btn.block{width:100%}
-.btn.danger{background:var(--bad);color:var(--page-ink,#fff)}
+.btn.danger{background:var(--bad);color:#fff}
 .btn:disabled{opacity:.5}
 .icon-btn{
   border:1px solid var(--line);background:var(--surface);border-radius:999px;width:44px;height:44px;
@@ -441,7 +441,7 @@ body #tabs button.on .ti{background:#1a1a1a}
 
 /* ===== progress calendar: circles ===== */
 :is(.heat,.star-legend) i circle.c{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:2.4 2.2}
-:is(.heat,.star-legend) i[data-l="1"] circle.c{fill:#EFE4F7;stroke:var(--page);stroke-width:1.8;stroke-dasharray:none}
+:is(.heat,.star-legend) i[data-l="1"] circle.c{fill:var(--accent-soft);stroke:var(--page);stroke-width:1.8;stroke-dasharray:none}
 :is(.heat,.star-legend) i[data-l="2"] circle.c{fill:var(--page);stroke:#1a1a1a;stroke-width:1.8;stroke-dasharray:none}
 :is(.heat,.star-legend) i.f circle.c{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:2.4 2.2}
 :is(.heat,.star-legend) i circle.dot{fill:var(--page);stroke:#1a1a1a;stroke-width:1.4}
@@ -470,13 +470,13 @@ body[data-bank] .btn.ghost.danger-btn,.btn.ghost.danger-btn{background:#1a1a1a;c
 
 /* marked days are stars; unmarked days stay dotted circles */
 :is(.heat,.star-legend) i polygon.st{stroke-linejoin:round}
-:is(.heat,.star-legend) i[data-l="1"] polygon.st{fill:#EFE4F7;stroke:var(--page);stroke-width:1.6}
+:is(.heat,.star-legend) i[data-l="1"] polygon.st{fill:var(--accent-soft);stroke:var(--page);stroke-width:1.6}
 :is(.heat,.star-legend) i[data-l="2"] polygon.st{fill:var(--page);stroke:#1a1a1a;stroke-width:1.6}
 
 /* ===== theme color: everything follows --page (set from settings) ===== */
-:root{--red:var(--page);--orange:var(--page);--accent:var(--page);--bad:var(--page);--warn:var(--page);
-  --accent-soft:color-mix(in srgb,var(--page) 16%,#fff);--bad-soft:color-mix(in srgb,var(--page) 16%,#fff)}
-body[data-bank],body[data-bank="main"]{--accent:var(--page);--accent-soft:color-mix(in srgb,var(--page) 16%,#fff);--bad:var(--page);--bad-soft:color-mix(in srgb,var(--page) 16%,#fff);--warn:var(--page)}
+:root{--red:var(--page);--orange:var(--page);--accent:var(--page);--bad:#D8402F;--warn:var(--page);
+  --accent-soft:color-mix(in srgb,var(--page) 16%,#fff);--bad-soft:#FBE1DD}
+body[data-bank],body[data-bank="main"]{--accent:var(--page);--accent-soft:color-mix(in srgb,var(--page) 16%,#fff);--bad:#D8402F;--bad-soft:#FBE1DD;--warn:var(--page)}
 :is(.heat,.star-legend) i[data-l="1"] circle.c,:is(.heat,.star-legend) i[data-l="1"] polygon.st{fill:var(--accent-soft)}
 :is(.heat,.star-legend) i circle.dot{fill:#1a1a1a;stroke:none}
 body[data-bank] .stat,body[data-bank] .mode b{color:inherit}
@@ -508,7 +508,7 @@ mark.ans.miss{background:var(--bad-soft);color:var(--bad)}
 
 /* ===== Book3 logo: brand image, landing page ===== */
 .brand{display:block;height:auto;max-width:100%}
-.hero h1.brand-h{margin:0;line-height:0;min-width:0;flex:0 1 auto}
+.hero .brand-h{margin:0;line-height:0;min-width:0;flex:0 1 auto}
 .hero .brand{width:min(170px,44vw)}
 .brand-foot{text-align:center;line-height:1.2}
 .brand-foot .brand.sm{width:96px;margin:0 auto 4px}

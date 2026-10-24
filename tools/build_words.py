@@ -13,6 +13,8 @@ words.txt format
   @bank 名稱                          (optional: start a new word bank, e.g. a second textbook. The app then shows a switch
                                        on the home page; progress, unit range and new-word order are kept per bank.
                                        Words before the first @bank — or a file with no @bank — form one bank.)
+  @color #BB93D8                      (optional, right after @bank: that bank's main colour — buttons, tab bar accents, highlights.
+                                       Banks without @color use the default lavender)
   @unit 3                             (all following words belong to unit 3; unit numbers restart in each bank)
   @unit 6.5 Review 2                  (optional display name after the number, for units that are not "Lesson N". The number only
                                        sets the order, so a decimal slots a unit between two lessons: 6.5 = after Lesson 6, before 7)
@@ -57,6 +59,9 @@ def main():
                 if m.group(2):
                     if not banks: banks.append({'id': 'b1', 'name': meta.get('title', '單字')})
                     labels.setdefault(banks[-1]['id'], {})[f'{unit:g}'] = m.group(2).strip()
+            elif key == 'color':
+                if not banks or not re.fullmatch(r'#[0-9a-fA-F]{6}', val): errors.append(f'{n}: @color 要寫在 @bank 之後,格式如 #BB93D8'); continue
+                banks[-1]['color'] = val
             elif key in ('title', 'source', 'unitword', 'note'):
                 meta['unitWord' if key == 'unitword' else key] = val
             elif key == 'sample':

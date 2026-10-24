@@ -306,7 +306,7 @@ function renderHome() {
 }
 
 function renderProgress() {
-  const now = Date.now(); let html = '<h1>進度</h1><div class="stack" style="margin-top:12px">';
+  const now = Date.now(); let html = heroLogo() + '<h1>進度</h1><div class="stack" style="margin-top:12px">';
   for (const bk of banks()) {
     const ws = bankWords(bk.id); if (!ws.length) continue;
     let learned = 0, mastered = 0, due = 0; const byUnit = {};
@@ -351,12 +351,15 @@ function renderProgress() {
   app.innerHTML = html;
 }
 
-const PAGE_PINK = '#BB93D8'; // the pink of "Book" in the logo — the one and only theme colour
+const PAGE_PINK = '#BB93D8'; // the lavender of "Book" in the logo = default theme colour
+const bankColor = () => /^#[0-9a-f]{6}$/i.test(banks().find(b => b.id === curBank())?.color || '') ? banks().find(b => b.id === curBank()).color : PAGE_PINK; // per word bank (@color in words.txt): 龍騰 lavender, 核單 green
 function applyTheme() {
-  document.documentElement.style.setProperty('--page', PAGE_PINK);
+  const c = bankColor();
+  document.documentElement.style.setProperty('--page', c);
   document.documentElement.style.setProperty('--page-ink', '#1a1a1a');
-  const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = PAGE_PINK;
+  const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = c;
 }
+const heroLogo = () => `<div class="hero"><div class="brand-h">${logoImg()}</div></div>`; // same spot as the home page header
 const logoImg = (cls = 'brand') => `<img class="${cls}" src="icons/logo.png" alt="Book3" width="800" height="340" decoding="async">`;
 function renderLanding() {
   document.body.classList.add('landing');
@@ -367,7 +370,7 @@ const APP_VERSION = 'v1';
 function renderSettings() {
   const s = S.settings;
   const days = s.lastBackupAt ? Math.floor((Date.now() - s.lastBackupAt) / DAY) : null;
-  app.innerHTML = `<h1>設定</h1><div class="stack" style="margin-top:12px">
+  app.innerHTML = `${heroLogo()}<h1>設定</h1><div class="stack" style="margin-top:12px">
   <section class="card">
     <label class="set"><span>每天新字上限</span><input type="number" id="s-new" min="0" max="200" value="${s.newPerDay}"></label>
     <label class="set"><span>每回題數</span><input type="number" id="s-size" min="5" max="100" value="${s.sessionSize}"></label>
@@ -547,14 +550,14 @@ function unitTile(u) {
   return `<button class="tile ${cls}" data-xunit="${u}"><b>${esc(unitTag(u))}</b><span>${t.ok}/${t.total}</span></button>`;
 }
 function renderPractice() {
-  if (!clozeQs('all').length) { app.innerHTML = `<h1>克漏字</h1><div class="stack" style="margin-top:12px">${bankSwitch()}<section class="card"><p class="muted">這個單字庫(${esc(banks().find(b => b.id === curBank()).name)})目前還沒有克漏字題目。</p></section></div>`; return; }
+  if (!clozeQs('all').length) { app.innerHTML = `${heroLogo()}<h1>克漏字</h1><div class="stack" style="margin-top:12px">${bankSwitch()}<section class="card"><p class="muted">這個單字庫(${esc(banks().find(b => b.id === curBank()).name)})目前還沒有克漏字題目。</p></section></div>`; return; }
   if (S.pview === 'unit') return renderUnit();
   const kinds = ['passage', 'sentence'].filter(k => clozeQs('all').some(q => q.type === k));
   if (!kinds.includes(S.pkind) && S.pkind !== 'all') S.pkind = 'all';
   const t = qTotals(), w = t.wrong, units = unitList();
   const chips = kinds.length > 1 ? `<div class="chips" style="margin:10px 0 0">${['all', ...kinds].map(k => `<button class="chip ${S.pkind === k ? 'on' : ''}" data-pkind="${k}">${KINDS[k]}</button>`).join('')}</div>` : '';
   const cs = S.cmeta.banks?.[curBank()], sample = cs?.sample ? `<div class="sample-banner" style="margin-top:12px">目前是<b>示範題目</b>(${esc(cs.note || '請以正式題目取代')})</div>` : '';
-  app.innerHTML = `<h1>克漏字</h1><div style="margin-top:12px">${bankSwitch()}</div>${chips}<div class="stack" style="margin-top:12px">
+  app.innerHTML = `${heroLogo()}<h1>克漏字</h1><div style="margin-top:12px">${bankSwitch()}</div>${chips}<div class="stack" style="margin-top:12px">
   <section class="card"><div class="row between"><h2>總進度</h2><span class="muted small">共 ${t.total} 題 · ${units.length} 個單元</span></div>
     <div class="bigscore"><b>${t.ok}</b><span>/ ${t.total} 題目前答對</span></div>
     <div class="seg"><i class="g" style="width:${t.ok / t.total * 100}%"></i><i class="r" style="width:${t.wrong / t.total * 100}%"></i></div>

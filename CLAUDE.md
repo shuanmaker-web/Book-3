@@ -7,17 +7,20 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 
 ## Status
 - Local git repo only (`main`), **no remote yet, nothing published**. Still needed from the teacher: an empty GitHub repo under
-  `shuanmaker-web` (then `add_repo(..., access=push)`) and, later, a source for 核單 cloze questions.
+  `shuanmaker-web` (then `add_repo(..., access=push)`).
 - The teacher will check the yellow-word glosses (the ones written by Claude) **after the first push** — keep them listed for review.
 - Name Book3; app icons = Vocaboo's (as requested). **Brand:** the Book3 logo (`icons/logo.png`: lavender "Book" + lime "3" + stars,
   transparent PNG) replaces every "Book3" text in the UI (home hero, settings footer, loading placeholder). Opening the app shows a
   **landing page with only the logo, which is a full-screen button** (tap anywhere → home; shown on every load, tabs hidden there).
-- **One fixed theme colour: the lavender of "Book", `#BB93D8`** (`PAGE_PINK` in `app.js` → CSS `--page`; also `theme-color` meta and
-  manifest). There is **no colour picker** any more (old saved `theme` values are ignored). Text on pink is dark ink (`--page-ink`
-  `#1a1a1a`), never white; the theme colour is not used for text on light cards (low contrast).
-  Logo colours are slightly toned down from the original artwork but not pastel (lavender `#BB93D8`, green `#D8FB71`). The **bottom tab bar stays black; its icons, labels and the active-tab bubble are the logo green**
-  (`--logo-green`, appended at the end of `style.css`). **App/desktop icons** (`icons/v2/*`) = the logo on `#F3ECF8`; if the logo changes,
-  regenerate them and bump `?v=` in `index.html` + `manifest.webmanifest`.
+- **Theme colour is per word bank** (`@color #RRGGBB` right after `@bank` in `words.txt` → `meta.banks[].color` → `applyTheme()` sets CSS `--page`,
+  `theme-color` meta follows): **龍騰 = lavender `#BB93D8`, 核單 = strong green `#B9E732`** (the logo's green). Default if a bank has no @color:
+  lavender (`PAGE_PINK` in `app.js`). There is **no colour picker** (old saved `theme` values are ignored). Text on the theme colour is dark ink
+  (`--page-ink` `#1a1a1a`), never white; the theme colour is not used for text on light cards (low contrast). **Wrong answers are always red**
+  (`--bad`), never the theme colour (it would clash with the green bank).
+- Bottom tab bar: the bar stays **black**; icons, labels and the active-tab bubble use `var(--page)` (so purple in 龍騰, green in 核單).
+- The logo (lavender "Book" + green "3", from the teacher's artwork, slightly toned down) also appears at the **same top-left position on the
+  cloze / progress / settings pages** (`heroLogo()` → `.hero`), page title below it; the home page keeps it with the exam calendar.
+- **App/desktop icons** (`icons/v2/*`) = the logo on `#F3ECF8`; if the logo changes, regenerate them and bump `?v=` in `index.html` + `manifest.webmanifest`.
 
 ## NEVER push before the teacher says CONFIRM ⚠️
 "remember don't push before i CONFIRM." Make the change → verify it locally → show the result → **wait for an explicit OK** →
@@ -52,7 +55,9 @@ The textbook (龍騰) goes: **Lesson 1, 2, 3, Review 1, Lesson 4, 5, 6, Review 2
 - Distractors: same part of speech/form, clearly wrong in context, **never a second valid answer** (avoid synonyms/near-synonyms);
   the answer's word family must not appear elsewhere in the same passage (it gives it away); answer letters spread evenly.
 - Question ids come from unit + order of appearance → only ever **add new questions at the END of a unit**.
-- 核單 has **no cloze questions yet** (the app shows "還沒有克漏字題目"); add a `@bank 核單` block after the 龍騰 one when the teacher gives a source.
+- 核單 cloze = **single sentences only (no 短文)**: 158 questions from the Unit 17–20 example sentences (answer = the word as written in the sentence,
+  e.g. knitted/ashes; explanation = sentence translation + word meaning). Skipped on purpose: `saving/savings` and `tribe` (family word in the sentence
+  would give the answer away). New 核單 questions go at the END of each `@unit` block. The 短文/單句 filter chips appear only when a bank has both kinds.
 
 ## Workflow (the whole thing)
 1. Edit `tools/material/words.txt` / `cloze.txt` (or app files). Build **words first, then cloze**:
@@ -82,8 +87,8 @@ Progress (FSRS cards, answers, backups) lives in each student's own phone Indexe
 ## 核單 (word bank 2)
 - Real data now: **Level 3 Unit 17–20, 160 words**, transcribed by script from the teacher's Vocabulary List PDFs (word | pos | 中文 | example).
   Units are `@unit 17 Unit 17` … (display "Unit 17", tag "U17"). pos and 中文 are copied as printed (several pos / senses joined with `&`);
-  the PDFs have no example translations, so `exzh` is empty. `afterward(s)` / `saving(s)` are stored as `afterward/afterwards`,
+  the PDFs have no example translations → `exzh` (例句中文) was written by Claude: teacher to review after the first push. `afterward(s)` / `saving(s)` are stored as `afterward/afterwards`,
   `saving/savings` (spelling accepts either). Unit 19's unnumbered `collar` (right after `sleeve` in the PDF) is included.
-- Source quirks kept as-is (tell the teacher): `leisure` is printed 「閒暇,空間時間」 (probably meant 空閒時間); the headers say
+- `leisure` 中文 corrected to 「閒暇,空閒時間」 (PDF printed 空間時間; teacher approved). Source quirks kept as-is: the `export` example says 「Oil is the major export to Saudi Arabia」 (direction looks odd; translated literally as 輸往沙烏地阿拉伯的主要出口品); the headers say
   1701–1733 / 1801–1826 / 1901–1935 / 2001–2035 but the lists have 45 / 43 / 38+1 / 33 entries.
 - New 核單 units go **after** Unit 20 in `words.txt` (sorted by unit number on build). Existing ids stay stable.
