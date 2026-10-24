@@ -2,7 +2,7 @@
 @title 單字特訓
 @unitword Unit
 @sample 這是示範用的單字,請換成教材的正式內容
-@bank 單字庫 A(示範)
+@bank 龍騰
 @unit 1
 abandon | v. | 放棄;遺棄 | He abandoned the plan. | 他放棄了那個計畫。
 ability | n. | 能力 | She has the ability to learn fast. | 她有很快學會的能力。
@@ -30,7 +30,7 @@ borrow | v. | 借入 | Can I borrow your pen? | 我可以跟你借筆嗎?
 brave | adj. | 勇敢的 | The firefighter was brave. | 那位消防員很勇敢。
 calm | adj. | 冷靜的 | Stay calm and listen. | 保持冷靜並仔細聽。
 cancel | v. | 取消 | The game was canceled. | 比賽被取消了。
-@bank 單字庫 B(示範)
+@bank 核單
 @unit 1
 curious | adj. | 好奇的 | Children are curious about everything. | 孩子們對一切都好奇。
 decide | v. | 決定 | I decided to stay home. | 我決定待在家。
