@@ -1,6 +1,286 @@
 # 克漏字題庫(每個單字庫各自一份,用 @bank 分開)。
-# 龍騰:目前還沒有題目(課本照片 Lesson 4–5 只有課文與單字,沒有克漏字題)。
+# 龍騰:題目由 Claude 依課本課文出題(短文多格 + 單句):短文 = 課文原文挖空,答案都是課文原字;單句 = 另外造句。干擾選項請老師審閱。
 # 核單:示範題目,等拿到正式教材後換掉。
+@bank 龍騰
+@unit 4
+@passage Day of the Dead (1)
+Have you ever thought about what it would be like to have a deceased loved one return and [1] you to a holiday celebration? The idea may scare you to death or at least make your hair stand on end, but this is the [2] concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than [3] it with sorrow.
+
+On this [4] occasion, family members gather for a [5] in honor of those who have moved on to the afterlife.
+1 | apologize | accompany | abandon | attack | B | 陪伴
+2 | optional | temporary | essential | ordinary | C | 本質的;基本的
+3 | mourn | manage | mock | mend | A | 哀悼
+4 | jealous | furious | anxious | joyous | D | 令人愉快的
+5 | reward | recipe | rehearsal | reunion | D | 重逢;團聚
+@end
+@passage Day of the Dead (2)
+The Day of the Dead is thought to have [1] centuries ago with the Aztecs. Nowadays, it is celebrated passionately throughout Mexico on November 1 and 2. Traditionally, deceased children are [2] on Nov. 1, while Nov. 2 is the day when departed adults are the main focus. During these two days, the souls of the dead are believed to return to earth to visit the living members of their family.
+
+Instead of fearing these spirits, Mexicans [3] their arrival and prepare for it by [4] necessary items in local markets in advance. These include marigolds, candles, decorated sugar skulls [5] the names of departed family members, and "bread of the dead." Families also tidy and [6] the graves and cemeteries where their family members are [7] to welcome the souls home.
+1 | invented | inspired | originated | imagined | C | originate:起源;發源
+2 | honored | ignored | blamed | punished | A | honor:紀念;向……致敬
+3 | avoid | anticipate | resist | escape | B | 期盼
+4 | preferring | performing | purchasing | preserving | C | purchase:購買
+5 | borrowing | bearing | breaking | burying | B | bear:具有;帶有(某個名稱)
+6 | restore | reduce | reject | remove | A | 修復;恢復
+7 | bothered | borrowed | blamed | buried | D | bury:埋葬
+@end
+@passage Day of the Dead (3)
+On the Day of the Dead, families [1] colorful altars in their homes to welcome returning spirits. On the altars, they place photographs of their deceased loved ones as well as [2] and dishes that those family members had a [3] for while alive.
+
+After this warm [4] for the souls at home, it is usually late in the evening, and families head to the cemetery, where they decorate the graves of their loved ones and light one candle for each dead person. Cheerful and merry, they [5] with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a [6] of joy and celebration for the entire night.
+1 | assemble | assist | assess | assign | A | 裝設;組裝;聚集
+2 | blankets | beverages | batteries | balloons | B | beverage:飲料
+3 | preparation | presentation | prevention | preference | D | 偏愛
+4 | reduction | reputation | reception | recipe | C | 歡迎;接待
+5 | fast | fetch | fix | feast | D | 盡情享用
+6 | venue | vision | virtue | value | A | 舉行地點;活動場地
+@end
+@passage Day of the Dead (4)
+Throughout the festival, colorful, cartoon-like [1] of the dead can be seen everywhere. These include skeleton and skull cookies, candies, flags, and toys. Many people also dress up in skeleton [2], paint their faces to [3] skulls, and [4] in performances and street parades.
+
+While doing so, Mexicans aren't mocking death. Instead, they are recognizing it as an [5] part of the natural cycle and would [6] embrace it than ignore it. By inviting the dead to return and sharing the [7] of life with them, Mexicans are celebrating the cycle of life itself.
+1 | regulations | reservations | representations | reputations | C | representation:象徵;表現
+2 | customs | costumes | cultures | contracts | B | costume:服裝;戲服
+3 | remove | resemble | require | respect | B | 看起來像;像
+4 | pursue | postpone | persuade | participate | D | 參加
+5 | inevitable | immediate | irregular | invalid | A | 不可避免的
+6 | even | better | rather | instead | C | would rather A than B:寧願 A 也不願 B
+7 | treasures | pleasures | pressures | measures | B | pleasure:樂趣;愉快
+@end
+@passage Day of the Dead (5)
+The Mexican Day of the Dead is an [1] national event that brings together living hosts and non-living guests of honor. [2], this tradition will never die out, since it helps people [3] a fact of life that [4] us all. If we cannot [5] death, why not celebrate it?
+1 | annual | annoying | ambitious | artificial | A | 每年的
+2 | Hardly | Barely | Rarely | Hopefully | D | 但願;希望
+3 | accuse | expect | accept | accomplish | C | 接受
+4 | awards | awaits | awakes | avoids | B | await:等待
+5 | examine | exceed | evaluate | escape | D | 避免;逃脫
+@end
+S | Have you ever thought about what it would be like to have a ______ loved one return and accompany you to a holiday celebration? | deceased | decisive | dishonest | dependent | A | 已故的
+S | We prepared the party ______ so that everything would be ready when the guests arrived. | in vain | in turn | in advance | in need | C | 事先
+S | We held a ceremony ______ our late grandfather. | in spite of | in search of | in honor of | in charge of | C | 紀念
+S | The horror movie was so scary that it made my hair ______. | stand out | stand on end | stand by | stand for | B | make one's hair stand on end:使人毛骨悚然
+S | The soldiers who died in the war were ______ in the cemetery near their hometown. | buried | bent | blamed | begged | A | bury:埋葬
+S | It is rude to ______ people who are trying their best. | mount | mark | mend | mock | D | 嘲弄;不尊重
+S | Fans are eagerly ______ the release of the new movie. | anticipate | anticipating | anticipated | anticipation | B | anticipate:期盼
+@unit 5
+@passage Kyoto (1)
+Kyoto, like a beauty in a bright and colorful kimono, [1] tourists throughout the year. In spring, [2] is in the air as the city is filled with a sea of pink cherry blossoms. In summer, green leaves can be heard [3] in the wind and seen [4] in the sunshine.
+
+Maple leaves in autumn set the [5] on fire with orange and red colors. Then, when winter comes, white snow turns the whole city into a [6], silver kingdom.
+1 | demands | delays | delivers | delights | D | delight:使高興;使賞心悅目
+2 | resource | reality | romance | rhythm | C | 浪漫
+3 | rustling | rotting | rolling | robbing | A | rustle:沙沙作響
+4 | spoiling | spilling | sparkling | sweeping | C | sparkle:閃閃發光
+5 | language | landscape | landlord | landing | B | 景色;風景
+6 | maximum | mature | magnet | magic | D | 有魔力的;神奇的
+@end
+@passage Kyoto (2)
+[1] its natural splendor, Kyoto has so much more to feast one's eyes on. Having previously been the capital of Japan for over a thousand years, the city [2] a large number of historic shrines and temples. No visit to Kyoto would be complete without seeing one of the most photographed [3]: the Kinkaku-ji, or the Golden Pavilion Temple in English.
+
+With giant, leafy maple trees leading up to its main entrance, what comes into view is this [4] three-story pavilion. Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its [5] roof. The reflection of the pavilion on the glassy surface of the pond is a [6] sight. Visitors can take a leisurely walk through the surrounding gardens and enjoy many [7] views of this beautiful structure.
+1 | Apart from | According to | Because of | In case of | A | 除了……之外
+2 | boasts | bonds | boils | boosts | A | boast:以……為傲;擁有
+3 | lanterns | landlords | landmarks | landings | C | landmark:地標
+4 | minimum | miserable | moderate | magnificent | D | 壯麗的;雄偉的
+5 | shivering | shimmering | shrinking | shouting | B | 閃閃發光的
+6 | breathtaking | breathless | broken | breakable | A | 驚人的;極為美麗的
+7 | sticky | stubborn | stingy | stunning | D | 撼動人心的;令人驚訝的
+@end
+@passage Kyoto (3)
+Another [1] Kyoto sight involves coming face to face with one of the old capital's very special "persons of art," or geishas. These are women dressed in [2] kimonos with silk sleeves. Their [3] white makeup, bright red lipstick, and elegant hairpins also make them easy to [4].
+
+And it's not just their unique appearance that makes geishas stand out from the crowd. These highly [5] entertainers spend years [6] different musical instruments, songs, and literature. Of course, no "person of art" could be a true geisha without being able to perform the traditional kyomai dance. This ancient art [7] slow music with very [8] movements and often expresses very deep emotion.
+1 | unfortunate | unforgettable | unavailable | unnecessary | B | 難忘的
+2 | delicious | desperate | delicate | deliberate | C | 精美的
+3 | disabled | distinctive | distracted | distant | B | 獨特的
+4 | reject | replace | recognize | reproduce | C | 承認;意識到;體認到
+5 | scared | skeptical | skinny | skilled | D | 熟練的;有技巧的
+6 | mastering | mapping | mixing | mending | A | master:精通
+7 | combats | compares | commands | combines | D | combine:結合
+8 | delicious | dedicated | deliberate | desperate | C | (動作等)小心翼翼的
+@end
+@passage Kyoto (4)
+In Kyoto, culture and natural beauty [1] together like the [2] motions of kyomai. [3] the season, the city is a must-see [4] for tourists [5] an [6] local experience. Those who visit are likely to end up falling in love with the heart of Japan.
+1 | fall | flow | fly | float | B | 流動;匯流
+2 | graceful | grammatical | grateful | gradual | A | 優雅的
+3 | Instead of | On behalf of | Regardless of | In case of | C | 不論
+4 | destination | distance | decision | dimension | A | 目的地
+5 | sneaking | seeking | sinking | speaking | B | seek:尋找;尋求
+6 | awkward | artificial | automatic | authentic | D | 道地的;真正的
+@end
+S | The little girl's songs never fail to ______ the audience. | deny | defend | delight | delay | C | 使高興;使賞心悅目
+S | With her bright red hair, she really ______ in the crowd. | stands out | stands for | stands off | stands by | A | stand out:突出;顯眼
+S | The twin brothers ______ each other so much that few people can tell them apart. | reserve | resemble | require | remind | B | 看起來像;像
+S | This recipe ______ sweet and sour flavors perfectly. | complains | commands | compares | combines | D | combine:結合
+S | The job ______ traveling to different countries. | invites | involves | invests | invents | B | involve:牽涉;包含
+S | The club welcomes everyone, ______ age or gender. | because of | in case of | regardless of | instead of | C | 不論
+@unit 6
+@passage The Country of the Blind (1)
+Nuñez, an [1] mountaineer, was climbing up one of Ecuador's highest mountains when he lost his [2]. He slid down a snowy slope and fell over a cliff edge, [3] a great distance.
+
+[4] and [5], he found himself in a place [6] the world.
+1 | expensive | explosive | external | experienced | D | 有經驗的
+2 | footing | feeling | fitting | funding | A | lose one's footing:失足;跌倒
+3 | tuning | tumbling | tutoring | trembling | B | tumble:滾落;翻滾
+4 | Brewed | Brushed | Bribed | Bruised | D | 瘀傷的;碰傷的
+5 | dazed | dozed | dared | dashed | A | 暈眩的
+6 | cut down on | cut out for | cut off from | cut in on | C | 與……隔絕;阻斷
+@end
+@passage The Country of the Blind (2)
+[1] his injuries, Nuñez [2] to his feet and set off to explore. As he made his way through the [3] land, he [4] an unusual village.
+
+The houses were [5] painted, and all the roads leading to the houses had low walls alongside them. It didn't take long for Nuñez to [6] that every villager was blind. Feeling [7] to these sightless people, he thought to himself, "In the country of the blind, the one-eyed man is king."
+1 | Despite | Because | Although | Unless | A | despite + N/V-ing:雖然;儘管
+2 | stretched | strayed | struggled | strolled | C | struggle:掙扎;奮力
+3 | unfit | unfair | unfold | unfamiliar | D | 不熟悉的
+4 | came down | came upon | came off | came up | B | come upon:偶然遇到;偶然發現
+5 | uneasily | unwillingly | unevenly | unfairly | C | 不均勻地;不規則地
+6 | realize | release | relax | remain | A | 察覺;意識到
+7 | interior | exterior | inferior | superior | D | 優於;更好的
+@end
+@passage The Country of the Blind (3)
+However, after spending time with the locals, he was [1] at their great knowledge. Though blind, they knew their mountain kingdom [2].
+
+The villagers skillfully farmed and moved around by using their [3] [4] of hearing, touch, and smell. They also [5] [6] techniques for growing [7] and caring for animals. The paths, lined with low walls, had been specially built to help them [8] safely.
+1 | amazement | amazed | amaze | amazing | B | 驚訝的;驚奇的
+2 | eventually | immediately | intimately | extremely | C | 了如指掌地;密切地
+3 | keep | key | kind | keen | D | 敏銳的
+4 | censors | senses | sensors | sentences | B | sense:感官;感覺
+5 | employed | emerged | emitted | emptied | A | employ:使用;採用
+6 | effective | affective | defective | reflective | A | 有效的
+7 | crumbs | drops | crops | crows | C | crop:作物;莊稼
+8 | navigation | navigator | navigated | navigate | D | 行走、確認方向;航行
+@end
+@passage The Country of the Blind (4)
+Among the villagers, a respected elder named Yacob put the [1] to work and began teaching him their ways. [2], Nuñez [3] to their way of life, but he [4] the reality of sight.
+
+To him, vision was as real as the air he breathed. Although he tried to explain what he saw, he [5] to make them understand what it meant to have vision. The more he spoke of high mountains and [6] stars, the more the villagers [7] him.
+1 | outcome | outsider | outlook | outline | B | 外人;外來者
+2 | Graduate | Grading | Gradually | Gradual | C | 漸漸地
+3 | adapted | adopted | admitted | adored | A | adapt:(使)適應;(使)適合
+4 | looked for | gave up | ran into | clung to | D | cling to:抓緊;堅持;堅信
+5 | refused | failed | managed | hesitated | B | fail to VR:無法或未能
+6 | twinkling | trembling | twisting | tickling | A | 閃耀的;閃爍的
+7 | pitched | pitied | pinched | pleased | B | pity:憐憫;同情
+@end
+@passage The Country of the Blind (5)
+Nuñez felt [1] at the villagers' lack of awe for his [2] gift of sight. It wasn't until he first [3] Yacob's daughter, Medina-saroté, that he began to feel better.
+
+No one else [4] Medina's beauty, as she had well-defined [5] that lacked the smoothness the villagers valued. [6], her weak voice was neither powerful nor [7] enough to meet their standards. Nuñez alone [8] her beauty, and he soon fell in love with her.
+1 | fascinated | frightened | flattered | frustrated | D | frustrated at:對……感到沮喪
+2 | pregnant | precise | precious | prominent | C | 珍貴的
+3 | laid down | laid off | laid eyes on | laid claim to | C | lay eyes on:看見;注意到
+4 | admitted | admired | advised | adopted | B | admire:欣賞;讚賞
+5 | futures | factors | failures | features | D | feature:容貌;特徵
+6 | Furthermore | Meanwhile | Therefore | Otherwise | A | 此外;再者
+7 | pleasing | pleasure | please | pleased | A | 悅耳的;令人愉悅的
+8 | reproduced | recognized | rejected | reorganized | B | recognize:認可;認出
+@end
+@passage The Country of the Blind (6)
+Yet, as their relationship [1], their desire to marry faced [2] opposition from the other villagers, who [3] Nuñez's "sight" as a dangerous [4] that needed to be "cured." [5], even Medina herself agreed with them.
+
+She [6] Nuñez to remove the peculiar orbs on either side of his nose. That way, he could stop [7] and truly become one of them. [8] Nuñez's great sacrifice, she agreed to marry him.
+1 | blasted | blinked | blossomed | blamed | C | blossom (v.):(感情)深入發展;開花
+2 | fair | fancy | fine | fierce | D | 強烈的;兇猛的
+3 | reviewed | voted | visited | viewed | D | view:把……視為
+4 | division | decision | delusion | delivery | C | 幻覺;錯覺
+5 | Worst of all | Best of all | Above all | First of all | A | 最糟的是
+6 | perceived | persuaded | perfected | persisted | B | persuade:說服
+7 | dragging | daydreaming | dreading | drowning | B | daydream:做白日夢
+8 | In terms of | In favor of | In return for | In charge of | C | 作為……的回報
+@end
+@passage The Country of the Blind (7)
+Nuñez was [1] with a dilemma: he had to choose either to lose his eyes or to end their relationship. Eventually, he agreed to give up his eyes for Medina's [2]. [3], it wasn't until the day of his surgery that he realized he was making a huge mistake. That morning, he once again [4] the splendor of the [5].
+
+[6] at the beautiful surrounding landscape and [7] all that he might still see in the future, Nuñez saw that he had to escape. [8] by the desire to save his sight, he [9] the country of the blind.
+1 | confused | convinced | contrasted | confronted | D | confront:面臨;面對
+2 | sake | sack | sale | sage | A | for one's sake:為了某人
+3 | Similarly | Therefore | Moreover | Nevertheless | D | 儘管如此;然而
+4 | belonged | behaved | beheld | believed | C | behold:注視;看著
+5 | sundown | sunrise | sunburn | sunset | B | 日出
+6 | Gazing | Gasping | Grabbing | Gambling | A | gaze:凝視;注視
+7 | enforcing | ensuring | envying | envisioning | D | envision:想像;嚮往
+8 | Driven | Dealt | Drained | Drowned | A | driven by:受……驅使
+9 | flooded | fled | fell | fed | B | flee:逃離;逃跑
+@end
+S | The skier slid down the snowy ______ and stopped at the bottom. | shape | scope | slope | stroke | C | 斜坡;坡地
+S | She made a great ______ by giving up her career to take care of her sick mother. | sentence | sacrifice | surface | sample | B | 犧牲
+S | The mayor's plan met with fierce ______ from the residents. | opposition | organization | operation | opportunity | A | 反對;反抗
+S | We should ______ the stain from the carpet before the guests arrive. | remind | reserve | rescue | remove | D | 移除;除去
+S | Jim felt ______ at his poor test result and threw his book on the floor. | flattered | fascinated | frustrated | frightened | C | frustrated at:對……感到沮喪
+S | The more you practice, ______ you will become. | the better | the best | better | most good | A | The more…, the + 比較級:愈……就愈……
+S | The plants died because of a ______ of water. | luck | lap | lock | lack | D | 缺乏
+S | He gave me a gift ______ my help. | in charge of | in return for | in favor of | in spite of | B | 作為(對……的)回報、交換
+@unit 6.5
+@passage The Mystery of the Disappearing Bees (1)
+It all started in the US in 2006. [1], entire bee colonies simply went missing and were nowhere to be found. Beekeepers found their hollow [2] empty of worker bees.
+
+[3] enough, there were neither dead bees lying around nor any [4] of disease, [5], theft, or [6]. The worker bees had simply disappeared, leaving their queens behind. It is [7] that this wasn't just some miserable nightmare. Instead, it is a [8] reality affecting over a million bee colonies every year.
+1 | Overlooked | Overtime | Overnight | Overseas | C | 一夜之間
+2 | halls | hills | hairs | hives | D | hive:蜂窩;蜂巢
+3 | Stupidly | Strangely | Strongly | Strictly | B | strangely enough:說來奇怪
+4 | evidence | evidences | evident | evidently | A | 證據
+5 | presidents | prisoners | predators | predictors | C | predator:掠食者;捕食者
+6 | sweater | slaughter | daughter | laughter | B | 屠殺
+7 | unfortunate | unreasonable | unnecessary | unfamiliar | A | 不幸的;遺憾的
+8 | hasty | hairy | handy | harsh | D | 殘酷的
+@end
+@passage The Mystery of the Disappearing Bees (2)
+According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which [1] several factors including air pollution, global warming, and shrinking water [2]. However, one [3] contributing factor is the use of pesticides. Plants treated with pesticides pass poisonous [4] chemicals on to bees directly through their nectar.
+
+When bees come into contact with and consume nectar or pollen [5] pesticides, it appears that they suffer brain damage. This [6] affects their ability to collect food or find their way home. As a result, most bees [7] to death far away from the hive.
+
+Sadly, the few poisoned bees that do make it back home actually carry the poison with them, thus polluting their own [8] and killing the rest of the colony. Shocking reports indicate that pesticides have, in just fifty years, [9] the number of bees by almost half!
+1 | leads to | contributes to | results from | results in | C | result from:起因於
+2 | resources | rescues | results | resorts | A | resource:資源
+3 | district | distinct | distant | distress | B | 明顯的;獨特的
+4 | initial | official | artificial | artistic | C | 人工的;人造的
+5 | continuing | contrasting | consisting | containing | D | contain:含有;包含
+6 | narrowly | nervously | noisily | negatively | D | 負面地;消極地
+7 | startle | starve | stare | starch | B | 挨餓;餓死
+8 | habitats | hatches | hobbies | habits | A | habitat:棲息地
+9 | rescued | reserved | reduced | reversed | C | reduce:減少;降低
+@end
+@passage The Mystery of the Disappearing Bees (3)
+For humans, losing bees wouldn't just mean a world without honey. In fact, we would face a [1] far worse than we can imagine, for these precious insects are actually [2] to our entire food supply. When bees collect nectar from different blossoms, pollen [3] their bodies.
+
+As they fly around, they carry the fine powder from flower to flower, helping plants [4]. As much as one third of all the food we eat is believed to [5] pollination by bees. Without their [6], about half the food we [7] daily would disappear in no time. We would [8] see things such as apples, kiwis, cabbage, broccoli, or pumpkin on our tables.
+
+[9] that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and [10] that feed farm animals. Without them, in other words, we'd find it very difficult to produce enough food for everyone in the long run.
+1 | fate | fame | fare | fault | A | 命運
+2 | essence | essentially | essentials | essential | D | 非常重要的;必要的
+3 | sticks around | sticks up | sticks to | sticks out | C | stick to:黏在……上;附著於
+4 | rebuild | reproduce | replace | reduce | B | 繁殖
+5 | rely in | rely for | rely on | rely at | C | 依賴;依靠
+6 | assistance | resistance | assistant | assist | A | 幫助;協助
+7 | feel for | feast on | fall for | fight for | B | 享用;盡情吃
+8 | no more | not longer | no later | no longer | D | 不再
+9 | At the top of | On behalf of | In front of | On top of | D | 除……之外
+10 | crops | cops | crows | crumbs | A | crop:作物;莊稼
+@end
+@passage The Mystery of the Disappearing Bees (4)
+Bees may be small, but we should all recognize the huge role they play in [1] the stability and [2] of the [3] web of life. With the [4] of these buzzing creatures, and of the plants they pollinate, a serious [5] on the entire food chain would be [6].
+
+Tiny but important, these insects deserve [7] for allowing life to [8] on this planet. Truly, they also deserve our protection!
+1 | maintain | maintaining | maintained | maintenance | B | maintain:維持;保持
+2 | ballot | ballet | balance | balloon | C | 平衡
+3 | deliberate | delicious | delicate | dedicated | C | 精密的;脆弱的
+4 | disappearance | disappointment | disagreement | disadvantage | A | 消失
+5 | import | impact | impulse | impression | B | 影響;衝擊
+6 | imaginary | invisible | innocent | inevitable | D | 不可避免的
+7 | crew | credit | crime | creed | B | 讚揚;功勞
+8 | strive | throw | thrive | thrill | C | 蓬勃發展
+@end
+S | The farmers use ______ to protect their crops from insects. | pigeons | pessimists | pedestrians | pesticides | D | pesticide:殺蟲劑
+S | Bees collect ______ from flowers and make it into honey. | nectar | nephew | neighbor | necklace | A | 花蜜
+S | The company was fined for ______ the river with chemicals. | pollinating | polishing | posting | polluting | D | pollute:污染
+S | Many animals are losing their natural ______ because of deforestation. | habits | habitats | hobbies | handles | B | habitat:棲息地
+S | As the drought continued, thousands of cattle ______ to death. | starved | stared | startled | started | A | starve:挨餓;餓死
+S | Plants and animals ______ on each other to survive. | rebel | reply | rely | reflect | C | rely on:依賴
+S | ______ his salary, he receives a bonus every year. | On behalf of | In front of | On account of | On top of | D | 除……之外
+S | Recent studies ______ that exercise improves memory. | indicate | indicating | indicator | indicates | A | 指出;顯示
+
 @bank 核單
 @sample 這些克漏字是示範題目,請換成教材的正式內容
 @unit 1
