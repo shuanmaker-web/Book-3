@@ -10,7 +10,7 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 - The teacher will check the yellow-word glosses (the ones written by Claude) **after the first push** — keep them listed for review.
 - Name Book3; app icons = Vocaboo's (as requested). **Brand:** the Book3 logo (`icons/logo.png`: lavender "Book" + lime "3" + stars,
   transparent PNG) replaces every "Book3" text in the UI (home hero, settings footer, loading placeholder). Opening the app shows a
-  **landing page with only the logo, which is a full-screen button** (tap anywhere → home; shown on every load, tabs hidden there).
+  **landing page with only the logo, which is a full-screen button** (tap anywhere → home; shown on every load, tabs hidden there). Landing background = saturated lavender `#BB93D8` (always, even if the last-used bank was 核單); the loading placeholder in `index.html` uses the same colour + same logo size/position, so there is no colour/size flash before the landing appears.
 - **Theme colour is per word bank** (`@color #RRGGBB` right after `@bank` in `words.txt` → `meta.banks[].color` → `applyTheme()` sets CSS `--page`,
   `theme-color` meta follows): **龍騰 = lavender `#BB93D8`, 核單 = strong green `#B9E732`** (the logo's green). Default if a bank has no @color:
   lavender (`PAGE_PINK` in `app.js`). There is **no colour picker** (old saved `theme` values are ignored). Text on the theme colour is dark ink

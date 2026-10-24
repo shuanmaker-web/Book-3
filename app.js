@@ -355,7 +355,7 @@ function renderProgress() {
 const PAGE_PINK = '#BB93D8'; // the lavender of "Book" in the logo = default theme colour
 const bankColor = () => /^#[0-9a-f]{6}$/i.test(banks().find(b => b.id === curBank())?.color || '') ? banks().find(b => b.id === curBank()).color : PAGE_PINK; // per word bank (@color in words.txt): 龍騰 lavender, 核單 green
 function applyTheme() {
-  const c = bankColor();
+  const c = S.landing ? PAGE_PINK : bankColor(); // landing page is always the lavender (also for a 核單 student), so it matches the loading screen
   document.documentElement.style.setProperty('--page', c);
   document.documentElement.style.setProperty('--page-ink', '#1a1a1a');
   const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = c;
@@ -367,7 +367,7 @@ function renderLanding() {
   app.innerHTML = `<button class="landing-btn" id="go" aria-label="Book3 — 點一下開始使用">${logoImg('landing-logo')}</button>`;
   $('#go').addEventListener('click', () => { S.landing = false; render(); });
 }
-const APP_VERSION = 'v2';
+const APP_VERSION = 'v3';
 function renderSettings() {
   const s = S.settings;
   const days = s.lastBackupAt ? Math.floor((Date.now() - s.lastBackupAt) / DAY) : null;
