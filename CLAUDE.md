@@ -6,8 +6,7 @@ Learning forms: **選擇題 + 拼字** (no flashcards) and **克漏字** (短文
 Reply to the teacher in Traditional Chinese; keep customary English terms (push, repo, commit, VERSION, PWA, FSRS …) in English.
 
 ## Status
-- Local git repo only (`main`), **no remote yet, nothing published**. Still needed from the teacher: an empty GitHub repo under
-  `shuanmaker-web` (then `add_repo(..., access=push)`).
+- Published: repo `shuanmaker-web/Book-3` (public), GitHub Pages → https://shuanmaker-web.github.io/Book-3/ (first push 2026-10-24). `sw.js` VERSION is now v2 (progress-page bank switch) — bump again for every change students load.
 - The teacher will check the yellow-word glosses (the ones written by Claude) **after the first push** — keep them listed for review.
 - Name Book3; app icons = Vocaboo's (as requested). **Brand:** the Book3 logo (`icons/logo.png`: lavender "Book" + lime "3" + stars,
   transparent PNG) replaces every "Book3" text in the UI (home hero, settings footer, loading placeholder). Opening the app shows a
@@ -21,6 +20,7 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 - The logo (lavender "Book" + green "3", from the teacher's artwork, slightly toned down) also appears at the **same top-left position on the
   cloze / progress / settings pages** (`heroLogo()` → `.hero`), page title below it; the home page keeps it with the exam calendar.
 - **App/desktop icons** (`icons/v2/*`) = the logo on `#F3ECF8`; if the logo changes, regenerate them and bump `?v=` in `index.html` + `manifest.webmanifest`.
+- **Progress page** has the same 龍騰 / 核單 switch as the home and cloze pages (`bankSwitch()`); the word card and cloze card show only the selected bank (the star calendar is shared). The chosen bank is the same one used on the other tabs.
 
 ## NEVER push before the teacher says CONFIRM ⚠️
 "remember don't push before i CONFIRM." Make the change → verify it locally → show the result → **wait for an explicit OK** →

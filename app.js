@@ -306,8 +306,9 @@ function renderHome() {
 }
 
 function renderProgress() {
-  const now = Date.now(); let html = heroLogo() + '<h1>進度</h1><div class="stack" style="margin-top:12px">';
-  for (const bk of banks()) {
+  const now = Date.now(), curBanks = banks().filter(b => b.id === curBank()); // progress follows the 龍騰 / 核單 switch
+  let html = heroLogo() + '<h1>進度</h1><div class="stack" style="margin-top:12px">' + bankSwitch();
+  for (const bk of curBanks) {
     const ws = bankWords(bk.id); if (!ws.length) continue;
     let learned = 0, mastered = 0, due = 0; const byUnit = {};
     for (const w of ws) {
@@ -323,7 +324,7 @@ function renderProgress() {
     if (units.length > 1) html += '<div style="margin-top:12px">' + units.map(u => { const v = byUnit[u]; const seg = c => c > 0 ? Math.max(4, c / v.n * 100) : 0; return `<div class="lvl"><span>${u ? esc(unitTag(u, bk.id)) : '—'}</span><div class="track"><i class="m" style="width:${seg(v.m)}%"></i><i class="l" style="width:${seg(v.l - v.m)}%"></i></div><span class="muted small">${v.l}/${v.n}</span></div>`; }).join('') + '</div>';
     html += `<p class="small muted">已學 = 選擇題與拼字都答過;精熟 = 已學 且 拼字答對過 且 記憶穩定度 ≥ 21 天。${units.length > 1 ? `深色＝精熟,淺色＝已學未精熟;左側是${esc(UNIT_WORD())},右側為已學／該單元總數` : ''}</p></section>`;
   }
-  for (const bk of banks()) { // 克漏字 progress, one card per bank that has questions
+  for (const bk of curBanks) { // 克漏字 progress of the selected bank (if it has questions)
     if (!clozeQs('all', bk.id).length) continue;
     const t = qTotals(() => true, 'all', bk.id), pct = t.ok / t.total * 100;
     html += `<section class="card"><h2>克漏字${banks().length > 1 ? ' · ' + esc(bk.name) : ''}</h2><div class="pbar" style="margin-top:8px"><i class="g" style="width:${pct}%"></i><i class="r" style="width:${t.wrong / t.total * 100}%"></i><em>${pct < 10 ? pct.toFixed(1) : Math.round(pct)}%</em></div>
@@ -366,7 +367,7 @@ function renderLanding() {
   app.innerHTML = `<button class="landing-btn" id="go" aria-label="Book3 — 點一下開始使用">${logoImg('landing-logo')}</button>`;
   $('#go').addEventListener('click', () => { S.landing = false; render(); });
 }
-const APP_VERSION = 'v1';
+const APP_VERSION = 'v2';
 function renderSettings() {
   const s = S.settings;
   const days = s.lastBackupAt ? Math.floor((Date.now() - s.lastBackupAt) / DAY) : null;
