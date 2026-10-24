@@ -8,7 +8,8 @@ cloze.txt format
   @bank 龍騰                       (which word bank these questions belong to — the name must match one in words.txt;
                                     run build_words.py first. Each bank has its own cloze questions and its own switch.)
   @sample 說明文字                 (optional, right after @bank: marks that bank's cloze questions as demo data)
-  @unit 3                          (following items belong to unit 3 of that bank)
+  @unit 3                          (following items belong to unit 3 of that bank; a display name may follow the number,
+                                    e.g. @unit 9 Review 2 — it is defined in words.txt, here the number is what counts)
 
   單句 (one line):  S | sentence with ______ | A選項 | B選項 | C選項 | D選項 | 答案字母 | 解析(可省略)
 
@@ -53,7 +54,7 @@ def main():
         n, line = i + 1, lines[i].strip(); i += 1
         if not line or line.startswith('#'): continue
         if line.startswith('@unit'):
-            v = line[5:].strip()
+            v = line[5:].strip().split(None, 1)[0] if line[5:].strip() else ''  # an optional display name after the number is read by build_words.py
             if v.isdigit(): unit = int(v)
             else: errors.append(f'{n}: @unit 後面要接數字')
         elif line.startswith('@bank'):

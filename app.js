@@ -125,7 +125,9 @@ const bankWords = (b = curBank()) => S.words.filter(w => w.bank === b);
 const answers = w => String(w.w).split('/').map(s => s.trim()).filter(Boolean);
 const unitNums = (b = curBank()) => [...new Set(bankWords(b).map(w => w.unit).filter(n => n != null))].sort((a, b) => a - b);
 const UNIT_WORD = () => S.meta.unitWord || 'Unit';
-const unitName = u => `${UNIT_WORD()} ${u}`;
+const unitLabel = (u, b = curBank()) => S.meta.unitLabels?.[b]?.[u]; // optional custom name, e.g. 9 → "Review 2"
+const unitName = (u, b = curBank()) => unitLabel(u, b) || `${UNIT_WORD()} ${u}`;
+const unitTag = (u, b = curBank()) => { const l = unitLabel(u, b); return l ? l.replace(/^(\S)\S*\s*(\d*)$/, '$1$2') : String(u); }; // short form for narrow columns: "Review 2" → "R2"
 function unitRange(b = curBank()) { const u = unitNums(b), r = S.settings.ranges?.[b] || []; return [r[0] ?? u[0], r[1] ?? u[u.length - 1]]; }
 function scopeWords() {
   const ws = bankWords(); if (!unitNums().length) return ws;
@@ -316,7 +318,7 @@ function renderProgress() {
     const n = ws.length, units = Object.keys(byUnit).map(Number).sort((a, b) => a - b);
     html += `<section class="card"><h2>${esc(banks().length > 1 ? bk.name : '單字學習')}</h2><div class="stat-grid" style="margin-top:8px">
       <div class="stat pstat"><b>${learned}</b><span>已學 / ${n}</span></div><div class="stat pstat"><b>${mastered}</b><span>已精熟 / ${n}</span></div><div class="stat pstat"><b>${due}</b><span>待複習</span></div></div>`;
-    if (units.length > 1) html += '<div style="margin-top:12px">' + units.map(u => { const v = byUnit[u]; const seg = c => c > 0 ? Math.max(4, c / v.n * 100) : 0; return `<div class="lvl"><span>${u || '—'}</span><div class="track"><i class="m" style="width:${seg(v.m)}%"></i><i class="l" style="width:${seg(v.l - v.m)}%"></i></div><span class="muted small">${v.l}/${v.n}</span></div>`; }).join('') + '</div>';
+    if (units.length > 1) html += '<div style="margin-top:12px">' + units.map(u => { const v = byUnit[u]; const seg = c => c > 0 ? Math.max(4, c / v.n * 100) : 0; return `<div class="lvl"><span>${u ? esc(unitTag(u, bk.id)) : '—'}</span><div class="track"><i class="m" style="width:${seg(v.m)}%"></i><i class="l" style="width:${seg(v.l - v.m)}%"></i></div><span class="muted small">${v.l}/${v.n}</span></div>`; }).join('') + '</div>';
     html += `<p class="small muted">已學 = 選擇題與拼字都答過;精熟 = 已學 且 拼字答對過 且 記憶穩定度 ≥ 21 天。${units.length > 1 ? `深色＝精熟,淺色＝已學未精熟;左側是${esc(UNIT_WORD())},右側為已學／該單元總數` : ''}</p></section>`;
   }
   for (const bk of banks()) { // 克漏字 progress, one card per bank that has questions
@@ -582,7 +584,7 @@ function renderCloze() {
   if (s.pos >= s.queue.length) return renderClozeSummary();
   const q = qById[s.queue[s.pos]], c = czState(q), pct = Math.round(s.results.length / s.total * 100), done = c.result !== null;
   let body = `<div class="topbar"><button class="icon-btn" data-xact="quit" aria-label="離開">✕</button><div class="bar"><i style="width:${pct}%"></i></div><span class="muted small">${s.results.length}/${s.total}${s.retest ? ' · 重測' : ''}</span></div>`;
-  const head = `${esc(unitName(q.unit))} · ${qLabel(q)}`;
+  const head = `${esc(unitName(q.unit, q.bank))} · ${qLabel(q)}`;
   body += q.type === 'passage'
     ? `<div class="card"><div class="muted small">${head}</div><div class="passage qtext">${passageHtml(q, done)}</div>${srcNote(q)}</div>`
     : `<div class="card"><div class="muted small">${head}</div><p class="qtext">${sentenceHtml(q, done)}</p>${srcNote(q)}</div>`;
@@ -600,7 +602,7 @@ function renderClozeSummary() {
   const s = S.session, ok = s.results.filter(r => r.ok).length, miss = s.results.filter(r => !r.ok).map(r => qById[r.id]);
   const left = wrongIds().length;
   app.innerHTML = `<div class="stack"><section class="card q"><h1>${ok === s.total ? '全部答對!🎉' : '完成這一回'}</h1><p class="zh">${ok} / ${s.total}</p><p class="muted">答對率 ${Math.round(ok / s.total * 100)}% · 用時 ${Math.max(1, Math.round((Date.now() - s.t0) / 60000))} 分鐘</p>${s.retest ? `<p class="small">錯題本還剩 <b>${left}</b> 題</p>` : ''}</section>
-    ${miss.length ? `<section class="card"><h2>這回答錯的題目</h2>${miss.map(q => `<div class="witem"><div class="muted small">${esc(unitName(q.unit))} · ${qLabel(q)}</div><div>${qHtml(q)}</div>${srcNote(q)}<div class="small"><b>${esc(q.ans)}</b>${q.exp ? ` <span class="muted">${esc(q.exp)}</span>` : ''}</div></div>`).join('')}</section>` : ''}
+    ${miss.length ? `<section class="card"><h2>這回答錯的題目</h2>${miss.map(q => `<div class="witem"><div class="muted small">${esc(unitName(q.unit, q.bank))} · ${qLabel(q)}</div><div>${qHtml(q)}</div>${srcNote(q)}<div class="small"><b>${esc(q.ans)}</b>${q.exp ? ` <span class="muted">${esc(q.exp)}</span>` : ''}</div></div>`).join('')}</section>` : ''}
     ${miss.length ? `<button class="btn block" data-xact="redo-miss">馬上重測這 ${miss.length} 題</button>` : ''}
     ${left && !miss.length ? '<button class="btn block" data-xact="retest-all">繼續重測錯題本</button>' : ''}
     <button class="btn ghost block" data-xact="quit">回克漏字</button></div>`;

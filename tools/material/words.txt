@@ -1,4 +1,6 @@
 # Book3 單字表 — 資料來源:教材照片(單字庫「龍騰」Lesson 4–5)。
+# 單元:Lesson 4–6 為數字課次;Review 2 寫成 @unit 9 Review 2(9 只決定排序:排在 Lesson 8 之後,App 上顯示 Review 2)。
+# 已在前面課文出現過的字(同詞性)不重複收:Lesson 6 略過 recognize/splendor/landscape/escape,Review 2 略過 essential/delicate/inevitable/crop。
 # 規則:每課「藍色虛線框內課文」中 粗體字 + 黃色螢光筆標記的字 都是該課單字。
 # 粗體字的中文釋義抄自課本頁面;只有黃色螢光筆、課本沒印釋義的字,詞性與中文由 Claude 補寫,請老師審閱。
 # 例句 = 該單字出現在課文裡的那一句。
@@ -192,6 +194,196 @@ destination | n. | 目的地 | Regardless of the season, the city is a must-see 
 seek | v. | 尋找;尋求 | Regardless of the season, the city is a must-see destination for tourists seeking an authentic local experience.
 authentic | adj. | 道地的;真正的 | Regardless of the season, the city is a must-see destination for tourists seeking an authentic local experience.
 fall in love with | phr. | 愛上 | Those who visit are likely to end up falling in love with the heart of Japan.
+@unit 6
+experienced | adj. | 有經驗的 | Nuñez, an experienced mountaineer, was climbing up one of Ecuador's highest mountains when he lost his footing.
+mountaineer | n. | 登山家 | Nuñez, an experienced mountaineer, was climbing up one of Ecuador's highest mountains when he lost his footing.
+Ecuador | n. | 厄瓜多 | Nuñez, an experienced mountaineer, was climbing up one of Ecuador's highest mountains when he lost his footing.
+lose one's footing | phr. | 失足;跌倒 | Nuñez, an experienced mountaineer, was climbing up one of Ecuador's highest mountains when he lost his footing.
+slide | v. | 滑落;滑行 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
+snowy | adj. | 白雪覆蓋的;下雪的 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
+slope | n. | 斜坡;坡地 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
+fall over | phr. | 摔下;跌倒 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
+cliff | n. | 懸崖 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
+edge | n. | 邊緣 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
+tumble | v. | 滾落;翻滾 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
+distance | n. | 距離 | He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.
+bruised | adj. | 瘀傷的;碰傷的 | Bruised and dazed, he found himself in a place cut off from the world.
+dazed | adj. | 暈眩的 | Bruised and dazed, he found himself in a place cut off from the world.
+cut off from | phr. | 與……隔絕;阻斷 | Bruised and dazed, he found himself in a place cut off from the world.
+blind | adj. | 盲的;失明的 | It didn't take long for Nuñez to realize that every villager was blind.
+injury | n. | 傷;傷害 | Despite his injuries, Nuñez struggled to his feet and set off to explore.
+struggle | v. | 掙扎;奮力 | Despite his injuries, Nuñez struggled to his feet and set off to explore.
+set off | phr. | 出發;啟程 | Despite his injuries, Nuñez struggled to his feet and set off to explore.
+make one's way through | phr. | 穿越前行;前往 | As he made his way through the unfamiliar land, he came upon an unusual village.
+unfamiliar | adj. | 不熟悉的 | As he made his way through the unfamiliar land, he came upon an unusual village.
+come upon | phr. | 偶然遇到;偶然發現 | As he made his way through the unfamiliar land, he came upon an unusual village.
+unusual | adj. | 不尋常的;罕見的 | As he made his way through the unfamiliar land, he came upon an unusual village.
+village | n. | 村莊 | As he made his way through the unfamiliar land, he came upon an unusual village.
+unevenly | adv. | 不均勻地;不規則地 | The houses were unevenly painted, and all the roads leading to the houses had low walls alongside them.
+lead to | phr. | 通往;通向 | The houses were unevenly painted, and all the roads leading to the houses had low walls alongside them.
+alongside | prep. | 在……旁邊 | The houses were unevenly painted, and all the roads leading to the houses had low walls alongside them.
+realize | v. | 察覺;意識到 | It didn't take long for Nuñez to realize that every villager was blind.
+villager | n. | 村民 | It didn't take long for Nuñez to realize that every villager was blind.
+sightless | adj. | 看不見的;眼盲的 | Feeling superior to these sightless people, he thought to himself, "In the country of the blind, the one-eyed man is king."
+superior | adj. | 優於;更好的 | Feeling superior to these sightless people, he thought to himself, "In the country of the blind, the one-eyed man is king."
+amazed | adj. | 驚訝的;驚奇的 | However, after spending time with the locals, he was amazed at their great knowledge.
+intimately | adv. | 了如指掌地;密切地 | Though blind, they knew their mountain kingdom intimately.
+farm | v. | 耕作;種田 | The villagers skillfully farmed and moved around by using their keen senses of hearing, touch, and smell.
+skillfully | adv. | 熟練地 | The villagers skillfully farmed and moved around by using their keen senses of hearing, touch, and smell.
+keen | adj. | 敏銳的 | The villagers skillfully farmed and moved around by using their keen senses of hearing, touch, and smell.
+sense | n. | 感官;感覺 | The villagers skillfully farmed and moved around by using their keen senses of hearing, touch, and smell.
+employ | v. | 使用;採用 | They also employed effective techniques for growing crops and caring for animals.
+effective | adj. | 有效的 | They also employed effective techniques for growing crops and caring for animals.
+technique | n. | 技術;技巧 | They also employed effective techniques for growing crops and caring for animals.
+crop | n. | 作物;莊稼 | They also employed effective techniques for growing crops and caring for animals.
+care for | phr. | 照顧;照料 | They also employed effective techniques for growing crops and caring for animals.
+lined with | phr. | 沿……排列;圍著…… | The paths, lined with low walls, had been specially built to help them navigate safely.
+path | n. | 小路;小徑 | The paths, lined with low walls, had been specially built to help them navigate safely.
+navigate | v. | 行走、確認方向;航行 | The paths, lined with low walls, had been specially built to help them navigate safely.
+respected | adj. | 受人尊敬的 | Among the villagers, a respected elder named Yacob put the outsider to work and began teaching him their ways.
+elder | n. | 長者;長輩 | Among the villagers, a respected elder named Yacob put the outsider to work and began teaching him their ways.
+outsider | n. | 外人;外來者 | Among the villagers, a respected elder named Yacob put the outsider to work and began teaching him their ways.
+gradually | adv. | 漸漸地 | Gradually, Nuñez adapted to their way of life, but he clung to the reality of sight.
+adapt | v. | (使)適應;(使)適合 | Gradually, Nuñez adapted to their way of life, but he clung to the reality of sight.
+cling to | phr. | 抓緊;堅持;堅信 | Gradually, Nuñez adapted to their way of life, but he clung to the reality of sight.
+reality | n. | 現實;真實性 | Gradually, Nuñez adapted to their way of life, but he clung to the reality of sight.
+sight | n. | 視覺;視力 | Gradually, Nuñez adapted to their way of life, but he clung to the reality of sight.
+vision | n. | 視覺;視力 | To him, vision was as real as the air he breathed.
+twinkling | adj. | 閃耀的;閃爍的 | The more he spoke of high mountains and twinkling stars, the more the villagers pitied him.
+pity | v. | 憐憫;同情 | The more he spoke of high mountains and twinkling stars, the more the villagers pitied him.
+frustrated at | phr. | 對……感到沮喪 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
+lack | n. | 缺乏 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
+awe | n. | 敬畏 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
+precious | adj. | 珍貴的 | Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.
+lay eyes on | phr. | 看見;注意到 | It wasn't until he first laid eyes on Yacob's daughter, Medina-saroté, that he began to feel better.
+admire | v. | 欣賞;讚賞 | No one else admired Medina's beauty, as she had well-defined features that lacked the smoothness the villagers valued.
+well-defined | adj. | 輪廓分明的 | No one else admired Medina's beauty, as she had well-defined features that lacked the smoothness the villagers valued.
+feature | n. | 容貌;特徵 | No one else admired Medina's beauty, as she had well-defined features that lacked the smoothness the villagers valued.
+smoothness | n. | 平滑;細緻 | No one else admired Medina's beauty, as she had well-defined features that lacked the smoothness the villagers valued.
+value | v. | 重視;珍視 | No one else admired Medina's beauty, as she had well-defined features that lacked the smoothness the villagers valued.
+furthermore | adv. | 此外;再者 | Furthermore, her weak voice was neither powerful nor pleasing enough to meet their standards.
+pleasing | adj. | 悅耳的;令人愉悅的 | Furthermore, her weak voice was neither powerful nor pleasing enough to meet their standards.
+meet | v. | 達到;符合 | Furthermore, her weak voice was neither powerful nor pleasing enough to meet their standards.
+standard | n. | 標準 | Furthermore, her weak voice was neither powerful nor pleasing enough to meet their standards.
+blossom | v. | (感情)深入發展;開花 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
+desire | n. | 渴望;慾望 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
+fierce | adj. | 強烈的;兇猛的 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
+opposition | n. | 反對;反抗 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
+view | v. | 把……視為 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
+delusion | n. | 幻覺;錯覺 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
+cure | v. | 治療;治癒 | Yet, as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's "sight" as a dangerous delusion that needed to be "cured."
+worst of all | phr. | 最糟的是 | Worst of all, even Medina herself agreed with them.
+agree with | phr. | 同意;認同 | Worst of all, even Medina herself agreed with them.
+persuade | v. | 說服 | She persuaded Nuñez to remove the peculiar orbs on either side of his nose.
+orb | n. | 球狀物(此處指眼球) | She persuaded Nuñez to remove the peculiar orbs on either side of his nose.
+peculiar | adj. | 奇怪的;不尋常的 | She persuaded Nuñez to remove the peculiar orbs on either side of his nose.
+remove | v. | 移除;除去 | She persuaded Nuñez to remove the peculiar orbs on either side of his nose.
+daydream | v. | 做白日夢 | That way, he could stop daydreaming and truly become one of them.
+truly | adv. | 真正地 | That way, he could stop daydreaming and truly become one of them.
+in return for | phr. | 作為(對……的)回報、交換 | In return for Nuñez's great sacrifice, she agreed to marry him.
+sacrifice | n. | 犧牲 | In return for Nuñez's great sacrifice, she agreed to marry him.
+confront | v. | 面臨;面對 | Nuñez was confronted with a dilemma: he had to choose either to lose his eyes or to end their relationship.
+dilemma | n. | 進退兩難的困境 | Nuñez was confronted with a dilemma: he had to choose either to lose his eyes or to end their relationship.
+eventually | adv. | 最後;終於 | Eventually, he agreed to give up his eyes for Medina's sake.
+for one's sake | phr. | 為了某人;看在某人份上 | Eventually, he agreed to give up his eyes for Medina's sake.
+nevertheless | adv. | 儘管如此;然而 | Nevertheless, it wasn't until the day of his surgery that he realized he was making a huge mistake.
+behold | v. | 注視;看著 | That morning, he once again beheld the splendor of the sunrise.
+sunrise | n. | 日出 | That morning, he once again beheld the splendor of the sunrise.
+gaze | v. | 凝視;注視 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
+envision | v. | 想像;嚮往 | Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.
+driven by | phr. | 受……驅使 | Driven by the desire to save his sight, he fled the country of the blind.
+save | v. | 拯救;保住 | Driven by the desire to save his sight, he fled the country of the blind.
+flee | v. | 逃離;逃跑 | Driven by the desire to save his sight, he fled the country of the blind.
+@unit 9 Review 2
+mystery | n. | 謎團 | The Mystery of the Disappearing Bees
+disappear | v. | 消失 | The worker bees had simply disappeared, leaving their queens behind.
+overnight | adv. | 一夜之間;突然 | Overnight, entire bee colonies simply went missing and were nowhere to be found.
+colony | n. | 蜂群;(動物的)群體 | Overnight, entire bee colonies simply went missing and were nowhere to be found.
+simply | adv. | 僅僅;完全 | Overnight, entire bee colonies simply went missing and were nowhere to be found.
+nowhere to be found | phr. | 到處都找不到 | Overnight, entire bee colonies simply went missing and were nowhere to be found.
+beekeeper | n. | 養蜂人 | Beekeepers found their hollow hives empty of worker bees.
+hollow | adj. | 中空的 | Beekeepers found their hollow hives empty of worker bees.
+hive | n. | 蜂窩;蜂巢 | Beekeepers found their hollow hives empty of worker bees.
+empty | adj. | 空的;沒有……的 | Beekeepers found their hollow hives empty of worker bees.
+worker bee | n. | 工蜂 | Beekeepers found their hollow hives empty of worker bees.
+evidence | n. | 證據 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
+lie | v. | 躺;平放 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
+predator | n. | 掠食者;捕食者 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
+theft | n. | 偷竊 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
+slaughter | n. | 屠殺 | Strangely enough, there were neither dead bees lying around nor any evidence of disease, predators, theft, or slaughter.
+leave behind | phr. | 丟下……;拋下 | The worker bees had simply disappeared, leaving their queens behind.
+unfortunate | adj. | 不幸的;遺憾的 | It is unfortunate that this wasn't just some miserable nightmare.
+miserable | adj. | 悲慘的;痛苦的 | It is unfortunate that this wasn't just some miserable nightmare.
+nightmare | n. | 惡夢 | It is unfortunate that this wasn't just some miserable nightmare.
+harsh | adj. | 殘酷的 | Instead, it is a harsh reality affecting over a million bee colonies every year.
+according to | phr. | 根據 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+phenomenon | n. | 現象 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+be referred to as | phr. | 被稱為 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+colony collapse disorder | n. | 蜂群崩壞症候群 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+result from | phr. | 起因於 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+factor | n. | 因素 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+pollution | n. | 污染 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+global warming | n. | 全球暖化 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+shrink | v. | 縮減 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+resource | n. | 資源 | According to scientists, this phenomenon is referred to as colony collapse disorder (CCD), which results from several factors including air pollution, global warming, and shrinking water resources.
+distinct | adj. | 明顯的;獨特的 | However, one distinct contributing factor is the use of pesticides.
+contributing | adj. | 促成的;起作用的 | However, one distinct contributing factor is the use of pesticides.
+pesticide | n. | 殺蟲劑 | However, one distinct contributing factor is the use of pesticides.
+treat | v. | 處理;對待 | Plants treated with pesticides pass poisonous artificial chemicals on to bees directly through their nectar.
+poisonous | adj. | 有毒的 | Plants treated with pesticides pass poisonous artificial chemicals on to bees directly through their nectar.
+artificial | adj. | 人工的;人造的 | Plants treated with pesticides pass poisonous artificial chemicals on to bees directly through their nectar.
+chemical | n. | 化學物質 | Plants treated with pesticides pass poisonous artificial chemicals on to bees directly through their nectar.
+nectar | n. | 花蜜 | Plants treated with pesticides pass poisonous artificial chemicals on to bees directly through their nectar.
+pollen | n. | 花粉 | When bees come into contact with and consume nectar or pollen containing pesticides, it appears that they suffer brain damage.
+contain | v. | 含有;包含 | When bees come into contact with and consume nectar or pollen containing pesticides, it appears that they suffer brain damage.
+damage | n. | 傷害;損害 | When bees come into contact with and consume nectar or pollen containing pesticides, it appears that they suffer brain damage.
+negatively | adv. | 負面地;消極地 | This negatively affects their ability to collect food or find their way home.
+ability | n. | 能力 | This negatively affects their ability to collect food or find their way home.
+collect | v. | 採集;收集 | This negatively affects their ability to collect food or find their way home.
+as a result | phr. | 因此 | As a result, most bees starve to death far away from the hive.
+starve | v. | 挨餓;餓死 | As a result, most bees starve to death far away from the hive.
+carry | v. | 攜帶;帶有 | Sadly, the few poisoned bees that do make it back home actually carry the poison with them, thus polluting their own habitats and killing the rest of the colony.
+poison | n. | 毒;毒物 | Sadly, the few poisoned bees that do make it back home actually carry the poison with them, thus polluting their own habitats and killing the rest of the colony.
+habitat | n. | 棲息地 | Sadly, the few poisoned bees that do make it back home actually carry the poison with them, thus polluting their own habitats and killing the rest of the colony.
+rest | n. | 其餘;剩餘部分 | Sadly, the few poisoned bees that do make it back home actually carry the poison with them, thus polluting their own habitats and killing the rest of the colony.
+shocking | adj. | 令人震驚的 | Shocking reports indicate that pesticides have, in just fifty years, reduced the number of bees by almost half!
+indicate | v. | 指出;顯示 | Shocking reports indicate that pesticides have, in just fifty years, reduced the number of bees by almost half!
+reduce | v. | 減少;降低 | Shocking reports indicate that pesticides have, in just fifty years, reduced the number of bees by almost half!
+fate | n. | 命運 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
+imagine | v. | 想像 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
+insect | n. | 昆蟲 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
+actually | adv. | 實際上;事實上 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
+supply | n. | 供應量 | In fact, we would face a fate far worse than we can imagine, for these precious insects are actually essential to our entire food supply.
+stick to | phr. | 黏在……上;附著於 | When bees collect nectar from different blossoms, pollen sticks to their bodies.
+powder | n. | 粉末 | As they fly around, they carry the fine powder from flower to flower, helping plants reproduce.
+reproduce | v. | 繁殖 | As they fly around, they carry the fine powder from flower to flower, helping plants reproduce.
+rely on | phr. | 依賴;依靠 | As much as one third of all the food we eat is believed to rely on pollination by bees.
+pollination | n. | 授粉 | As much as one third of all the food we eat is believed to rely on pollination by bees.
+assistance | n. | 幫助;協助 | Without their assistance, about half the food we feast on daily would disappear in no time.
+feast on | phr. | 享用;盡情吃 | Without their assistance, about half the food we feast on daily would disappear in no time.
+daily | adv. | 每天地;日常地 | Without their assistance, about half the food we feast on daily would disappear in no time.
+in no time | phr. | 很快;馬上 | Without their assistance, about half the food we feast on daily would disappear in no time.
+no longer | phr. | 不再 | We would no longer see things such as apples, kiwis, cabbage, broccoli, or pumpkin on our tables.
+kiwi | n. | 奇異果 | We would no longer see things such as apples, kiwis, cabbage, broccoli, or pumpkin on our tables.
+cabbage | n. | 甘藍菜;高麗菜 | We would no longer see things such as apples, kiwis, cabbage, broccoli, or pumpkin on our tables.
+broccoli | n. | 花椰菜 | We would no longer see things such as apples, kiwis, cabbage, broccoli, or pumpkin on our tables.
+on top of | phr. | 除……之外 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
+dairy | n. | 乳製品 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
+pollinate | v. | 授粉 | On top of that, dairy and meat would eventually be a thing of the past, since bees also pollinate some of the plants and crops that feed farm animals.
+produce | v. | 生產;製造 | Without them, in other words, we'd find it very difficult to produce enough food for everyone in the long run.
+in the long run | phr. | 從長遠來看 | Without them, in other words, we'd find it very difficult to produce enough food for everyone in the long run.
+maintain | v. | 維持;保持 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
+stability | n. | 穩定 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
+balance | n. | 平衡 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
+web | n. | 網;網絡 | Bees may be small, but we should all recognize the huge role they play in maintaining the stability and balance of the delicate web of life.
+disappearance | n. | 消失 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
+buzzing | adj. | 嗡嗡叫的 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
+creature | n. | 生物 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
+impact | n. | 影響;衝擊 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
+chain | n. | 鏈;連鎖 | With the disappearance of these buzzing creatures, and of the plants they pollinate, a serious impact on the entire food chain would be inevitable.
+deserve | v. | 應得 | Tiny but important, these insects deserve credit for allowing life to thrive on this planet.
+credit | n. | 讚揚;功勞 | Tiny but important, these insects deserve credit for allowing life to thrive on this planet.
+thrive | v. | 蓬勃發展 | Tiny but important, these insects deserve credit for allowing life to thrive on this planet.
 
 @bank 核單
 @sample 這個單字庫目前是示範資料,請換成教材的正式內容
