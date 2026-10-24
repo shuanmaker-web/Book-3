@@ -6,7 +6,7 @@
 # 粗體字的中文釋義抄自課本頁面;只有黃色螢光筆、課本沒印釋義的字,詞性與中文由 Claude 補寫,請老師審閱。
 # 例句 = 該單字出現在課文裡的那一句。
 @title Book3
-@source 龍騰
+@source 龍騰、核單
 @unitword Lesson
 @bank 龍騰
 @unit 4
@@ -395,14 +395,171 @@ credit | n. | 讚揚;功勞 | Tiny but important, these insects deserve credit f
 thrive | v. | 蓬勃發展 | Tiny but important, these insects deserve credit for allowing life to thrive on this planet.
 
 @bank 核單
-@sample 這個單字庫目前是示範資料,請換成教材的正式內容
-@unit 1
-curious | adj. | 好奇的 | Children are curious about everything. | 孩子們對一切都好奇。
-decide | v. | 決定 | I decided to stay home. | 我決定待在家。
-delay | v. | 延遲 | The flight was delayed. | 班機延誤了。
-deliver | v. | 遞送 | They deliver pizza to your door. | 他們把披薩送到你家門口。
-@unit 2
-effort | n. | 努力 | He made a great effort. | 他付出了很大的努力。
-exchange | v. | 交換 | Let's exchange phone numbers. | 我們交換電話號碼吧。
-familiar | adj. | 熟悉的 | This song sounds familiar. | 這首歌聽起來很耳熟。
-generous | adj. | 慷慨的 | She is generous to her friends. | 她對朋友很大方。
+# 核單 Level 3 Unit 17–20(來源:老師提供的 Vocabulary List PDF)。單元顯示為 Unit 17…(@unit 後面的名稱),進度欄縮寫 U17。
+# 詞性與中文照 PDF 原樣(多個詞性與釋義用 & 分開);PDF 沒有例句中文,所以不填。
+# afterward(s) / saving(s) 寫成 afterward/afterwards、saving/savings(拼字時兩種拼法都算對)。
+# Unit 19 有一筆沒編號的 collar(PDF 原本就在 sleeve 後面),照樣收錄。
+@unit 17 Unit 17
+knit | vt. / n. | （用毛線）針織 & 編織衣物 | My grandmother knitted me a warm scarf for the winter.
+weave | vt. / vi. / n. | 穿梭而行;編織 & 織法 | Cyclists weave in and out of the traffic on this street.
+monk | n. | （天主教）修士;和尚 | The monk gets up at five every morning to sweep the temple yard.
+nun | n. | 修女;尼姑 | The nun teaches music at a small school.
+breeze | n. / vi. | 微風 & 飄然而行;輕鬆贏得 | A cool breeze came in through the open window.
+mathematical | a. | 數學的（= math） | She solved the mathematical problem in just five minutes.
+postpone | vt. | 延期,延緩 | We had to postpone the picnic because of the rain.
+postponement | n. | 延期,延緩 | The postponement of the match disappointed the fans.
+emperor | n. | 皇帝 | The emperor lived in a palace surrounded by high walls.
+feather | n. | 羽毛 | A white feather floated down from the tree.
+fur | n. | （動物的）皮毛 | The cat’s soft fur feels wonderful.
+wrap | vt. / n. | 包裝,包 & 覆蓋物（不可數）;披肩 | Please wrap the gift in blue paper.
+dose | n. / vt. | 藥劑 & （按劑量）給……服藥 | The doctor told him to take one dose of medicine every eight hours.
+drown | vt. / vi. | 使淹沒;淹沒 & 淹死 | The boy nearly drowned when he fell into the pool.
+bunch | n. | 一束;一群（人） | He bought a bunch of grapes at the market.
+bundle | n. / vt. | 捆,束 & 捆 | She tied the old letters in a bundle.
+motel | n. | 汽車旅館 | We stayed at a cheap motel beside the highway.
+inn | n. | 酒店;小旅館 | The traveler spent the night at a small country inn.
+suicide | n. | 自殺 | The school counselor talks with students about how to prevent suicide.
+mess | n. / vt. / vi. | 混亂 & 使混亂 & 胡鬧,鬼混 | Your room is a mess. Please clean it up.
+separation | n. | 分離,別離 | The long separation made the twins miss each other.
+bush | n. | 灌木 | A rabbit was hiding behind the bush.
+panic | n. / vi. | 驚恐 | There was panic in the crowd when the fire alarm rang.
+seal | vt. / n. | 密封 & 封條;海豹 | Please seal the envelope before you mail it.
+recorder | n. | 錄音機,記錄器 | I used a voice recorder to save the teacher’s lecture.
+afterward/afterwards | adv. | 之後 | We had lunch first and went shopping afterward.
+ladder | n. | 梯子 | He climbed the ladder to fix the roof.
+skip | vt. / n. | 省略 & 跳;省略 | Don’t skip breakfast; it is good for you.
+plug | n. / vt. | 插頭 & 將……插入（插頭） | Pull out the plug before you clean the machine.
+earplug | n. | 耳塞 | I wear earplugs when the street outside is noisy.
+humor | n. / vt. | 幽默;心情,情緒 & 遷就,寵愛（= spoil） | My uncle has a great sense of humor.
+humorous | a. | 幽默的,風趣的 | The speech was humorous and full of jokes.
+deed | n. | 行為（可數） | Helping the old woman cross the road was a kind deed.
+stomach | n. | 胃 | I have a pain in my stomach.
+belly | n. | 肚子 | The baby laughed and patted his round belly.
+misery | n. | 悲慘,窮困 | The war brought misery to millions of people.
+fold | vt. / n. | 折疊 & 摺線 | Fold the paper in half.
+punch | n. / vt. | 用拳重擊 | He punched the bag as hard as he could.
+label | n. / vt. | 標籤 & 貼標籤;歸類 | Read the label on the bottle before you take the pills.
+tag | n. / vt. | 標籤 & 給……加上標籤 | The price tag is still on your new jacket.
+regret | vt. / n. | 後悔;遺憾,抱歉 & 遺憾;惋惜 | I regret not studying harder last year.
+regretful | a. | 後悔的（修飾人） | She looked regretful after breaking her promise.
+regrettable | a. | 令人遺憾的（修飾事物） | It is regrettable that the concert was canceled.
+jazz | n. | 爵士樂 | We listened to live jazz at the café last night.
+jeep | n. | 吉普車 | The soldiers drove a jeep across the desert.
+@unit 18 Unit 18
+outdoor | a. | 戶外的,露天的 | We moved the outdoor concert into the auditorium because of the rain.
+outdoors | adv. / n. | 在戶外;（the outdoors）戶外生活 | The children love playing outdoors after school.
+indoor | a. | 室內的 | The city has just built a new indoor swimming pool.
+indoors | adv. | 在室內 | Please stay indoors until the storm has passed.
+bold | a. | 大膽的,勇敢的 | It was bold of Mia to speak up in front of the whole school.
+spit | vt. / vi. / n. | 吐出;吐痰 & 唾液,口水 | Please don’t spit on the sidewalk.
+suck | vi. / vt. / n. | 吸;（俚語）糟糕,很爛 | The baby sucks his thumb when he is sleepy.
+timber | n. | 木材（不可數） | The mountain cabin is built entirely of timber.
+oak | n. | 橡木 | My grandfather’s desk is made of solid oak.
+pine | n. / vi. | 松樹 & 憔悴 | Pine trees stay green all through the winter.
+jail | n. / vt. | 監獄 & 使入獄 | The thief was put in jail for two years.
+criminal | n. / a. | 罪犯 & 犯法的;刑法方面的 | The police are looking for the criminal who broke into the shop.
+flavor | n. / vt. | 口味 & 給……調味 | Which ice cream flavor do you like best?
+transport | vt. / n. | 運送,運輸 & 運輸（名詞重音在前） | Trucks transport fresh vegetables to the city every morning.
+hourly | a. / adv. | 每小時的 & 每小時地 | The train runs on an hourly schedule.
+weekly | a. / adv. / n. | 每週的 & 每週地 & 週刊（報） | I write a weekly report for my boss.
+monthly | a. / adv. / n. | 每月的 & 每月地 & 月刊 | She pays her rent on a monthly basis.
+quarterly | a. / adv. / n. | 每一季的 & 每季地 & 季刊 | The company holds a quarterly meeting in March, June, September and December.
+yearly | a. / adv. | 每年的 & 每年地 | Our school holds a yearly sports day in October.
+stiff | a. | 硬的;激烈的 | My neck is stiff after sleeping in a bad position.
+rag | n. | 破布 | He wiped the table with an old rag.
+rug | n. | 小地毯 | A soft rug covers the cold wooden floor.
+rob | vt. / vi. | 搶奪 & 搶劫 | Two men tried to rob the bank of all its cash last night.
+robbery | n. | 搶劫,搶案 | The man was arrested for armed robbery.
+aboard | prep. / adv. | 在（車、船或飛機）上 | All passengers must be aboard the ship by ten o’clock.
+athlete | n. | 運動員 | The young athlete trains every morning before school.
+ribbon | n. | 彩帶,緞帶 | She tied a red ribbon in her hair.
+knot | n. / vt. | 繩結 & 把……打結 | I can’t untie this knot; it is too tight.
+tune | n. / vt. / vi. | 曲調,旋律 & 為……調音 & 轉到……的頻道 | He tuned his violin carefully before the show.
+dim | a. / vt. / vi. | 微暗的 & （使）變暗 | The light in this room is too dim to read by.
+carriage | n. | 馬車 | The royal couple rode through the city in a horse-drawn carriage.
+thankful | a. | 感謝的,感激的 | We are thankful to our neighbors for their kind help.
+brass | n. / a. | 黃銅 & 銅管樂器的 | The band’s brass section includes a trumpet and a trombone.
+shallow | a. | 淺的;膚淺的 | The river is shallow enough for us to walk across.
+kidney | n. | 腎臟 | He gave one of his kidneys to his brother.
+lung | n. | 肺臟（常用複數） | Smoking is bad for your lungs.
+saucer | n. | 茶托,淺碟 | She put the cup back on its saucer.
+sauce | n. | 醬汁 | This pasta sauce is made from fresh tomatoes.
+receiver | n. | （電話）聽筒 | Please pick up the receiver and dial zero.
+receipt | n. | 收據,發票（p 不發音） | Keep your receipt in case you need to return the shirt.
+mighty | a. | 強大的,強力的 | The mighty river flows through five countries.
+swift | a. | 迅速的,敏捷的 | The swift runner won the race easily.
+approve | vt. / vi. | 批准,核可 & 贊同（與介詞 of 並用） | The committee approved the budget yesterday.
+@unit 19 Unit 19
+ash | n. | 灰 | Mary emptied the ashes in the trash can.
+rumor | n. / vt. | 謠言,傳言 & 散播謠言 | Rumor has it that Gatsby is going to marry a rich widow.
+echo | n. / vi. | 回音 & 重複 | I heard vague echoes of someone's footsteps.
+sweat | vi. / n. | 出汗 & 汗 | I sweat a lot on hot days.
+tub | n. | 澡盆,浴缸 | My apartment, sadly, does not have a tub.
+peel | n. / vt. & vi. | 水果皮 & 剝/削（果皮） | Scientists have discovered that banana peels contain alcohol.
+handy | adj. | 在手邊的;方便的 | You'd better carry an umbrella with you; it may come in handy.
+handful | n. | 一把 | The boy grabbed a handful of berries and tucked them in his pocket.
+outline | n. / vt. | 大綱;輪廓 & 重點說明 | Our teacher asked us to write an outline before writing our research papers.
+tray | n. | 托盤 | The waitress brought the drinks we ordered on a tray.
+hasty | adj. | 急忙的 | A hasty decision is often regretted later.
+saving/savings | n. | 存款（恆用複數）;節省（費用） | Karen opened a new savings account so she could begin saving for college.
+deposit | vt. / n. | 存放（銀行）;蘊藏量;訂金 | Jason deposits 200 dollars in the bank each month.
+sincere | adj. | 誠懇的,誠摯的 | John was sincere in his apology, so his mom forgave him.
+inspect | vt. | 檢查;視察 | The police inspected the bloodstains at the crime scene.
+spray | vt. & n. | 噴灑 & 噴霧劑 | Mary sprayed herself with perfume before going out on a date.
+lobby | n. / vt. & vi. | 大廳 & 遊說（國會議員等） | Harry and I will meet in the hotel lobby tomorrow morning.
+halfway | a. & adv. | 在半路上 | I called John an hour ago, and he said he was halfway here.
+fond | adj. | 喜好的 | Kim is really fond of heavy metal.
+harvest | vt. & n. | 收穫 | The farmers had to harvest the rice before the typhoon came.
+gamble | vt. & vi. & n. | 賭博 | James loves to gamble by buying lottery tickets each week.
+sleeve | n. | 袖子 | Judy rolled up her sleeves and did the dishes.
+collar | n. | 衣領 | Todd grabbed George by the collar and punched him in the face.
+truthful | adj. | 誠實的;真實的 | You can trust Jim; he is a truthful and upright man.
+kilometer | n. | 公里 | The Great Wall is thousands of kilometers long.
+awful | adj. | 可怕的;很差的 | Denny's handwriting was so awful that the teacher asked him to rewrite it.
+discount | vt. / n. | 打折 & 折扣 | Shops discount everything around holidays.
+drain | vt. & n. | 排掉（液體） | The water in the bathtub should be drained first.
+pit | n. | 坑 | We dug a pit for the campfire.
+chip | n. / vt. | 碎片,屑片;電腦晶片 & 撞成碎片 | Our computer uses the smallest silicon chip ever invented.
+tug | vt. & vi. & n. | 突然拉扯 | My girlfriend gently tugged my arm, asking me to give her a kiss.
+beetle | n. | 甲蟲 | My brother keeps a beetle as a pet.
+apron | n. | 圍裙 | Mother put on her kitchen apron and cooked us a meal.
+cock | n. | 公雞 (= rooster) | Cocks usually crow in the early morning.
+fighter | n. | 戰鬥機;鬥士 | The fighter plane crashed, killing its two pilots.
+brick | n. | 磚頭 | Tom built a house of bricks.
+spaghetti | n. | 細條義大利麵 | I ate two plates of spaghetti at the party.
+lightning | n. | 閃電 | The farmer was struck by lightning but fortunately he survived.
+pitch | vt. / n. | 投（球）;紮（營）;瀝青;音調 | Dad pitched the ball to my sister, and she swung the bat.
+@unit 20 Unit 20
+import | vt. / n. | 進口;進口品 | Most cheeses in that store are imported from France.
+export | vt. / n. | 出口;輸出品 | Oil is the major export to Saudi Arabia.
+tribe | n. | 部落 | Each of the tribes has its distinctive tribal traditions.
+leisure | n. | 閒暇,空間時間 | Playing chess is a leisure activity that requires a lot of mental effort.
+gum | n. | 牙齦;口香糖 | I went to see a dentist for my sore gums.
+awake | vi. / adj. | 醒來 & 清醒的 | Lisa was wide awake the whole night.
+heap | n. / vt. | 一堆 & 堆滿 | There is a heap of dirty clothes on Jack’s bed.
+ivory | n. / adj. | 象牙;象牙色的 | A grown male elephant has two long tusks of ivory.
+stubborn | adj. | 頑固的 | Her stubborn parents wouldn’t let her travel abroad alone.
+rid | vt. / adj. | 使擺脫 & 擺脫的 | The police chief promised he would rid the city of crime.
+moist | adj. | 潮濕的,潤濕的 | Frogs live near wet places to keep their skin moist.
+laundry | n. | 待洗衣物 | I used to do the laundry once a week.
+chill | n. / v. / adj. | 寒冷;使冷卻;寒冷的 | I felt the chill in the air when I left home this morning.
+headline | n. / vt. | （報紙）標題;加標題 | The financial scandal has been in the headlines for weeks.
+bleed | vi. | 流血 | Tom’s nose kept bleeding after being hit in the face.
+dash | vt. / vi. / n. | 衝撞,急奔;短跑比賽 | Frank dashed to the toilet as soon as the film was over.
+robe | n. | 長袍;浴袍 | The judge was wearing a black robe.
+icy | adj. | 結冰的;冰涼的 | Be careful! The sidewalk is icy.
+screw | n. / vt. & vi. | 螺絲;用螺絲鎖;搞砸 | Handle this problem with care. Don’t screw up.
+pottery | n. | 陶器 | Bill has a fine collection of pottery.
+vitamin | n. | 維他命 | Vitamin C is crucial for healthy gums.
+ache | vi. / n. | 疼痛;渴望 | My heart ached when I saw images of refugee camps.
+sometime | adv. | 某個時候 | Let’s meet sometime next week to discuss details.
+heal | vi. & vt. | （使身體或心理）傷口痊癒 | My broken leg is gradually healing.
+jungle | n. | 叢林;競爭激烈的環境 | They said the rebels had a stronghold deep in the jungle.
+pave | vt. | 鋪（路） | The construction workers were busy paving the road.
+sword | n. | 劍 | The young man drew his sword and challenged the knight.
+armed | adj. | 武裝的 | The bank robber was armed with only a knife.
+canyon | n. | 峽谷 | Have you ever visited the Grand Canyon in Arizona?
+sprain | vt. / n. | 扭傷 | Paula tripped on her shoelaces and sprained her ankle.
+dive | vi. & n. | 跳水;暴跌 | Global markets took a dive last night after the election results.
+violet | n. & adj. | 紫羅蘭 & 紫羅蘭色的 | Violets are my grandmother’s favorite flowers.
+steam | n. / vi. & vt. | 水蒸氣 & 蒸煮（食物） | Steam engines were developed in the 18th century.

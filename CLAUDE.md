@@ -7,7 +7,7 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 
 ## Status
 - Local git repo only (`main`), **no remote yet, nothing published**. Still needed from the teacher: an empty GitHub repo under
-  `shuanmaker-web` (then `add_repo(..., access=push)`) and the real 核單 material.
+  `shuanmaker-web` (then `add_repo(..., access=push)`) and, later, a source for 核單 cloze questions.
 - The teacher will check the yellow-word glosses (the ones written by Claude) **after the first push** — keep them listed for review.
 - Name Book3; app icons = Vocaboo's (as requested). **Brand:** the Book3 logo (`icons/logo.png`: lavender "Book" + lime "3" + stars,
   transparent PNG) replaces every "Book3" text in the UI (home hero, settings footer, loading placeholder). Opening the app shows a
@@ -52,7 +52,7 @@ The textbook (龍騰) goes: **Lesson 1, 2, 3, Review 1, Lesson 4, 5, 6, Review 2
 - Distractors: same part of speech/form, clearly wrong in context, **never a second valid answer** (avoid synonyms/near-synonyms);
   the answer's word family must not appear elsewhere in the same passage (it gives it away); answer letters spread evenly.
 - Question ids come from unit + order of appearance → only ever **add new questions at the END of a unit**.
-- 核單 is still demo data (`@sample`); replace with real content when the teacher provides material.
+- 核單 has **no cloze questions yet** (the app shows "還沒有克漏字題目"); add a `@bank 核單` block after the 龍騰 one when the teacher gives a source.
 
 ## Workflow (the whole thing)
 1. Edit `tools/material/words.txt` / `cloze.txt` (or app files). Build **words first, then cloze**:
@@ -78,3 +78,12 @@ Progress (FSRS cards, answers, backups) lives in each student's own phone Indexe
   assets to `CORE` in `sw.js`.
 - Daily new-word quota is per bank and mode (`bank:mode`); learned = answered in both mcq and spell; mastered = learned + spell correct
   + stability ≥ 21 days. New-word order = textbook file order.
+
+## 核單 (word bank 2)
+- Real data now: **Level 3 Unit 17–20, 160 words**, transcribed by script from the teacher's Vocabulary List PDFs (word | pos | 中文 | example).
+  Units are `@unit 17 Unit 17` … (display "Unit 17", tag "U17"). pos and 中文 are copied as printed (several pos / senses joined with `&`);
+  the PDFs have no example translations, so `exzh` is empty. `afterward(s)` / `saving(s)` are stored as `afterward/afterwards`,
+  `saving/savings` (spelling accepts either). Unit 19's unnumbered `collar` (right after `sleeve` in the PDF) is included.
+- Source quirks kept as-is (tell the teacher): `leisure` is printed 「閒暇,空間時間」 (probably meant 空閒時間); the headers say
+  1701–1733 / 1801–1826 / 1901–1935 / 2001–2035 but the lists have 45 / 43 / 38+1 / 33 entries.
+- New 核單 units go **after** Unit 20 in `words.txt` (sorted by unit number on build). Existing ids stay stable.

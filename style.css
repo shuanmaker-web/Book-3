@@ -523,11 +523,5 @@ html:has(body.landing),html:has(body.landing) body{background:#F3ECF8!important}
 @media (prefers-reduced-motion:no-preference){.landing-logo{animation:landing-bob 2.8s ease-in-out infinite}}
 @keyframes landing-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-/* ===== bottom tab bar: black bar stays; what used to be pink (icons, labels, active bubble) = the green of the logo ===== */
-:root{--logo-green:#D8FB71}
-body #tabs button .ti{background:var(--logo-green)}
-body #tabs button.on::before{background:var(--logo-green)}
-body #tabs button.on .ti{background:#1a1a1a}
-body #tabs button span,body #tabs button.on span{color:var(--logo-green)!important}
 /* pale pink outlines are hard to see on light cards → dark outline for "in progress" markers */
 .dot.y,.tile.part{border-color:#1a1a1a}
