@@ -20,7 +20,7 @@ Reply to the teacher in Traditional Chinese; keep customary English terms (push,
 - The logo (lavender "Book" + green "3", from the teacher's artwork, slightly toned down) also appears at the **same top-left position on the
   cloze / progress / settings pages** (`heroLogo()` → `.hero`), page title below it; the home page keeps it with the exam calendar.
 - **App/desktop icons** (`icons/v2/*`) = the logo on `#F3ECF8`; if the logo changes, regenerate them and bump `?v=` in `index.html` + `manifest.webmanifest`.
-- **Progress page** has the same 龍騰 / 核單 switch as the home and cloze pages (`bankSwitch()`); the word card and cloze card show only the selected bank (the star calendar is shared). The chosen bank is the same one used on the other tabs.
+- **Progress page** has the same 龍騰 / 核單 switch as the home and cloze pages (`bankSwitch()`); the word card, cloze card and **star calendar** show only the selected bank, and home's 「今天答對」 counts only the selected bank. Per-bank correct answers per day (`S.byDay`, `correctOn()`) are **rebuilt from the review log at boot** (word answers → `wordById[wid].bank`, cloze logs `q:<id>` → `qById[id].bank`) and bumped live — nothing new is stored; `S.daily[day].correct` (both banks together) is still written as before. The chosen bank is the same one used on the other tabs.
 
 ## NEVER push before the teacher says CONFIRM ⚠️
 "remember don't push before i CONFIRM." Make the change → verify it locally → show the result → **wait for an explicit OK** →

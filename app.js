@@ -76,11 +76,15 @@ const store = (() => {
 
 /* ---------- state ---------- */
 const S = {
-  settings: { ...DEFAULTS }, daily: {}, cards: new Map(), words: [], meta: {}, cmeta: {},
+  settings: { ...DEFAULTS }, daily: {}, byDay: new Map(), cards: new Map(), words: [], meta: {}, cmeta: {},
   tab: 'home', landing: true, session: null, fsrs: null, questions: [], qstats: new Map(), pview: 'main', punit: null, pkind: 'all',
 };
 const wordById = {}, qById = {};
 const cardId = (wid, type) => `${type}:${wid}`; // type = 'mcq' | 'spell' (each mode has its own FSRS card per word)
+/* Correct answers per day PER WORD BANK (今天答對 + 星星日曆). Not stored: rebuilt from the review log at boot (so it also covers
+   older days) and bumped live. S.daily[..].correct (both banks together) is still written exactly as before. */
+function noteDay(ts, bank, ok) { if (!ok || !bank) return; const k = dayKey(new Date(ts)), m = S.byDay.get(k) || {}; m[bank] = (m[bank] || 0) + 1; S.byDay.set(k, m); }
+const correctOn = (k, bank = curBank()) => S.byDay.get(k)?.[bank] || 0;
 // 「已學」= answered in BOTH multiple choice and spelling.
 const isLearned = wid => { const m = S.modes?.get(wid); return !!m && m.has('mcq') && m.has('spell'); };
 const wordCards = wid => ['mcq', 'spell'].map(t => S.cards.get(cardId(wid, t))).filter(Boolean);
@@ -178,6 +182,7 @@ async function grade(wid, mode, rating, extra = {}) {
   if (isNew && !S.session?.practice) { const k = wordById[wid].bank + ':' + mode; d.new[k] = (d.new[k] || 0) + 1; }
   await store.setKV('daily', S.daily);
   await store.addLog({ ts: Date.now(), cardId: id, rating, source: mode, ...extra });
+  noteDay(Date.now(), wordById[wid]?.bank, rating >= 3);
   noteAnswer(wid, mode, extra.correct === true || (extra.correct === undefined && rating >= 3));
   return rec;
 }
@@ -296,7 +301,7 @@ function wordCard() {
   return `<section class="card bank"><div class="row between"><h2>${esc(banks().length > 1 ? bname : '單字學習')}</h2><span class="bank-stat"><b>${learned}</b> / ${ws.length}<small>已學</small></span></div><p class="muted small" style="margin:2px 0 0">目前範圍 ${scopeWords().length} 字</p>${range}<div class="modes two">${modes}</div>${sample}</section>`;
 }
 function renderHome() {
-  const today = S.daily[dayKey()]?.correct || 0;
+  const today = correctOn(dayKey()); // this bank only
   app.innerHTML = `${iosHint()}
     <div class="hero"><h1 class="brand-h">${logoImg()}</h1>${examCal()}</div>
     <div class="stack">${bankSwitch()}${wordCard()}
@@ -322,7 +327,7 @@ function renderProgress() {
     html += `<section class="card"><h2>${esc(banks().length > 1 ? bk.name : '單字學習')}</h2><div class="stat-grid" style="margin-top:8px">
       <div class="stat pstat"><b>${learned}</b><span>已學 / ${n}</span></div><div class="stat pstat"><b>${mastered}</b><span>已精熟 / ${n}</span></div><div class="stat pstat"><b>${due}</b><span>待複習</span></div></div>`;
     if (units.length > 1) html += '<div style="margin-top:12px">' + units.map(u => { const v = byUnit[u]; const seg = c => c > 0 ? Math.max(4, c / v.n * 100) : 0; return `<div class="lvl"><span>${u ? esc(unitTag(u, bk.id)) : '—'}</span><div class="track"><i class="m" style="width:${seg(v.m)}%"></i><i class="l" style="width:${seg(v.l - v.m)}%"></i></div><span class="muted small">${v.l}/${v.n}</span></div>`; }).join('') + '</div>';
-    html += `<p class="small muted">已學 = 選擇題與拼字都答過;精熟 = 已學 且 拼字答對過 且 記憶穩定度 ≥ 21 天。${units.length > 1 ? `深色＝精熟,淺色＝已學未精熟;左側是${esc(UNIT_WORD())},右側為已學／該單元總數` : ''}</p></section>`;
+    html += `<p class="small muted">已學 = 選擇題與拼字都答過;精熟 = 已學 且 拼字答對過 且 記憶穩定度 ≥ 21 天。${units.length > 1 ? `深色＝精熟,淺色＝已學未精熟;左側是單元,右側為已學／該單元總數` : ''}</p></section>`;
   }
   for (const bk of curBanks) { // 克漏字 progress of the selected bank (if it has questions)
     if (!clozeQs('all', bk.id).length) continue;
@@ -337,12 +342,12 @@ function renderProgress() {
   if (toExam) {
     const t0 = new Date(); t0.setHours(0, 0, 0, 0); const sd = new Date((S.settings.startDate || dayKey()) + 'T00:00:00'), back = Math.max(0, Math.min(365, Math.round((t0 - sd) / DAY))); calTitle = `${esc(S.settings.examName || '考試')}倒數`;
     for (let i = -back; i <= left; i++) {
-      const k = dayKey(new Date(t0.getFullYear(), t0.getMonth(), t0.getDate() + i)), n = S.daily[k]?.correct || 0;
+      const k = dayKey(new Date(t0.getFullYear(), t0.getMonth(), t0.getDate() + i)), n = correctOn(k);
       cells.push(i > 0 ? starCell(k, null, i === left ? 'exday' : 'f') : starCell(k, n, i === 0 ? 'today' : '', lvl(n)));
     }
   } else {
     const nd = Math.min(365, Math.max(7, S.settings.progressDays || 45)); calTitle = `最近 ${nd} 天`;
-    for (let i = nd - 1; i >= 0; i--) { const k = dayKey(new Date(Date.now() - i * DAY)), n = S.daily[k]?.correct || 0; cells.push(starCell(k, n, '', lvl(n))); }
+    for (let i = nd - 1; i >= 0; i--) { const k = dayKey(new Date(Date.now() - i * DAY)), n = correctOn(k); cells.push(starCell(k, n, '', lvl(n))); }
   }
   const sIcon = (cls, lv) => starCell('', null, cls, lv).replace(' title=""', '');
   const legend = [[sIcon('f'), '沒答對 / 未到'], [sIcon('', 1), '答對 1–20 題'], [sIcon('', 2), '答對 20 題以上']];
@@ -367,7 +372,7 @@ function renderLanding() {
   app.innerHTML = `<button class="landing-btn" id="go" aria-label="Book3 — 點一下開始使用">${logoImg('landing-logo')}</button>`;
   $('#go').addEventListener('click', () => { S.landing = false; render(); });
 }
-const APP_VERSION = 'v3';
+const APP_VERSION = 'v4';
 function renderSettings() {
   const s = S.settings;
   const days = s.lastBackupAt ? Math.floor((Date.now() - s.lastBackupAt) / DAY) : null;
@@ -539,7 +544,7 @@ async function recordQ(q, ok, extra = {}) {
   const prev = qSt(q.id), st = { id: q.id, n: (prev?.n || 0) + 1, ok: (prev?.ok || 0) + (ok ? 1 : 0), last: ok, firstOk: prev ? prev.firstOk : ok, ts: Date.now() };
   S.qstats.set(q.id, st); await store.putQ(st);
   const d = (S.daily[dayKey()] ||= { reviews: 0, correct: 0, new: {} }); d.reviews++; if (ok) d.correct++;
-  await store.setKV('daily', S.daily); await store.addLog({ ts: Date.now(), cardId: 'q:' + q.id, rating: ok ? 3 : 1, source: 'cloze', ...extra });
+  await store.setKV('daily', S.daily); await store.addLog({ ts: Date.now(), cardId: 'q:' + q.id, rating: ok ? 3 : 1, source: 'cloze', ...extra }); noteDay(Date.now(), q.bank, ok);
 }
 function startCloze(ids, opts = {}) {
   if (!ids.length) return;
@@ -693,11 +698,17 @@ async function boot(reload = false) {
   if (!S.settings.startDate) { const ks = Object.keys(S.daily).filter(k => /^\d{4}-\d\d-\d\d$/.test(k)).sort(); S.settings.startDate = ks[0] || dayKey(); store.setKV('settings', S.settings); }
   S.cards = await store.allCards(); S.session = null; makeFsrs();
   S.modes = new Map(); S.spellOK = new Set();
-  for (const lg of await store.allLogs()) { // rebuild "which modes has each word been answered in" from the review log
+  const logs = await store.allLogs();
+  for (const lg of logs) { // rebuild "which modes has each word been answered in" from the review log
     if ((lg.source !== 'mcq' && lg.source !== 'spell') || lg.wid == null) continue;
     noteAnswer(lg.wid, lg.source, lg.correct === true || (lg.correct === undefined && lg.rating >= 3));
   }
   if (!reload) await Promise.all([loadWords(), loadCloze()]);
+  S.byDay = new Map(); // per-bank correct answers per day, from the log (needs words + questions loaded to know each answer's bank)
+  for (const lg of logs) {
+    if (lg.source === 'cloze') noteDay(lg.ts, qById[String(lg.cardId || '').slice(2)]?.bank, lg.rating >= 3);
+    else if (lg.source === 'mcq' || lg.source === 'spell') noteDay(lg.ts, wordById[lg.wid != null ? lg.wid : String(lg.cardId || '').split(':').slice(1).join(':')]?.bank, lg.rating >= 3);
+  }
   S.qstats = await store.allQ();
   render();
 }
