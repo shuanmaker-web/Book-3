@@ -1,0 +1,43 @@
+# 示範資料 — 等拿到教材照片後,整份換成真正的題目
+@sample 這是示範用的題目,請換成教材的正式內容
+@source 示範
+@unit 1
+@passage The Lost Wallet
+Mia found a wallet on the street [1] school. Inside, there was some money and an ID card.
+
+She felt [2] about it because the owner might be very worried. So she [3] to take it to the police station.
+
+The police called the owner, and he [4] her warmly.
+1 | on the way to | in the way of | by the way | at the end of | A
+2 | careless | concerned | careful | cheerful | B | concerned about:擔心
+3 | decided | refused | forgot | pretended | A
+4 | thanked | blamed | ignored | warned | A
+@end
+S | He was so ______ that he forgot to lock the door. | careless | careful | polite | proud | A | careless:粗心的
+S | We must ______ our goal before it is too late. | cancel | accept | achieve | afford | C
+S | Please ______ the children from the dangerous road. | avoid | protect | borrow | arrange | B
+@unit 2
+@passage A Day at the Museum
+Last Sunday, our class visited the National Museum. It was [1] interesting that nobody wanted to leave.
+
+The guide showed us many [2] objects from thousands of years ago. One of them [3] to be a golden mask.
+
+At the end of the visit, we [4] a short report about what we had learned.
+1 | such | so | too | very | B
+2 | ancient | active | anxious | amazing | A
+3 | appeared | approved | allowed | announced | A
+4 | wrote | write | writing | to write | A
+@end
+S | The teacher will ______ the test results tomorrow. | announce | agree | appear | allow | A
+S | I'm ______ about the interview, so I can't sleep. | ancient | anxious | amazing | active | B
+@unit 3
+S | Could you ______ me your dictionary for a day? | borrow | lend | attend | cancel | B | lend A to B:把 A 借給 B
+S | It takes courage to be ______ in front of danger. | calm | brave | balance | avoid | B
+@passage Tips for Staying Healthy
+Many students stay up late and [1] breakfast. This is not good for the body.
+
+To keep a good [2] between study and rest, you should go to bed early. Doing exercise also helps you stay [3] and reduces stress.
+1 | skip | skipping | skipped | skips | A
+2 | balance | ability | advice | arrange | A
+3 | calm | brave | anxious | ancient | A
+@end

@@ -1,0 +1,31 @@
+# 示範資料 — 等拿到教材照片後,整份換成真正的單字
+@title 單字特訓
+@unitword Unit
+@sample 這是示範用的單字,請換成教材的正式內容
+@unit 1
+abandon | v. | 放棄;遺棄 | He abandoned the plan. | 他放棄了那個計畫。
+ability | n. | 能力 | She has the ability to learn fast. | 她有很快學會的能力。
+accept | v. | 接受 | Please accept my gift. | 請收下我的禮物。
+achieve | v. | 達成;完成 | You can achieve your goal. | 你能達成你的目標。
+active | adj. | 活躍的;積極的 | He is an active member of the club. | 他是社團的活躍成員。
+adopt | v. | 領養;採用 | They adopted a puppy. | 他們領養了一隻小狗。
+advice | n. | 建議 | Take my advice. | 聽我的建議。
+afford | v. | 負擔得起 | I can't afford a new phone. | 我買不起新手機。
+@unit 2
+agree | v. | 同意 | I agree with you. | 我同意你。
+allow | v. | 允許 | Smoking is not allowed here. | 這裡不准吸菸。
+amazing | adj. | 令人驚奇的 | The view is amazing. | 風景令人驚嘆。
+ancient | adj. | 古代的 | They visited an ancient temple. | 他們參觀了一座古老的廟。
+announce | v. | 宣布 | The school announced the news. | 學校宣布了這個消息。
+anxious | adj. | 焦慮的;渴望的 | She felt anxious before the test. | 考試前她感到焦慮。
+appear | v. | 出現;似乎 | A rainbow appeared in the sky. | 天空出現了一道彩虹。
+approve | v. | 贊成;批准 | The teacher approved our idea. | 老師認可了我們的點子。
+@unit 3
+arrange | v. | 安排;整理 | I'll arrange a meeting. | 我會安排一場會議。
+attend | v. | 出席;參加 | He attended the class. | 他去上課了。
+avoid | v. | 避免 | Try to avoid junk food. | 盡量避免吃垃圾食物。
+balance | n. | 平衡 | Keep your balance on the bike. | 騎車時要保持平衡。
+borrow | v. | 借入 | Can I borrow your pen? | 我可以跟你借筆嗎?
+brave | adj. | 勇敢的 | The firefighter was brave. | 那位消防員很勇敢。
+calm | adj. | 冷靜的 | Stay calm and listen. | 保持冷靜並仔細聽。
+cancel | v. | 取消 | The game was canceled. | 比賽被取消了。

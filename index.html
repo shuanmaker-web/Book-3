@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>單字特訓</title>
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#2A5BEA">
+<meta name="description" content="英文單字:選擇題、拼字、克漏字練習">
+<link rel="manifest" href="manifest.webmanifest?v=2">
+<link rel="icon" href="icons/v2/favicon-64.png?v=2" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/v2/apple-touch-icon.png?v=2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="單字特訓">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" aria-live="polite"><p style="text-align:center;margin-top:34vh;font:800 1.6rem system-ui,sans-serif;color:#fff">單字特訓…</p></div>
+<nav id="tabs" aria-label="主選單">
+  <button data-tab="home" class="on" aria-label="單字學習"><i class="ti" style="--ic:url(icons/tab1.png)" aria-hidden="true"></i><span>單字學習</span></button>
+  <button data-tab="practice" aria-label="克漏字"><i class="ti" style="--ic:url(icons/tab2.png)" aria-hidden="true"></i><span>克漏字</span></button>
+  <button data-tab="progress" aria-label="進度"><i class="ti" style="--ic:url(icons/tab3.png)" aria-hidden="true"></i><span>進度</span></button>
+  <button data-tab="settings" aria-label="設定"><i class="ti" style="--ic:url(icons/tab4.png)" aria-hidden="true"></i><span>設定</span></button>
+</nav>
+<script src="lib/ts-fsrs.umd.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
