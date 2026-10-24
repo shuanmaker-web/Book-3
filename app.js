@@ -19,7 +19,7 @@ const EXAM_PRESETS = [
   { name: '學測', date: '2027-01-22' },
   { name: '國中會考', date: '' },
 ];
-const DEFAULTS = { newPerDay: 20, sessionSize: 20, retention: 0.9, examName: '段考', examDate: '', progressDays: 0, unitFrom: null, unitTo: null, lastBackupAt: 0, theme: 'blue' };
+const DEFAULTS = { newPerDay: 20, sessionSize: 20, retention: 0.9, examName: '段考', examDate: '', progressDays: 0, bank: null, ranges: {}, lastBackupAt: 0, theme: 'blue' };
 
 /* ---------- storage (IndexedDB, with in-memory fallback) ----------
    NOTE: every GitHub Pages site of the same account shares one browser origin, so the database name must be unique to this app. */
@@ -100,7 +100,8 @@ async function fetchJSON(url) {
 async function loadWords() {
   try {
     const j = await fetchJSON(FILES.words);
-    S.words = (j.words || []).map((w, i) => ({ ...w, idx: i, id: w.id || `w${i}` })); S.meta = j.meta || {};
+    S.meta = j.meta || {}; const b0 = banks()[0].id; // a word without a bank belongs to the first one
+    S.words = (j.words || []).map((w, i) => ({ ...w, idx: i, id: w.id || `w${i}`, bank: w.bank || b0 }));
   } catch (e) { S.words = []; S.meta = { error: true }; }
   for (const w of S.words) wordById[w.id] = w;
 }
@@ -117,14 +118,19 @@ async function loadCloze() {
   S.questions.sort((a, b) => a.unit - b.unit || kindOrd(a) - kindOrd(b) || (a.pno || 0) - (b.pno || 0) || a.no - b.no);
   S.questions.forEach((q, i) => { q.idx = i; qById[q.id] = q; });
 }
+/* Several word banks (e.g. two textbooks): the home page has a switch; progress, unit range and the new-word order are per bank. */
+const banks = () => (S.meta.banks?.length ? S.meta.banks : [{ id: 'main', name: '單字' }]);
+const curBank = () => (banks().find(b => b.id === S.settings.bank) || banks()[0]).id;
+const bankWords = (b = curBank()) => S.words.filter(w => w.bank === b);
 const answers = w => String(w.w).split('/').map(s => s.trim()).filter(Boolean);
-const unitNums = () => [...new Set(S.words.map(w => w.unit).filter(n => n != null))].sort((a, b) => a - b);
+const unitNums = (b = curBank()) => [...new Set(bankWords(b).map(w => w.unit).filter(n => n != null))].sort((a, b) => a - b);
 const UNIT_WORD = () => S.meta.unitWord || 'Unit';
 const unitName = u => `${UNIT_WORD()} ${u}`;
+function unitRange(b = curBank()) { const u = unitNums(b), r = S.settings.ranges?.[b] || []; return [r[0] ?? u[0], r[1] ?? u[u.length - 1]]; }
 function scopeWords() {
-  const u = unitNums(); if (!u.length) return S.words;
-  const lo = S.settings.unitFrom ?? u[0], hi = S.settings.unitTo ?? u[u.length - 1];
-  return S.words.filter(w => w.unit == null || (w.unit >= lo && w.unit <= hi));
+  const ws = bankWords(); if (!unitNums().length) return ws;
+  const [lo, hi] = unitRange();
+  return ws.filter(w => w.unit == null || (w.unit >= lo && w.unit <= hi));
 }
 
 /* ---------- queue ---------- */
@@ -132,7 +138,7 @@ function countsFor(mode) {
   const now = Date.now(), words = scopeWords(), dk = dayKey();
   let due = 0, fresh = 0;
   for (const w of words) { const c = S.cards.get(cardId(w.id, mode)); if (!c) fresh++; else if (c.due <= now) due++; }
-  const used = S.daily[dk]?.new?.[mode] || 0, bonus = S.daily[dk]?.bonus?.[mode] || 0;
+  const key = curBank() + ':' + mode, used = S.daily[dk]?.new?.[key] || 0, bonus = S.daily[dk]?.bonus?.[key] || 0; // daily new-word quota: per bank and per mode
   return { due, fresh, newLeft: Math.max(0, Math.min(fresh, S.settings.newPerDay + bonus - used)), total: words.length };
 }
 /* New words follow the textbook order (file order = unit by unit), the SAME order in 選擇題 and 拼字.
@@ -140,7 +146,7 @@ function countsFor(mode) {
 function buildQueue(mode, practice = false) {
   const now = Date.now(), words = scopeWords(), size = S.settings.sessionSize, cardOf = w => S.cards.get(cardId(w.id, mode));
   if (practice) {
-    let seen = words.filter(cardOf); if (!seen.length) seen = S.words.filter(cardOf);
+    let seen = words.filter(cardOf); if (!seen.length) seen = bankWords().filter(cardOf);
     return shuffle(seen).slice(0, 10).map(w => w.id);
   }
   const dk = c => dayKey(new Date(c.due)); // due cards: earlier due day first, then textbook order
@@ -167,7 +173,7 @@ async function grade(wid, mode, rating, extra = {}) {
   }
   const key = dayKey(); const d = (S.daily[key] ||= { reviews: 0, correct: 0, new: {} });
   d.reviews++; if (rating >= 3) d.correct++;
-  if (isNew && !S.session?.practice) d.new[mode] = (d.new[mode] || 0) + 1;
+  if (isNew && !S.session?.practice) { const k = wordById[wid].bank + ':' + mode; d.new[k] = (d.new[k] || 0) + 1; }
   await store.setKV('daily', S.daily);
   await store.addLog({ ts: Date.now(), cardId: id, rating, source: mode, ...extra });
   noteAnswer(wid, mode, extra.correct === true || (extra.correct === undefined && rating >= 3));
@@ -177,7 +183,7 @@ async function grade(wid, mode, rating, extra = {}) {
 /* ---------- distractors ---------- */
 function suffix(w) { return w.slice(-3); }
 function distractors(target, field) {
-  const pool = S.words.filter(w => w.id !== target.id && w[field] && w[field] !== target[field]);
+  const pool = bankWords(target.bank).filter(w => w.id !== target.id && w[field] && w[field] !== target[field]);
   const score = w => (w.pos && w.pos === target.pos ? 2 : 0) + (w.unit != null && w.unit === target.unit ? 1 : 0) + (field === 'w' && suffix(w.w) === suffix(target.w) ? 1 : 0) + Math.random() * 1.5;
   const seen = new Set([target[field]]), out = [];
   for (const w of pool.sort((a, b) => score(b) - score(a))) { if (!seen.has(w[field])) { seen.add(w[field]); out.push(w); } if (out.length === 3) break; }
@@ -256,13 +262,17 @@ function iosHint() {
 }
 const appTitle = () => S.meta.title || document.title;
 
+function bankSwitch() {
+  const bs = banks(); if (bs.length < 2) return '';
+  return `<div class="bank-tabs" role="tablist" aria-label="單字庫">${bs.map(b => `<button role="tab" class="${b.id === curBank() ? 'on' : ''}" aria-selected="${b.id === curBank()}" data-bank="${esc(b.id)}">${esc(b.name)}</button>`).join('')}</div>`;
+}
 function wordCard() {
-  const ws = S.words, sample = S.meta.sample ? `<div class="sample-banner">目前是<b>示範資料</b>(${esc(S.meta.note || '請以正式單字庫取代')})</div>` : '';
+  const ws = bankWords(), bname = banks().find(b => b.id === curBank()).name, sample = S.meta.sample ? `<div class="sample-banner">目前是<b>示範資料</b>(${esc(S.meta.note || '請以正式單字庫取代')})</div>` : '';
   if (!ws.length) return `<section class="card"><h2>單字</h2><p class="muted">尚未匯入單字庫(<code>${FILES.words}</code>)。</p></section>`;
   let range = '';
   const u = unitNums();
   if (u.length > 1) {
-    const lo = S.settings.unitFrom ?? u[0], hi = S.settings.unitTo ?? u[u.length - 1], opt = v => u.map(n => `<option value="${n}" ${n === v ? 'selected' : ''}>${esc(unitName(n))}</option>`).join('');
+    const [lo, hi] = unitRange(), opt = v => u.map(n => `<option value="${n}" ${n === v ? 'selected' : ''}>${esc(unitName(n))}</option>`).join('');
     range = `<div class="row wrap" style="margin:10px 0 12px"><span class="muted small">範圍</span><select id="u-from">${opt(lo)}</select><span class="muted small">到</span><select id="u-to">${opt(hi)}</select></div>`;
   }
   const canMcq = ws.length >= 4;
@@ -271,31 +281,32 @@ function wordCard() {
     return `<button class="mode" data-start="${m}" ${off ? 'disabled' : ''}><b>${MODES[m]}</b><span>${n ? `${c.due} 複習 · ${c.newLeft} 新` : '今日完成 ✓'}</span></button>`;
   }).join('');
   const learned = ws.filter(w => isLearned(w.id)).length;
-  return `<section class="card bank"><div class="row between"><h2>單字學習</h2><span class="bank-stat"><b>${learned}</b> / ${ws.length}<small>已學</small></span></div><p class="muted small" style="margin:2px 0 0">目前範圍 ${scopeWords().length} 字</p>${range}<div class="modes two">${modes}</div>${sample}</section>`;
+  return `<section class="card bank"><div class="row between"><h2>${esc(banks().length > 1 ? bname : '單字學習')}</h2><span class="bank-stat"><b>${learned}</b> / ${ws.length}<small>已學</small></span></div><p class="muted small" style="margin:2px 0 0">目前範圍 ${scopeWords().length} 字</p>${range}<div class="modes two">${modes}</div>${sample}</section>`;
 }
 function renderHome() {
   const today = S.daily[dayKey()]?.correct || 0;
   app.innerHTML = `${iosHint()}
     <div class="hero"><h1>${esc(appTitle())}</h1>${examCal()}</div>
-    <div class="stack">${wordCard()}
+    <div class="stack">${bankSwitch()}${wordCard()}
     <p class="today-n">今天答對 ${today} 題${store.volatile ? '<br><b style="color:var(--bad)">⚠ 此瀏覽器無法儲存資料,關閉後進度會消失</b>' : ''}</p></div>`;
   const uf = $('#u-from'), ut = $('#u-to');
-  if (uf && ut) { const h = async () => { let a = +uf.value, b = +ut.value; if (a > b) [a, b] = [b, a]; S.settings.unitFrom = a; S.settings.unitTo = b; await saveSettings(); render(); }; uf.onchange = h; ut.onchange = h; }
+  if (uf && ut) { const h = async () => { let a = +uf.value, b = +ut.value; if (a > b) [a, b] = [b, a]; (S.settings.ranges ||= {})[curBank()] = [a, b]; await saveSettings(); render(); }; uf.onchange = h; ut.onchange = h; }
 }
 
 function renderProgress() {
   const now = Date.now(); let html = '<h1>進度</h1><div class="stack" style="margin-top:12px">';
-  if (S.words.length) {
+  for (const bk of banks()) {
+    const ws = bankWords(bk.id); if (!ws.length) continue;
     let learned = 0, mastered = 0, due = 0; const byUnit = {};
-    for (const w of S.words) {
+    for (const w of ws) {
       const g = (byUnit[w.unit ?? 0] ||= { n: 0, m: 0, l: 0 }); g.n++;
       const cs = wordCards(w.id), lrn = isLearned(w.id); // mastered is always a subset of learned
       if (lrn) { learned++; g.l++; }
       if (lrn && S.spellOK.has(w.id) && cs.some(c => c.stability >= 21)) { mastered++; g.m++; }
       if (cs.some(c => c.due <= now)) due++;
     }
-    const n = S.words.length, units = Object.keys(byUnit).map(Number).sort((a, b) => a - b);
-    html += `<section class="card"><h2>單字學習</h2><div class="stat-grid" style="margin-top:8px">
+    const n = ws.length, units = Object.keys(byUnit).map(Number).sort((a, b) => a - b);
+    html += `<section class="card"><h2>${esc(banks().length > 1 ? bk.name : '單字學習')}</h2><div class="stat-grid" style="margin-top:8px">
       <div class="stat pstat"><b>${learned}</b><span>已學 / ${n}</span></div><div class="stat pstat"><b>${mastered}</b><span>已精熟 / ${n}</span></div><div class="stat pstat"><b>${due}</b><span>待複習</span></div></div>`;
     if (units.length > 1) html += '<div style="margin-top:12px">' + units.map(u => { const v = byUnit[u]; const seg = c => c > 0 ? Math.max(4, c / v.n * 100) : 0; return `<div class="lvl"><span>${u || '—'}</span><div class="track"><i class="m" style="width:${seg(v.m)}%"></i><i class="l" style="width:${seg(v.l - v.m)}%"></i></div><span class="muted small">${v.l}/${v.n}</span></div>`; }).join('') + '</div>';
     html += `<p class="small muted">已學 = 選擇題與拼字都答過;精熟 = 已學 且 拼字答對過 且 記憶穩定度 ≥ 21 天。${units.length > 1 ? `深色＝精熟,淺色＝已學未精熟;左側是${esc(UNIT_WORD())},右側為已學／該單元總數` : ''}</p></section>`;
@@ -383,7 +394,7 @@ const saveSettings = () => store.setKV('settings', S.settings);
 
 /* ---------- word session (選擇題 / 拼字) ---------- */
 function doneSheet(mode) {
-  const { fresh } = countsFor(mode), more = Math.min(20, fresh), seen = S.words.some(w => S.cards.has(cardId(w.id, mode)));
+  const { fresh } = countsFor(mode), more = Math.min(20, fresh), seen = bankWords().some(w => S.cards.has(cardId(w.id, mode)));
   const el = document.createElement('div'); el.className = 'sheet-bg';
   el.innerHTML = `<div class="sheet card"><h2>今天的進度已完成 ✓</h2><p class="muted small">你想怎麼繼續?</p>
     <button class="btn block" data-sheet="more" ${more ? '' : 'disabled'}>再學 ${more} 個新字${more ? '' : '(沒有新字了)'}</button>
@@ -392,7 +403,7 @@ function doneSheet(mode) {
   el.onclick = async e => {
     const a = e.target.dataset.sheet; if (!a && e.target !== el) return;
     el.remove();
-    if (a === 'more') { const d = (S.daily[dayKey()] ||= { reviews: 0, correct: 0, new: {} }); d.bonus ||= {}; d.bonus[mode] = (d.bonus[mode] || 0) + more; await store.setKV('daily', S.daily); startSession(mode); }
+    if (a === 'more') { const d = (S.daily[dayKey()] ||= { reviews: 0, correct: 0, new: {} }); d.bonus ||= {}; const k = curBank() + ':' + mode; d.bonus[k] = (d.bonus[k] || 0) + more; await store.setKV('daily', S.daily); startSession(mode); }
     else if (a === 'practice') startSession(mode, true);
   };
   document.body.appendChild(el);
@@ -420,7 +431,7 @@ const speakBtn = w => `<button class="icon-btn" data-speak="${esc(w.w)}" aria-la
 function renderMcq(head, w) {
   const s = S.session;
   if (!s.q || s.q.id !== w.id) {
-    const rec = S.cards.get(cardId(w.id, 'mcq')), reverse = !!rec && rec.stability > 3 && S.words.length >= 4 && Math.random() < 0.5;
+    const rec = S.cards.get(cardId(w.id, 'mcq')), reverse = !!rec && rec.stability > 3 && bankWords(w.bank).length >= 4 && Math.random() < 0.5;
     const field = reverse ? 'w' : 'zh', ds = distractors(w, field);
     s.q = { id: w.id, reverse, field, opts: shuffle([w, ...ds]), picked: null, t0: Date.now() };
   }
@@ -604,6 +615,7 @@ async function czClick(t, s) {
 document.addEventListener('click', async e => {
   const t = e.target.closest('button'); if (!t) return;
   if (t.dataset.tab) return setTab(t.dataset.tab);
+  if (t.dataset.bank) { S.settings.bank = t.dataset.bank; await saveSettings(); return render(); }
   if (t.dataset.pkind) { S.pkind = t.dataset.pkind; return render(); }
   if (t.dataset.xunit) { S.punit = +t.dataset.xunit; S.pview = 'unit'; return render(); }
   if (t.dataset.uact) {

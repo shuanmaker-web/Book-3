@@ -506,3 +506,7 @@ body[data-bank] .stat,body[data-bank] .mode b{color:inherit}
 .pb i{font-style:normal;font-weight:800}
 .pb.cur{background:var(--accent-soft);border-bottom-color:var(--page);color:var(--ink);padding:0 6px;border-radius:6px 6px 0 0;box-shadow:0 0 0 2px var(--page)}
 mark.ans.miss{background:var(--bad-soft);color:var(--bad)}
+/* word-bank switch on the home page */
+.bank-tabs{display:flex;gap:4px;padding:5px;background:var(--surface);border:2.5px solid #1a1a1a;border-radius:999px;box-shadow:3px 3px 0 #1a1a1a}
+.bank-tabs button{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-weight:700;font-size:.95rem;padding:10px 8px;border-radius:999px;color:#1a1a1a;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bank-tabs button.on{background:var(--page);color:#fff}
