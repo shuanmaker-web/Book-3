@@ -19,7 +19,7 @@ const EXAM_PRESETS = [
   { name: '學測', date: '2027-01-22' },
   { name: '國中會考', date: '' },
 ];
-const DEFAULTS = { newPerDay: 20, sessionSize: 20, retention: 0.9, examName: '段考', examDate: '', progressDays: 0, bank: null, ranges: {}, lastBackupAt: 0 };
+const DEFAULTS = { newPerDay: 20, sessionSize: 20, retention: 0.9, examName: '段考', examDate: '', progressDays: 95, bank: null, ranges: {}, lastBackupAt: 0 };
 
 /* ---------- storage (IndexedDB, with in-memory fallback) ----------
    NOTE: every GitHub Pages site of the same account shares one browser origin, so the database name must be unique to this app. */
@@ -365,7 +365,7 @@ function renderProgress() {
       cells.push(i > 0 ? starCell(k, null, i === left ? 'exday' : 'f') : starCell(k, n, i === 0 ? 'today' : '', starLv(k)));
     }
   } else {
-    const nd = Math.min(365, Math.max(7, S.settings.progressDays || 45)); calTitle = `最近 ${nd} 天`;
+    const nd = Math.min(365, Math.max(7, S.settings.progressDays || 95)); calTitle = `最近 ${nd} 天`;
     for (let i = nd - 1; i >= 0; i--) { const k = dayKey(new Date(Date.now() - i * DAY)); cells.push(starCell(k, starTip(k), '', starLv(k))); }
   }
   const sIcon = (cls, lv) => starCell('', null, cls, lv).replace(' title=""', '');
