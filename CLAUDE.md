@@ -58,7 +58,7 @@ The textbook (龍騰) goes: **Lesson 1, 2, 3, Review 1, Lesson 4, 5, 6, Review 2
 - 龍騰 also has a **例句單句 set**: one single-sentence question per vocabulary word, made from the word's example sentence in `words.txt` (blank = the word as written in the sentence;
   explanation `lemma:中文` when inflected). Added at the END of each 龍騰 `@unit` block (marked by a `# ---` comment). Skipped on purpose: proper nouns, title lines, and words whose family word
   stays in the sentence (e.g. living/non-living, poison/poisoned, mountaineer/mountains). Distractors were hand-checked against "second valid answer".
-- **Random rounds** (unit page → 開始/繼續): each (bank, unit, kind) gets a fixed shuffled order saved in `settings.czRounds` (`{order, done}`); reopening the app resumes the same order
+- **Random rounds** (龍騰 單句 chip only; passages and 核單 keep the old order) (unit page → 開始/繼續): each (bank, unit, kind) gets a fixed shuffled order saved in `settings.czRounds` (`{order, done}`); reopening the app resumes the same order
   until every question of the round is answered, then the next start reshuffles. Passages stay together (blanks in order); passages and sentences are shuffled as blocks.
   「重新洗牌、從頭開始」 starts a new round at once; wrong-answer retests are separate (not rounds).
 - 核單 cloze = **single sentences only (no 短文)**: 158 questions from the Unit 17–20 example sentences (answer = the word as written in the sentence,

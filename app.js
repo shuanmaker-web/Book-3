@@ -545,6 +545,7 @@ const unitList = (kind = S.pkind, bank = curBank()) => [...new Set(clozeQs(kind,
 const ordered = ids => ids.every(id => qById[id].type === 'sentence') ? shuffle(ids) : ids.slice().sort((a, b) => qById[a].idx - qById[b].idx);
 /* 隨機輪:每個(單字庫+單元+題型)有一份固定的亂數順序,存在 settings.czRounds;整輪做完才重新洗牌。
    短文的各格維持在一起(依序),短文與單句整塊隨機排列;中途離開再開 App 會接著同一份順序。 */
+const useRounds = () => S.pkind === 'sentence' && banks().find(b => b.id === curBank())?.name === '龍騰'; // random rounds: 龍騰 single sentences only
 const roundKey = (bank, unit, kind) => `${bank}|${unit}|${kind}`;
 function roundShuffle(qs) {
   const groups = new Map();
@@ -606,13 +607,13 @@ function renderPractice() {
 }
 function renderUnit() {
   const u = S.punit, qs = clozeQs().filter(q => q.unit === u), t = qTotals(q => q.unit === u);
-  const leftN = roundLeft(roundKey(curBank(), u, S.pkind), qs), wrong = qs.filter(q => qSt(q.id) && !qSt(q.id).last), partial = leftN > 0 && leftN < qs.length, roundDone = leftN === 0;
+  const rounds = useRounds(), leftN = rounds ? roundLeft(roundKey(curBank(), u, S.pkind), qs) : qs.filter(q => !qSt(q.id)).length, wrong = qs.filter(q => qSt(q.id) && !qSt(q.id).last), partial = leftN > 0 && leftN < qs.length, roundDone = leftN === 0;
   const item = q => `<div class="witem"><div class="muted small">${qLabel(q)} · 答錯 ${qSt(q.id).n - qSt(q.id).ok} 次</div><div>${qHtml(q)}</div>${srcNote(q)}<div class="small"><b>${esc(q.ans)}</b>${q.exp ? ` <span class="muted">${esc(q.exp)}</span>` : ''}</div></div>`;
   app.innerHTML = `<div class="topbar"><button class="icon-btn" data-pact="back" aria-label="返回">←</button><h1 style="font-size:1.25rem">${esc(unitName(u))} · ${KINDS[S.pkind]}</h1></div>
   <div class="stack"><section class="card">
     <div class="stat-grid"><div class="stat"><b>${t.tried}/${t.total}</b><span>已作答</span></div><div class="stat"><b>${t.ok}</b><span>目前答對</span></div><div class="stat"><b>${wrong.length}</b><span>錯題</span></div></div>
     <div class="stack" style="margin-top:14px;gap:10px">
-      ${partial ? `<button class="btn block" data-uact="resume">繼續作答(這一輪還剩 ${leftN} 題)</button><button class="btn ghost block" data-uact="all">重新洗牌、從頭開始(${qs.length} 題)</button>` : `<button class="btn block" data-uact="all">${roundDone && t.tried ? '開始新一輪' : '開始測驗'}(${qs.length} 題,隨機順序)</button>`}
+      ${partial ? `<button class="btn block" data-uact="resume">繼續作答(${rounds ? '這一輪' : ''}還剩 ${leftN} 題)</button><button class="btn ghost block" data-uact="all">${rounds ? '重新洗牌、從頭開始' : '從頭重做'}(${qs.length} 題)</button>` : `<button class="btn block" data-uact="all">${rounds && roundDone && t.tried ? '開始新一輪' : '開始測驗'}(${qs.length} 題${rounds ? ',隨機順序' : ''})</button>`}
       <button class="btn ghost block" data-uact="wrong" ${wrong.length ? '' : 'disabled'}>只重測錯題(${wrong.length})</button>
     </div></section>
   <section class="card"><h2>答錯的題目</h2>${wrong.length ? wrong.map(item).join('') : `<p class="muted small" style="margin-top:6px">這個單元目前沒有錯題。</p>`}</section></div>`;
@@ -678,8 +679,9 @@ document.addEventListener('click', async e => {
   if (t.dataset.uact) {
     const u = S.punit, all = clozeQs().filter(q => q.unit === u).map(q => q.id), act = t.dataset.uact, ttl = unitName(u);
     if (act === 'wrong') return startCloze(ordered(wrongIds(q => q.unit === u)), { retest: true, title: ttl });
-    const uq = clozeQs().filter(q => q.unit === u), key = roundKey(curBank(), u, S.pkind);
-    return startCloze(await roundNext(key, uq, act === 'all'), { title: ttl, round: true });
+    if (useRounds()) { const uq = clozeQs().filter(q => q.unit === u), key = roundKey(curBank(), u, S.pkind); return startCloze(await roundNext(key, uq, act === 'all'), { title: ttl, round: true }); }
+    if (act === 'resume') return startCloze(all.filter(id => !qSt(id)), { title: ttl });
+    return startCloze(all, { title: ttl });
   }
   switch (t.dataset.pact) {
     case 'retest': S.punit = null; return startCloze(ordered(wrongIds()), { retest: true });
