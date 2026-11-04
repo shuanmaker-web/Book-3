@@ -83,8 +83,18 @@ const wordById = {}, qById = {};
 const cardId = (wid, type) => `${type}:${wid}`; // type = 'mcq' | 'spell' (each mode has its own FSRS card per word)
 /* Correct answers per day PER WORD BANK (今天答對 + 星星日曆). Not stored: rebuilt from the review log at boot (so it also covers
    older days) and bumped live. S.daily[..].correct (both banks together) is still written exactly as before. */
-function noteDay(ts, bank, ok) { if (!ok || !bank) return; const k = dayKey(new Date(ts)), m = S.byDay.get(k) || {}; m[bank] = (m[bank] || 0) + 1; S.byDay.set(k, m); }
+function noteDay(ts, bank, ok, cat) { if (!ok || !bank) return; const k = dayKey(new Date(ts)), m = S.byDay.get(k) || {}; m[bank] = (m[bank] || 0) + 1; if (cat) m[bank + '|' + cat] = (m[bank + '|' + cat] || 0) + 1; S.byDay.set(k, m); }
 const correctOn = (k, bank = curBank()) => S.byDay.get(k)?.[bank] || 0;
+/* 星星日曆:龍騰 = 當天「選擇題、拼字、短文、單句」四項各答對 20 題才亮最高那顆星(有答對任何一題 = 一顆);其他單字庫維持總數 > 20 題。 */
+const STAR_CATS = [['mcq', '選'], ['spell', '拼'], ['passage', '短'], ['sentence', '單']];
+const bankName = (b = curBank()) => banks().find(x => x.id === b)?.name;
+const fourCats = (b = curBank()) => bankName(b) === '龍騰';
+const catOn = (k, c, b = curBank()) => S.byDay.get(k)?.[b + '|' + c] || 0;
+function starLv(k, b = curBank()) {
+  const n = correctOn(k, b); if (!n) return 0;
+  return fourCats(b) ? (STAR_CATS.every(([c]) => catOn(k, c, b) >= 20) ? 2 : 1) : (n <= 20 ? 1 : 2);
+}
+const starTip = (k, b = curBank()) => fourCats(b) ? STAR_CATS.map(([c, t]) => t + catOn(k, c, b)).join(' ') : correctOn(k, b);
 // 「已學」= answered in BOTH multiple choice and spelling.
 const isLearned = wid => { const m = S.modes?.get(wid); return !!m && m.has('mcq') && m.has('spell'); };
 const wordCards = wid => ['mcq', 'spell'].map(t => S.cards.get(cardId(wid, t))).filter(Boolean);
@@ -182,8 +192,9 @@ async function grade(wid, mode, rating, extra = {}) {
   if (isNew && !S.session?.practice) { const k = wordById[wid].bank + ':' + mode; d.new[k] = (d.new[k] || 0) + 1; }
   await store.setKV('daily', S.daily);
   await store.addLog({ ts: Date.now(), cardId: id, rating, source: mode, ...extra });
-  noteDay(Date.now(), wordById[wid]?.bank, rating >= 3);
+  noteDay(Date.now(), wordById[wid]?.bank, rating >= 3, mode);
   noteAnswer(wid, mode, extra.correct === true || (extra.correct === undefined && rating >= 3));
+  await hdNote(wid, mode, extra.correct === true || (extra.correct === undefined && rating >= 3), Date.now(), true);
   return rec;
 }
 
@@ -329,28 +340,36 @@ function renderProgress() {
     if (units.length > 1) html += '<div style="margin-top:12px">' + units.map(u => { const v = byUnit[u]; const seg = c => c > 0 ? Math.max(4, c / v.n * 100) : 0; return `<div class="lvl"><span>${u ? esc(unitTag(u, bk.id)) : '—'}</span><div class="track"><i class="m" style="width:${seg(v.m)}%"></i><i class="l" style="width:${seg(v.l - v.m)}%"></i></div><span class="muted small">${v.l}/${v.n}</span></div>`; }).join('') + '</div>';
     html += `<p class="small muted">已學 = 選擇題與拼字都答過;精熟 = 已學 且 拼字答對過 且 記憶穩定度 ≥ 21 天。${units.length > 1 ? `深色＝精熟,淺色＝已學未精熟;左側是單元,右側為已學／該單元總數` : ''}</p></section>`;
   }
+  if (curBank() === hdBankId() && hdPlan()) { // 核單指定單元的回合進度
+    const p = hdPlan(), st = hdStats(), pct = st.n ? st.full / st.n * 100 : 0, bar = (a, b) => `<div class="stat pstat"><b>${a}/${b}</b><span>%s</span></div>`;
+    html += `<section class="card"><div class="row between"><h2>指定單元 · 第 ${p.round} 回</h2><span class="muted small">${p.units.map(u => esc(unitName(u))).join('、')}</span></div>
+      ${S.hdFlash ? `<p class="small" style="margin-top:6px">🎉 第 ${S.hdFlash} 回完成了!現在是第 ${p.round} 回。</p>` : ''}
+      <div class="pbar" style="margin-top:8px"><i class="g" style="width:${pct}%"></i><em>${pct < 10 ? '' : Math.round(pct) + '%'}</em></div>
+      <div class="bigscore"><b>${st.full}</b><span>/ ${st.n} 個單字這一回已完成</span></div>
+      <div class="stat-grid" style="margin-top:12px">${bar(st.by.mcq, st.tot.mcq).replace('%s', '選擇題')}${bar(st.by.spell, st.tot.spell).replace('%s', '拼字')}${bar(st.by.cloze, st.tot.cloze).replace('%s', '克漏字')}</div>
+      <p class="small muted">一個單字要「選擇題、拼字、克漏字」都答對一次,才算這一回完成;全部單字完成後自動進入下一回。已完成 ${p.round - 1} 回。</p></section>`;
+  }
   for (const bk of curBanks) { // 克漏字 progress of the selected bank (if it has questions)
     if (!clozeQs('all', bk.id).length) continue;
     const t = qTotals(() => true, 'all', bk.id), pct = t.ok / t.total * 100;
     html += `<section class="card"><h2>克漏字${banks().length > 1 ? ' · ' + esc(bk.name) : ''}</h2><div class="pbar" style="margin-top:8px"><i class="g" style="width:${pct}%"></i><i class="r" style="width:${t.wrong / t.total * 100}%"></i><em>${pct < 10 ? pct.toFixed(1) : Math.round(pct)}%</em></div>
       <div class="stat-grid" style="margin-top:12px"><div class="stat pstat"><b>${t.tried}</b><span>已作答</span></div><div class="stat pstat"><b>${t.wrong}</b><span>錯題</span></div><div class="stat pstat"><b>${t.ok}</b><span>答對 / ${t.total}</span></div></div></section>`;
   }
-  const lvl = n => n === 0 ? 0 : n <= 20 ? 1 : 2;
-  const exD = S.settings.examDate ? new Date(S.settings.examDate + 'T00:00:00') : null, left = exD ? Math.ceil((exD - new Date()) / DAY) : -1;
+    const exD = S.settings.examDate ? new Date(S.settings.examDate + 'T00:00:00') : null, left = exD ? Math.ceil((exD - new Date()) / DAY) : -1;
   const toExam = !S.settings.progressDays && left >= 0, cells = [];
   let calTitle;
   if (toExam) {
     const t0 = new Date(); t0.setHours(0, 0, 0, 0); const sd = new Date((S.settings.startDate || dayKey()) + 'T00:00:00'), back = Math.max(0, Math.min(365, Math.round((t0 - sd) / DAY))); calTitle = `${esc(S.settings.examName || '考試')}倒數`;
     for (let i = -back; i <= left; i++) {
-      const k = dayKey(new Date(t0.getFullYear(), t0.getMonth(), t0.getDate() + i)), n = correctOn(k);
-      cells.push(i > 0 ? starCell(k, null, i === left ? 'exday' : 'f') : starCell(k, n, i === 0 ? 'today' : '', lvl(n)));
+      const k = dayKey(new Date(t0.getFullYear(), t0.getMonth(), t0.getDate() + i)), n = starTip(k);
+      cells.push(i > 0 ? starCell(k, null, i === left ? 'exday' : 'f') : starCell(k, n, i === 0 ? 'today' : '', starLv(k)));
     }
   } else {
     const nd = Math.min(365, Math.max(7, S.settings.progressDays || 45)); calTitle = `最近 ${nd} 天`;
-    for (let i = nd - 1; i >= 0; i--) { const k = dayKey(new Date(Date.now() - i * DAY)), n = correctOn(k); cells.push(starCell(k, n, '', lvl(n))); }
+    for (let i = nd - 1; i >= 0; i--) { const k = dayKey(new Date(Date.now() - i * DAY)); cells.push(starCell(k, starTip(k), '', starLv(k))); }
   }
   const sIcon = (cls, lv) => starCell('', null, cls, lv).replace(' title=""', '');
-  const legend = [[sIcon('f'), '沒答對 / 未到'], [sIcon('', 1), '答對 1–20 題'], [sIcon('', 2), '答對 20 題以上']];
+  const legend = fourCats() ? [[sIcon('f'), '沒答對 / 未到'], [sIcon('', 1), '有答對'], [sIcon('', 2), '選擇題、拼字、短文、單句各答對 20 題']] : [[sIcon('f'), '沒答對 / 未到'], [sIcon('', 1), '答對 1–20 題'], [sIcon('', 2), '答對 20 題以上']];
   if (toExam) legend.push([sIcon('today', 0), '今天'], [sIcon('exday'), `${esc(S.settings.examName || '考試')}日`]);
   const legendHtml = `<div class="star-legend">${legend.map(([ic, t]) => `<div class="sl">${ic}<span>${t}</span></div>`).join('')}</div>`;
   html += `<section class="card"><div class="row between"><h2>${calTitle}</h2><div class="row" style="gap:8px">${examLine()}</div></div><div class="heat">${cells.join('')}</div>${legendHtml}</section></div>`;
@@ -391,6 +410,10 @@ function renderSettings() {
     <label class="set"><span>進度日曆天數(0 = 到考試日)</span><input type="number" id="s-pdays" min="0" max="365" value="${s.progressDays}"></label>
     <div class="row wrap" style="margin-top:6px"><button class="btn ghost" id="p-exam">日曆顯示到考試日</button></div>
   </section>
+  ${hdBankId() ? `<section class="card"><h2>核單指定單元</h2>
+    <p class="small muted">勾選學生近期要完成的單元:單元內每個單字的選擇題、拼字、克漏字都答對一次算一回,完成後自動進入下一回。${hdPlan() ? `目前:${hdPlan().units.map(u => esc(unitName(u, hdBankId()))).join('、')},第 ${hdPlan().round} 回。` : '目前沒有指定。'}</p>
+    <div class="row wrap" style="margin-top:8px">${unitNums(hdBankId()).map(u => `<label class="chip ${hdPlan()?.units.includes(u) ? 'on' : ''}" style="cursor:pointer"><input type="checkbox" class="hd-u" value="${u}" ${hdPlan()?.units.includes(u) ? 'checked' : ''} style="display:none">${esc(unitName(u, hdBankId()))}</label>`).join('')}</div>
+    <div class="row wrap" style="margin-top:10px"><button class="btn" id="hd-save">儲存指定</button><button class="btn ghost" id="hd-clear" ${hdPlan() ? '' : 'disabled'}>取消指定</button></div></section>` : ''}
   <section class="card"><h2>備份</h2>
     <p class="small muted">${days === null ? '尚未備份過。' : `上次備份在 ${days} 天前。`}換手機或清除瀏覽器資料前,請先匯出。</p>
     <div class="row wrap" style="margin-top:8px"><button class="btn" id="b-export">匯出進度</button><label class="btn ghost" style="display:inline-flex;align-items:center">匯入進度<input type="file" id="b-import" accept="application/json" hidden></label></div>
@@ -409,6 +432,15 @@ function renderSettings() {
   $('#p-exam').addEventListener('click', async () => { s.progressDays = 0; await saveSettings(); renderSettings(); });
   $('#s-ret').addEventListener('change', async e => { s.retention = +e.target.value; makeFsrs(); await saveSettings(); });
   $('#s-exam').addEventListener('change', async e => { s.examDate = e.target.value; await saveSettings(); });
+  document.querySelectorAll('.hd-u').forEach(c => c.addEventListener('change', () => c.parentElement.classList.toggle('on', c.checked)));
+  $('#hd-save')?.addEventListener('click', async () => {
+    const us = [...document.querySelectorAll('.hd-u:checked')].map(c => +c.value).sort((a, b) => a - b), cur = hdPlan();
+    if (!us.length) return alert('請至少勾選一個單元(或按「取消指定」)');
+    if (cur && JSON.stringify(cur.units) === JSON.stringify(us)) return alert('指定的單元沒有變,進度維持不變。');
+    if (cur && !confirm('更換指定單元會從第 1 回重新計算,確定嗎?')) return;
+    s.hd = { units: us, round: 1, startTs: Date.now() }; S.hd = { done: new Map() }; S.hdFlash = 0; await saveSettings(); renderSettings();
+  });
+  $('#hd-clear')?.addEventListener('click', async () => { if (!confirm('確定取消指定單元嗎?')) return; delete s.hd; S.hd = { done: new Map() }; S.hdFlash = 0; await saveSettings(); renderSettings(); });
   $('#b-export').addEventListener('click', async () => {
     const blob = new Blob([JSON.stringify(await store.exportAll())], { type: 'application/json' });
     const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `vocab-backup-${dayKey()}.json` });
@@ -421,6 +453,29 @@ function renderSettings() {
   $('#b-reset').addEventListener('click', async () => { if (confirm('確定要清除所有學習進度嗎?此動作無法復原。')) { await store.clear(); await boot(true); } });
 }
 const saveSettings = () => store.setKV('settings', S.settings);
+
+/* ---------- 核單指定單元:全部單字(選擇題、拼字、克漏字)各答對一次 = 一回,完成後自動進下一回 ----------
+   計畫存在 settings.hd = { units:[17,18], round:1, startTs }。每回的完成狀況不另外存檔:開機時從作答紀錄(ts ≥ startTs)重建。 */
+const hdBankId = () => banks().find(b => b.name === '核單')?.id;
+function buildHdMap() { // cloze question id → word id (核單 questions are the words' example sentences); word id → question id
+  S.qWord = new Map(); S.wordQ = new Map();
+  const ex = new Map(S.words.map(w => [w.bank + '|' + w.unit + '|' + w.ex, w.id]));
+  for (const q of S.questions) { if (q.type !== 'sentence') continue; const wid = ex.get(q.bank + '|' + q.unit + '|' + q.full); if (wid) { S.qWord.set(q.id, wid); S.wordQ.set(wid, q.id); } }
+}
+const hdPlan = () => { const p = S.settings.hd; return p && p.units?.length ? p : null; };
+const hdWords = () => { const p = hdPlan(), b = hdBankId(); return p && b ? bankWords(b).filter(w => p.units.includes(w.unit)) : []; };
+const hdNeed = wid => S.wordQ.has(wid) ? ['mcq', 'spell', 'cloze'] : ['mcq', 'spell'];
+function hdStats() {
+  const ws = hdWords(), done = S.hd?.done || new Map(), by = { mcq: 0, spell: 0, cloze: 0 }, tot = { mcq: ws.length, spell: ws.length, cloze: 0 }; let full = 0;
+  for (const w of ws) { const d = done.get(w.id) || new Set(), need = hdNeed(w.id); if (need.length === 3) tot.cloze++; for (const m of need) if (d.has(m)) by[m]++; if (need.every(m => d.has(m))) full++; }
+  return { n: ws.length, full, by, tot };
+}
+async function hdNote(wid, mode, ok, ts, live) {
+  const p = hdPlan(); if (!ok || !wid || !p || ts < p.startTs) return;
+  const w = wordById[wid]; if (!w || w.bank !== hdBankId() || !p.units.includes(w.unit)) return;
+  let d = S.hd.done.get(wid); if (!d) S.hd.done.set(wid, d = new Set()); d.add(mode);
+  if (live) { const st = hdStats(); if (st.n && st.full === st.n) { S.hdFlash = p.round; p.round++; p.startTs = Date.now(); S.hd.done = new Map(); await saveSettings(); } }
+}
 
 /* ---------- word session (選擇題 / 拼字) ---------- */
 function doneSheet(mode) {
@@ -576,7 +631,7 @@ async function recordQ(q, ok, extra = {}) {
   const prev = qSt(q.id), st = { id: q.id, n: (prev?.n || 0) + 1, ok: (prev?.ok || 0) + (ok ? 1 : 0), last: ok, firstOk: prev ? prev.firstOk : ok, ts: Date.now() };
   S.qstats.set(q.id, st); await store.putQ(st);
   const d = (S.daily[dayKey()] ||= { reviews: 0, correct: 0, new: {} }); d.reviews++; if (ok) d.correct++;
-  await store.setKV('daily', S.daily); await store.addLog({ ts: Date.now(), cardId: 'q:' + q.id, rating: ok ? 3 : 1, source: 'cloze', ...extra }); noteDay(Date.now(), q.bank, ok);
+  await store.setKV('daily', S.daily); await store.addLog({ ts: Date.now(), cardId: 'q:' + q.id, rating: ok ? 3 : 1, source: 'cloze', ...extra }); noteDay(Date.now(), q.bank, ok, q.type); await hdNote(S.qWord.get(q.id), 'cloze', ok, Date.now(), true);
 }
 function startCloze(ids, opts = {}) {
   if (!ids.length) return;
@@ -737,10 +792,11 @@ async function boot(reload = false) {
     noteAnswer(lg.wid, lg.source, lg.correct === true || (lg.correct === undefined && lg.rating >= 3));
   }
   if (!reload) await Promise.all([loadWords(), loadCloze()]);
+  buildHdMap(); S.hd = { done: new Map() };
   S.byDay = new Map(); // per-bank correct answers per day, from the log (needs words + questions loaded to know each answer's bank)
   for (const lg of logs) {
-    if (lg.source === 'cloze') noteDay(lg.ts, qById[String(lg.cardId || '').slice(2)]?.bank, lg.rating >= 3);
-    else if (lg.source === 'mcq' || lg.source === 'spell') noteDay(lg.ts, wordById[lg.wid != null ? lg.wid : String(lg.cardId || '').split(':').slice(1).join(':')]?.bank, lg.rating >= 3);
+    if (lg.source === 'cloze') { const qid = String(lg.cardId || '').slice(2); noteDay(lg.ts, qById[qid]?.bank, lg.rating >= 3, qById[qid]?.type); hdNote(S.qWord.get(qid), 'cloze', lg.rating >= 3, lg.ts, false); }
+    else if (lg.source === 'mcq' || lg.source === 'spell') { const wid = lg.wid != null ? lg.wid : String(lg.cardId || '').split(':').slice(1).join(':'); noteDay(lg.ts, wordById[wid]?.bank, lg.rating >= 3, lg.source); hdNote(wid, lg.source, lg.correct === true || (lg.correct === undefined && lg.rating >= 3), lg.ts, false); }
   }
   S.qstats = await store.allQ();
   render();
