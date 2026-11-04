@@ -545,7 +545,7 @@ const unitList = (kind = S.pkind, bank = curBank()) => [...new Set(clozeQs(kind,
 const ordered = ids => ids.every(id => qById[id].type === 'sentence') ? shuffle(ids) : ids.slice().sort((a, b) => qById[a].idx - qById[b].idx);
 /* 隨機輪:每個(單字庫+單元+題型)有一份固定的亂數順序,存在 settings.czRounds;整輪做完才重新洗牌。
    短文的各格維持在一起(依序),短文與單句整塊隨機排列;中途離開再開 App 會接著同一份順序。 */
-const useRounds = () => S.pkind === 'sentence' && banks().find(b => b.id === curBank())?.name === '龍騰'; // random rounds: 龍騰 single sentences only
+const useRounds = () => true; // random rounds for every bank and kind
 const roundKey = (bank, unit, kind) => `${bank}|${unit}|${kind}`;
 function roundShuffle(qs) {
   const groups = new Map();
