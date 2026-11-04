@@ -92,7 +92,7 @@ const fourCats = (b = curBank()) => bankName(b) === '龍騰';
 const catOn = (k, c, b = curBank()) => S.byDay.get(k)?.[b + '|' + c] || 0;
 function starLv(k, b = curBank()) {
   const n = correctOn(k, b); if (!n) return 0;
-  return fourCats(b) ? (STAR_CATS.every(([c]) => catOn(k, c, b) >= 20) ? 2 : 1) : (n <= 20 ? 1 : 2);
+  return fourCats(b) ? (STAR_CATS.every(([c]) => catOn(k, c, b) >= 20) ? 2 : 1) : (n >= 10 ? 2 : 1);
 }
 const starTip = (k, b = curBank()) => fourCats(b) ? STAR_CATS.map(([c, t]) => t + catOn(k, c, b)).join(' ') : correctOn(k, b);
 // 「已學」= answered in BOTH multiple choice and spelling.
@@ -369,7 +369,7 @@ function renderProgress() {
     for (let i = nd - 1; i >= 0; i--) { const k = dayKey(new Date(Date.now() - i * DAY)); cells.push(starCell(k, starTip(k), '', starLv(k))); }
   }
   const sIcon = (cls, lv) => starCell('', null, cls, lv).replace(' title=""', '');
-  const legend = fourCats() ? [[sIcon('f'), '沒答對 / 未到'], [sIcon('', 1), '有答對'], [sIcon('', 2), '選擇題、拼字、短文、單句各答對 20 題']] : [[sIcon('f'), '沒答對 / 未到'], [sIcon('', 1), '答對 1–20 題'], [sIcon('', 2), '答對 20 題以上']];
+  const legend = fourCats() ? [[sIcon('f'), '沒答對 / 未到'], [sIcon('', 1), '有答對'], [sIcon('', 2), '選擇題、拼字、短文、單句各答對 20 題']] : [[sIcon('f'), '沒答對 / 未到'], [sIcon('', 1), '答對 1–9 題'], [sIcon('', 2), '答對 10 題以上']];
   if (toExam) legend.push([sIcon('today', 0), '今天'], [sIcon('exday'), `${esc(S.settings.examName || '考試')}日`]);
   const legendHtml = `<div class="star-legend">${legend.map(([ic, t]) => `<div class="sl">${ic}<span>${t}</span></div>`).join('')}</div>`;
   html += `<section class="card"><div class="row between"><h2>${calTitle}</h2><div class="row" style="gap:8px">${examLine()}</div></div><div class="heat">${cells.join('')}</div>${legendHtml}</section></div>`;

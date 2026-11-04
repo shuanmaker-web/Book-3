@@ -66,7 +66,7 @@ The textbook (龍騰) goes: **Lesson 1, 2, 3, Review 1, Lesson 4, 5, 6, Review 2
   would give the answer away). New 核單 questions go at the END of each `@unit` block. The 短文/單句 filter chips appear only when a bank has both kinds.
 
 ## Progress rules (teacher's decision, 2026-11-04)
-- **龍騰 star calendar**: a day gets the top star only when 選擇題, 拼字, 短文克漏字 and 單句克漏字 each have ≥ 20 correct that day (any correct answer = one star). Per-category counts live in `S.byDay` (`bank|cat` keys, rebuilt from the log). Other banks keep the old rule (> 20 total).
+- **龍騰 star calendar**: a day gets the top star only when 選擇題, 拼字, 短文克漏字 and 單句克漏字 each have ≥ 20 correct that day (any correct answer = one star). Per-category counts live in `S.byDay` (`bank|cat` keys, rebuilt from the log). 核單 (and any other bank): top star at ≥ 10 correct that day in total (changed from 20 on 2026-11-04).
 - **核單 指定單元**: Settings → pick units; `settings.hd = {units, round, startTs}`. A word is done in the current round when it has a correct 選擇題, 拼字 and (if it has one) 克漏字 answer with log ts ≥ startTs (`hdNote`, rebuilt at boot; cloze question ↔ word via the example sentence, `buildHdMap`).
   When every word in the units is done, `round++` and `startTs = now`. Changing the units restarts at round 1. Shown on the progress page (核單) as 「指定單元 · 第 N 回」. Only additive settings keys — no IndexedDB change.
 
