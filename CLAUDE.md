@@ -55,6 +55,12 @@ The textbook (龍騰) goes: **Lesson 1, 2, 3, Review 1, Lesson 4, 5, 6, Review 2
 - Distractors: same part of speech/form, clearly wrong in context, **never a second valid answer** (avoid synonyms/near-synonyms);
   the answer's word family must not appear elsewhere in the same passage (it gives it away); answer letters spread evenly.
 - Question ids come from unit + order of appearance → only ever **add new questions at the END of a unit**.
+- 龍騰 also has a **例句單句 set**: one single-sentence question per vocabulary word, made from the word's example sentence in `words.txt` (blank = the word as written in the sentence;
+  explanation `lemma:中文` when inflected). Added at the END of each 龍騰 `@unit` block (marked by a `# ---` comment). Skipped on purpose: proper nouns, title lines, and words whose family word
+  stays in the sentence (e.g. living/non-living, poison/poisoned, mountaineer/mountains). Distractors were hand-checked against "second valid answer".
+- **Random rounds** (unit page → 開始/繼續): each (bank, unit, kind) gets a fixed shuffled order saved in `settings.czRounds` (`{order, done}`); reopening the app resumes the same order
+  until every question of the round is answered, then the next start reshuffles. Passages stay together (blanks in order); passages and sentences are shuffled as blocks.
+  「重新洗牌、從頭開始」 starts a new round at once; wrong-answer retests are separate (not rounds).
 - 核單 cloze = **single sentences only (no 短文)**: 158 questions from the Unit 17–20 example sentences (answer = the word as written in the sentence,
   e.g. knitted/ashes; explanation = sentence translation + word meaning). Skipped on purpose: `saving/savings` and `tribe` (family word in the sentence
   would give the answer away). New 核單 questions go at the END of each `@unit` block. The 短文/單句 filter chips appear only when a bank has both kinds.
