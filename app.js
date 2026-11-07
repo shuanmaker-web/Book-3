@@ -5,6 +5,7 @@
 /* ---------- helpers ---------- */
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const zhH = s => esc(s).split(/\s+&amp;\s+/).join('<br>');  // 多詞性釋義(以 & 分隔):第 2、3 個詞性換到下一行
 const DAY = 86400000;
 const pad = n => String(n).padStart(2, '0');
 const dayKey = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -521,19 +522,19 @@ function renderMcq(head, w) {
     s.q = { id: w.id, reverse, field, opts: shuffle([w, ...ds]), picked: null, t0: Date.now() };
   }
   const q = s.q;
-  let body = `<div class="card q">${q.reverse ? `<div class="muted small">哪一個英文單字的意思是</div><div class="zh">${esc(w.zh)}</div><div class="pos">${esc(w.pos || '')}</div>` : `<div class="word">${esc(w.w)}</div><div class="pos">${esc(w.pos || '')}</div><div style="margin-top:10px">${speakBtn(w)}</div>`}</div>`;
+  let body = `<div class="card q">${q.reverse ? `<div class="muted small">哪一個英文單字的意思是</div><div class="zh">${zhH(w.zh)}</div><div class="pos">${esc(w.pos || '')}</div>` : `<div class="word">${esc(w.w)}</div><div class="pos">${esc(w.pos || '')}</div><div style="margin-top:10px">${speakBtn(w)}</div>`}</div>`;
   body += `<div class="opts">${q.opts.map((o, i) => {
     let cls = ''; if (q.picked !== null) cls = o.id === w.id ? 'ok' : i === q.picked ? 'no' : '';
     const hit = q.picked === i && o.id === w.id;
-    return `<button class="opt ${cls}${hit ? ' picked' : ''}" data-pick="${i}" ${q.picked !== null ? 'disabled' : ''}><span>${esc(q.reverse ? o.w : o.zh)}</span>${hit ? '<b class="opt-tag">✓ 正確</b>' : ''}</button>`;
+    return `<button class="opt ${cls}${hit ? ' picked' : ''}" data-pick="${i}" ${q.picked !== null ? 'disabled' : ''}><span>${(q.reverse ? esc(o.w) : zhH(o.zh))}</span>${hit ? '<b class="opt-tag">✓ 正確</b>' : ''}</button>`;
   }).join('')}</div>`;
-  if (q.picked !== null) body += `<div class="card" style="margin-top:12px"><b>${esc(w.w)}</b> ${esc(w.pos || '')} — ${esc(w.zh)}${exBlock(w)}</div><button class="btn block" style="margin-top:12px" data-act="next">下一題</button>`;
+  if (q.picked !== null) body += `<div class="card" style="margin-top:12px"><b>${esc(w.w)}</b> ${esc(w.pos || '')} — ${zhH(w.zh)}${exBlock(w)}</div><button class="btn block" style="margin-top:12px" data-act="next">下一題</button>`;
   app.innerHTML = head + body;
 }
 
 function renderSpell(head, w) {
   const s = S.session, r = s.spellResult;
-  let body = `<div class="card q"><div class="muted small">請拼出這個字</div><div class="zh">${esc(w.zh)}</div><div class="pos">${esc(w.pos || '')}${w.w.includes('/') ? '' : ` · ${w.w.length} 個字母`}</div><div style="margin-top:10px">${speakBtn(w)}</div>${s.hint ? `<div class="pos" style="margin-top:6px">提示:${esc(w.w[0])}${'・'.repeat(Math.max(0, answers(w)[0].length - 1))}</div>` : ''}</div>`;
+  let body = `<div class="card q"><div class="muted small">請拼出這個字</div><div class="zh">${zhH(w.zh)}</div><div class="pos">${esc(w.pos || '')}${w.w.includes('/') ? '' : ` · ${w.w.length} 個字母`}</div><div style="margin-top:10px">${speakBtn(w)}</div>${s.hint ? `<div class="pos" style="margin-top:6px">提示:${esc(w.w[0])}${'・'.repeat(Math.max(0, answers(w)[0].length - 1))}</div>` : ''}</div>`;
   if (!r) {
     body += `<form id="spell-form" style="margin-top:14px" autocomplete="off"><input class="field" id="spell-in" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="輸入英文" aria-label="拼字答案"><div class="row" style="margin-top:12px"><button type="button" class="btn ghost" data-act="hint" ${s.hint ? 'disabled' : ''}>提示</button><button type="button" class="btn ghost" data-act="giveup">不會</button><button class="btn grow" type="submit">送出</button></div></form>`;
   } else {
@@ -551,16 +552,18 @@ function renderSpell(head, w) {
 function renderSummary() {
   const s = S.session, ok = s.results.filter(r => r.rating >= 3).length, missed = s.results.filter(r => r.rating < 3);
   app.innerHTML = `<div class="stack"><section class="card q"><h1>${ok === s.total ? '全部答對!🎉' : '完成這一回'}</h1><p class="zh">${ok} / ${s.total}</p><p class="muted">答對率 ${Math.round(ok / s.total * 100)}% · 用時 ${Math.max(1, Math.round((Date.now() - s.t0) / 60000))} 分鐘</p></section>
-    ${missed.length ? `<section class="card"><h2>需要再加強</h2><ul class="missed">${[...new Map(missed.map(r => [r.wid, r])).values()].map(r => { const w = wordById[r.wid]; return `<li><b>${esc(w.w)}</b> ${esc(w.pos || '')} — ${esc(w.zh)}</li>`; }).join('')}</ul></section>` : ''}
+    ${missed.length ? `<section class="card"><h2>需要再加強</h2><ul class="missed">${[...new Map(missed.map(r => [r.wid, r])).values()].map(r => { const w = wordById[r.wid]; return `<li><b>${esc(w.w)}</b> ${esc(w.pos || '')} — ${zhH(w.zh)}</li>`; }).join('')}</ul></section>` : ''}
     <button class="btn block" data-act="again">再來一回</button><button class="btn ghost block" data-act="quit">回首頁</button></div>`;
 }
 
-async function answerCurrent(rating, extra = {}) {
+/* An answer is saved the moment it is given (recordAnswer); 下一題 / advance only moves on, so closing the app on the result screen loses nothing. */
+async function recordAnswer(rating, extra = {}) {
   const s = S.session, w = curWord(); await grade(w.id, s.mode, rating, { wid: w.id, ...extra });
   s.results.push({ wid: w.id, rating });
   if (rating === 1 && !s.practice && s.queue.length - s.pos < 40) { const at = Math.min(s.queue.length, s.pos + 4); s.queue.splice(at, 0, w.id); s.total++; } // see it again soon
-  s.pos++; s.q = null; s.spellResult = null; s.hint = false; render();
 }
+function advance() { const s = S.session; s.pos++; s.q = null; s.spellResult = null; s.spellRec = null; s.hint = false; render(); }
+async function answerCurrent(rating, extra = {}) { await recordAnswer(rating, extra); advance(); }
 
 /* ---------- 克漏字 (cloze): short passages with several blanks + single sentences ---------- */
 const BLANK_RE = /_{2,}/;
@@ -748,23 +751,21 @@ document.addEventListener('click', async e => {
   if (s.kind === 'cz') return czClick(t, s);
   if (t.dataset.pick !== undefined && s.q && s.q.picked === null) {
     const i = +t.dataset.pick, w = curWord(), correct = s.q.opts[i].id === w.id, ms = Date.now() - s.q.t0;
-    s.q.picked = i; s.q.result = correct; render(); s.q.ms = ms; return;
+    s.q.picked = i; s.q.result = correct; s.q.ms = ms; render(); s.q.rec = recordAnswer(correct ? (ms < 2500 ? 4 : 3) : 1, { ms, correct }); return;
   }
   switch (t.dataset.act) {
     case 'quit': if (!s.results.length || s.pos >= s.queue.length || confirm('要離開嗎?已完成的題目會保留。')) endSession(); break;
-    case 'next':
-      if (s.mode === 'mcq') { const q = s.q; await answerCurrent(q.result ? (q.ms < 2500 ? 4 : 3) : 1, { ms: q.ms, correct: q.result }); }
-      else { const r = s.spellResult; await answerCurrent(r.kind === 'ok' ? (s.hintUsed ? 2 : 3) : r.kind === 'typo' ? 2 : 1, { answer: r.user, correct: r.kind === 'ok' }); s.hintUsed = false; }
-      break;
+    case 'next': if (s.mode === 'mcq') await s.q?.rec; else { await s.spellRec; s.hintUsed = false; } advance(); break;
     case 'hint': s.hint = true; s.hintUsed = true; { const v = $('#spell-in')?.value; renderSpell(document.querySelector('.topbar').outerHTML, curWord()); if ($('#spell-in')) $('#spell-in').value = v || ''; } break;
-    case 'giveup': s.spellResult = { kind: 'wrong', user: '', best: curWord().w, gaveUp: true }; render(); break;
+    case 'giveup': if (s.spellResult) break; s.spellResult = { kind: 'wrong', user: '', best: curWord().w, gaveUp: true }; s.spellRec = recordAnswer(1, { answer: '', correct: false }); render(); break;
     case 'again': startSession(s.mode, s.practice); break;
   }
 });
 document.addEventListener('submit', e => {
   if (e.target.id !== 'spell-form') return; e.preventDefault();
-  const s = S.session, v = $('#spell-in').value; if (!v.trim()) return;
-  s.spellResult = checkSpelling(v, curWord()); render();
+  const s = S.session, v = $('#spell-in').value; if (!v.trim() || s.spellResult) return;
+  const r = checkSpelling(v, curWord()); s.spellResult = r;
+  s.spellRec = recordAnswer(r.kind === 'ok' ? (s.hintUsed ? 2 : 3) : r.kind === 'typo' ? 2 : 1, { answer: r.user, correct: r.kind === 'ok' }); render();
 });
 document.addEventListener('keydown', e => {
   const s = S.session; if (!s) return;
